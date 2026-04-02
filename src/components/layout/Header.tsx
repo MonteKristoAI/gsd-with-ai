@@ -61,10 +61,10 @@ export default function Header() {
           scrolled && "shadow-sm"
         )}
       >
-        <div className="container mx-auto flex items-center justify-between h-16 lg:h-[72px] px-6">
+        <div className="container mx-auto flex items-center justify-between h-20 lg:h-[88px] px-6">
           {/* Logo */}
           <a href="/" className="shrink-0">
-            <img src={gsdLogo} alt="GSD with AI" className="h-12 w-auto" />
+            <img src={gsdLogo} alt="GSD with AI" className="h-16 w-auto" />
           </a>
 
           {/* Desktop Nav — center */}
