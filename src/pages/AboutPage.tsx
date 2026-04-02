@@ -166,7 +166,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=500&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=500&fit=crop&q=80"
                 alt="Modern team collaborating in an open office environment"
                 className="h-auto w-full object-cover"
                 loading="lazy"

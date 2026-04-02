@@ -3,9 +3,9 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { CASE_STUDIES } from "@/data/caseStudies"
 
 const CARD_IMAGES = [
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=300&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=300&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=300&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&h=300&fit=crop&q=80",
 ]
 
 const CARD_ALTS = [
@@ -22,7 +22,7 @@ export default function CaseStudies() {
       id="case-studies"
       ref={ref}
       className={cn(
-        "bg-[hsl(214_20%_97%)] py-20 lg:py-28",
+        "relative bg-[hsl(214_20%_97%)] bg-texture-dots bg-radial-gold py-20 lg:py-28",
         "reveal",
         isVisible && "visible",
       )}

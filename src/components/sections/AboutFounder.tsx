@@ -8,9 +8,9 @@ export default function AboutFounder() {
   const { ref: ref2, isVisible: isVisible2 } = useScrollAnimation(0.1)
 
   return (
-    <section id="about" className="relative overflow-hidden bg-white py-20 lg:py-28">
+    <section id="about" className="relative overflow-hidden bg-white bg-texture-dots bg-radial-gold py-20 lg:py-28">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&q=80" alt="" className="h-full w-full object-cover opacity-[0.02]" />
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&h=1080&fit=crop&q=80" alt="" className="h-full w-full object-cover opacity-[0.02]" />
       </div>
       <div
         ref={ref}
@@ -78,7 +78,7 @@ export default function AboutFounder() {
         >
           <div className="relative rounded-2xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=400&fit=crop&q=80"
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=400&fit=crop&q=80"
               alt="Team collaboration"
               className="w-full h-[300px] object-cover"
               loading="lazy"

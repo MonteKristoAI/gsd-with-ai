@@ -60,7 +60,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         {/* Primary bg image — abstract AI/network visualization */}
         <img
-          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&h=1080&fit=crop&q=80"
           alt=""
           className="h-full w-full object-cover"
           aria-hidden="true"

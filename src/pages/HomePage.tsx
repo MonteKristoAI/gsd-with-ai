@@ -52,12 +52,16 @@ export default function HomePage() {
       <main id="main">
         <HeroSection />
         <PartnersStrip />
+        <div className="section-divider" />
         <ServicePillars />
         <CaseStudies />
+        <div className="section-divider" />
         <AboutFounder />
         <ReviewsCarousel />
+        <div className="section-divider" />
         <BookingWizard />
         <FAQSection />
+        <div className="section-divider" />
         <ContactSection />
       </main>
       <Footer />

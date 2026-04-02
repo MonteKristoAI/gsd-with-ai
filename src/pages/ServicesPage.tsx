@@ -48,11 +48,11 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 const PILLAR_IMAGES: Record<string, string> = {
   "digital-foundations":
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80",
   "ai-powered-growth":
-    "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&h=600&fit=crop&q=80",
   "secure-scalable-it":
-    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&h=600&fit=crop&q=80",
 };
 
 const PILLAR_IMAGE_ALTS: Record<string, string> = {

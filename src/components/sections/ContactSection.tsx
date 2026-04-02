@@ -64,7 +64,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="border-t border-border bg-white py-20 lg:py-28"
+      className="border-t border-border bg-white bg-warm-gradient bg-texture-dots py-20 lg:py-28"
     >
       <div
         className={cn(
@@ -119,7 +119,7 @@ export default function ContactSection() {
             {/* Image */}
             <div className="mt-10 overflow-hidden rounded-2xl shadow-md">
               <img
-                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=600&h=400&fit=crop&q=80"
                 alt="Modern workspace with technology"
                 className="h-auto w-full object-cover"
                 loading="lazy"

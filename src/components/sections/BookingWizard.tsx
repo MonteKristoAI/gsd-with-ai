@@ -625,10 +625,10 @@ export default function BookingWizard() {
     <section
       id="booking"
       ref={ref}
-      className="relative bg-[hsl(210_25%_97%)] py-20 lg:py-28"
+      className="relative bg-[hsl(210_25%_97%)] bg-texture-grid py-20 lg:py-28"
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&h=1080&fit=crop&q=80" alt="" className="h-full w-full object-cover opacity-[0.025]" />
+        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&h=1080&fit=crop&q=80" alt="" className="h-full w-full object-cover opacity-[0.025]" />
       </div>
       <div
         className={cn(

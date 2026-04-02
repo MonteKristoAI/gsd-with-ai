@@ -5,9 +5,9 @@ import SEOHead from "@/components/seo/SEOHead";
 import { CASE_STUDIES } from "@/data/caseStudies";
 
 const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=500&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=500&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=500&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=500&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&h=500&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&h=500&fit=crop&q=80",
 ];
 
 const IMAGE_ALTS = [

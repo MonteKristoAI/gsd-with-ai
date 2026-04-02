@@ -54,7 +54,8 @@ function AllLogos() {
 
 export default function PartnersStrip() {
   return (
-    <section className="bg-[hsl(210_25%_97%)] py-14 overflow-hidden">
+    <section className="bg-[hsl(210_25%_97%)] bg-texture-dots relative overflow-hidden py-14">
+      <div className="absolute inset-0 bg-radial-teal pointer-events-none" aria-hidden="true" />
       <div className="container mx-auto px-6">
         <p className="mb-10 text-center text-sm font-medium text-muted-foreground">
           Trusted tools powering our solutions

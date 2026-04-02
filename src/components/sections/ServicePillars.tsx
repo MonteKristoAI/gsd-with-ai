@@ -34,11 +34,11 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 const PILLAR_IMAGES: Record<string, string> = {
   "digital-foundations":
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop&q=80",
   "ai-powered-growth":
-    "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=300&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&h=300&fit=crop&q=80",
   "secure-scalable-it":
-    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=300&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&h=300&fit=crop&q=80",
 }
 
 const PILLAR_ALTS: Record<string, string> = {
@@ -66,11 +66,11 @@ export default function ServicePillars() {
     <section
       id="services"
       ref={ref}
-      className={cn("relative bg-white py-20 lg:py-28", "reveal", isVisible && "visible")}
+      className={cn("relative overflow-hidden bg-white bg-texture-grid bg-warm-gradient py-20 lg:py-28", "reveal", isVisible && "visible")}
     >
       {/* Subtle background texture */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=1080&fit=crop&q=80" alt="" className="h-full w-full object-cover opacity-[0.03]" />
+        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1920&h=1080&fit=crop&q=80" alt="" className="h-full w-full object-cover opacity-[0.03]" />
       </div>
       <div className="container mx-auto px-6">
         {/* Header */}
@@ -152,7 +152,7 @@ export default function ServicePillars() {
         {/* Full-width team image */}
         <div className="mt-14">
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=500&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=500&fit=crop&q=80"
             alt="Team collaborating in a modern office"
             loading="lazy"
             className="h-[320px] w-full rounded-2xl object-cover lg:h-[400px]"
