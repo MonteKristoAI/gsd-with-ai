@@ -27,6 +27,7 @@ export default function ChatbotWidget() {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm"
           onClick={() => setOpen(false)}
+          onKeyDown={(e) => { if (e.key === "Escape") setOpen(false); }}
         >
           <div
             className="relative mx-6 w-full max-w-sm rounded-2xl border border-border bg-white p-8 shadow-2xl"

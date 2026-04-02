@@ -315,10 +315,11 @@ export default function BookingWizard() {
         return (
           <div className="space-y-5">
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+              <label htmlFor="bw-company" className="mb-1.5 block text-sm font-medium text-foreground/70">
                 Company Name
               </label>
               <input
+                id="bw-company"
                 type="text"
                 value={form.companyName}
                 onChange={(e) => set("companyName", e.target.value)}
@@ -328,10 +329,11 @@ export default function BookingWizard() {
             </div>
 
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+              <label htmlFor="bw-industry" className="mb-1.5 block text-sm font-medium text-foreground/70">
                 Industry
               </label>
               <select
+                id="bw-industry"
                 value={form.industry}
                 onChange={(e) => set("industry", e.target.value)}
                 className={cn(inputCls, "appearance-none bg-[length:16px] bg-[right_12px_center] bg-no-repeat")}
@@ -488,10 +490,11 @@ export default function BookingWizard() {
           <div className="space-y-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+                <label htmlFor="bw-first" className="mb-1.5 block text-sm font-medium text-foreground/70">
                   First Name
                 </label>
                 <input
+                  id="bw-first"
                   type="text"
                   value={form.firstName}
                   onChange={(e) => set("firstName", e.target.value)}
@@ -500,10 +503,11 @@ export default function BookingWizard() {
                 />
               </div>
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+                <label htmlFor="bw-last" className="mb-1.5 block text-sm font-medium text-foreground/70">
                   Last Name
                 </label>
                 <input
+                  id="bw-last"
                   type="text"
                   value={form.lastName}
                   onChange={(e) => set("lastName", e.target.value)}
@@ -514,10 +518,11 @@ export default function BookingWizard() {
             </div>
 
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+              <label htmlFor="bw-email" className="mb-1.5 block text-sm font-medium text-foreground/70">
                 Email <span className="text-[hsl(175_72%_38%)]">*</span>
               </label>
               <input
+                id="bw-email"
                 type="email"
                 value={form.email}
                 onChange={(e) => set("email", e.target.value)}
@@ -527,10 +532,11 @@ export default function BookingWizard() {
             </div>
 
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+              <label htmlFor="bw-phone" className="mb-1.5 block text-sm font-medium text-foreground/70">
                 Phone
               </label>
               <input
+                id="bw-phone"
                 type="tel"
                 value={form.phone}
                 onChange={(e) => set("phone", e.target.value)}
@@ -540,10 +546,11 @@ export default function BookingWizard() {
             </div>
 
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+              <label htmlFor="bw-message" className="mb-1.5 block text-sm font-medium text-foreground/70">
                 Message
               </label>
               <textarea
+                id="bw-message"
                 value={form.message}
                 onChange={(e) => set("message", e.target.value)}
                 placeholder="Tell us a bit about your project or challenges..."

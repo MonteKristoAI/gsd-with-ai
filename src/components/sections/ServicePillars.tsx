@@ -122,6 +122,7 @@ export default function ServicePillars() {
           <img
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=500&fit=crop&q=80"
             alt="Team collaborating in a modern office"
+            loading="lazy"
             className="h-[320px] w-full rounded-2xl object-cover lg:h-[400px]"
           />
         </div>

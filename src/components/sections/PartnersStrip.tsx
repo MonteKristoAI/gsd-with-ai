@@ -53,7 +53,9 @@ export default function PartnersStrip() {
 
           <div className="flex w-max gap-12 marquee-track" aria-label="Partner tools">
             <LogoRow />
-            <LogoRow />
+            <div aria-hidden="true" className="flex gap-12">
+              <LogoRow />
+            </div>
           </div>
         </div>
       </div>
