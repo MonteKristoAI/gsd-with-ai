@@ -8,7 +8,7 @@ export default function AboutFounder() {
   const { ref: ref2, isVisible: isVisible2 } = useScrollAnimation(0.1)
 
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section id="about" className="bg-white py-20 lg:py-28">
       <div
         ref={ref}
         className={cn("container mx-auto px-6", "reveal", isVisible && "visible")}

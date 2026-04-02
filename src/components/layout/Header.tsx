@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/data/companyInfo";
 import { Phone, Menu, X } from "lucide-react";
+import gsdLogo from "@/assets/gsd-logo.png";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
@@ -58,13 +59,8 @@ export default function Header() {
       >
         <div className="container mx-auto flex items-center justify-between h-16 lg:h-[72px] px-6">
           {/* Logo */}
-          <a href="/" className="flex items-baseline gap-1 shrink-0">
-            <span className="text-2xl font-extrabold text-[hsl(220_25%_14%)]">
-              GSD
-            </span>
-            <span className="text-sm font-medium text-[hsl(215_15%_46%)]">
-              with AI
-            </span>
+          <a href="/" className="shrink-0">
+            <img src={gsdLogo} alt="GSD with AI" className="h-10 w-auto" />
           </a>
 
           {/* Desktop Nav — center */}

@@ -19,6 +19,7 @@ export default function CaseStudies() {
 
   return (
     <section
+      id="case-studies"
       ref={ref}
       className={cn(
         "bg-[hsl(214_20%_97%)] py-20 lg:py-28",

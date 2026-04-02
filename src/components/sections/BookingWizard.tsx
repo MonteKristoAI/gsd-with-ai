@@ -181,6 +181,7 @@ export default function BookingWizard() {
   const [form, setForm] = useState<FormData>(INITIAL_FORM);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   // Calendar state
   const now = new Date();
@@ -220,7 +221,7 @@ export default function BookingWizard() {
       });
       setSubmitted(true);
     } catch {
-      setSubmitted(true);
+      setSubmitError(true);
     } finally {
       setSubmitting(false);
     }

@@ -4,6 +4,17 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { REVIEWS } from "@/data/reviews"
 
+const HEADSHOTS = [
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&q=80",
+];
+
 const AVATAR_COLORS = [
   "bg-teal-100 text-[hsl(175_72%_38%)]",
   "bg-amber-100 text-[hsl(40_80%_52%)]",
@@ -108,7 +119,7 @@ export default function ReviewsCarousel() {
                   {Array.from({ length: review.rating }).map((_, s) => (
                     <Star
                       key={s}
-                      className="h-4 w-4 fill-[hsl(175_72%_38%)] text-[hsl(175_72%_38%)]"
+                      className="h-4 w-4 fill-amber-400 text-amber-400"
                     />
                   ))}
                 </div>
@@ -120,14 +131,11 @@ export default function ReviewsCarousel() {
 
                 {/* Author */}
                 <div className="flex items-center gap-3">
-                  <div
-                    className={cn(
-                      "flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold",
-                      AVATAR_COLORS[i % AVATAR_COLORS.length],
-                    )}
-                  >
-                    {review.avatar}
-                  </div>
+                  <img
+                    src={HEADSHOTS[i % HEADSHOTS.length]}
+                    alt={review.name}
+                    className="h-10 w-10 shrink-0 rounded-full object-cover"
+                  />
                   <div className="min-w-0">
                     <p className="truncate font-semibold text-[hsl(220_25%_14%)]">
                       {review.name}
