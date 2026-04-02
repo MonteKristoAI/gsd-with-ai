@@ -2,25 +2,38 @@ import { PARTNERS } from "@/data/partners";
 
 export default function PartnersStrip() {
   return (
-    <section className="relative border-y border-white/5 bg-background py-12">
-      <p className="mb-8 text-center text-sm text-white/40">
-        Powered by the tools that power growth
-      </p>
+    <section className="bg-[hsl(210_25%_97%)] py-12">
+      <div className="container mx-auto px-6">
+        <p className="mb-8 text-center text-sm text-[hsl(215_15%_46%)]">
+          Trusted tools powering our solutions
+        </p>
 
-      <div
-        className="group overflow-hidden"
-        aria-label="Partner tools"
-      >
-        <div className="flex w-max gap-8 animate-marquee group-hover:[animation-play-state:paused]">
-          {/* Render twice for seamless loop */}
-          {[...PARTNERS, ...PARTNERS].map((partner, i) => (
-            <span
-              key={`${partner.name}-${i}`}
-              className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-white/10 px-6 py-2 font-mono text-sm text-white/40 transition-colors hover:border-white/20 hover:text-white/60"
-            >
-              {partner.name}
+        {/* Desktop: static flex row */}
+        <div className="hidden sm:flex items-center justify-center gap-12">
+          {PARTNERS.map((partner, i) => (
+            <span key={partner.name} className="flex items-center gap-12">
+              <span className="text-lg font-bold text-[hsl(220_25%_14%/0.3)] hover:text-[hsl(220_25%_14%/0.6)] transition-colors cursor-default select-none">
+                {partner.name}
+              </span>
+              {i < PARTNERS.length - 1 && (
+                <span className="text-[hsl(214_20%_90%)]" aria-hidden>|</span>
+              )}
             </span>
           ))}
+        </div>
+
+        {/* Mobile: marquee scroll */}
+        <div className="sm:hidden overflow-hidden" aria-label="Partner tools">
+          <div className="flex w-max gap-10 animate-marquee">
+            {[...PARTNERS, ...PARTNERS].map((partner, i) => (
+              <span
+                key={`${partner.name}-${i}`}
+                className="shrink-0 text-lg font-bold text-[hsl(220_25%_14%/0.3)]"
+              >
+                {partner.name}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -32,7 +32,7 @@ export default function Header() {
 
   const scrollToBooking = useCallback(() => {
     setMobileOpen(false);
-    const el = document.getElementById("booking");
+    const el = document.getElementById("booking") || document.getElementById("contact");
     el?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
@@ -51,33 +51,30 @@ export default function Header() {
     <>
       <header
         className={cn(
-          "fixed left-0 right-0 z-50 top-0 lg:top-[44px] transition-all duration-300",
-          scrolled
-            ? "bg-[hsl(220_25%_6%/0.85)] backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
-            : "bg-transparent"
+          "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
+          "bg-white/95 backdrop-blur-md border-b border-[hsl(214_20%_90%/0.5)]",
+          scrolled && "shadow-sm"
         )}
       >
-        <div className="container flex items-center justify-between h-16 lg:h-[72px]">
+        <div className="container mx-auto flex items-center justify-between h-16 lg:h-[72px] px-6">
           {/* Logo */}
-          <a href="/" className="flex items-baseline gap-1.5 shrink-0">
-            <span
-              className="text-2xl font-heading font-bold bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent"
-            >
+          <a href="/" className="flex items-baseline gap-1 shrink-0">
+            <span className="text-2xl font-extrabold text-[hsl(220_25%_14%)]">
               GSD
             </span>
-            <span className="text-sm font-heading font-medium text-white">
+            <span className="text-sm font-medium text-[hsl(215_15%_46%)]">
               with AI
             </span>
           </a>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav — center */}
           <nav className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-heading font-medium text-white/60 hover:text-white transition-colors"
+                className="text-sm font-medium text-[hsl(215_15%_46%)] hover:text-[hsl(220_25%_14%)] transition-colors"
               >
                 {link.label}
               </a>
@@ -85,26 +82,29 @@ export default function Header() {
           </nav>
 
           {/* Desktop Right */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-5">
             <a
               href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-sm text-[hsl(215_15%_46%)] hover:text-[hsl(220_25%_14%)] transition-colors"
             >
-              <Phone className="w-4 h-4 text-gold" />
-              <span className="font-body">{COMPANY.phone}</span>
+              <Phone className="w-4 h-4" />
+              <span>{COMPANY.phone}</span>
             </a>
             <button
               onClick={scrollToBooking}
-              className="bg-gold text-gold-foreground hover:bg-gold-light font-heading font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors"
+              className={cn(
+                "bg-[hsl(175_72%_38%)] text-white font-semibold text-sm px-5 py-2.5 rounded-lg",
+                "transition-all hover:brightness-110 hover:shadow-md"
+              )}
             >
-              Book a Discovery Call
+              Book a Call
             </button>
           </div>
 
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
+            className="lg:hidden p-2 text-[hsl(220_25%_14%)] hover:text-[hsl(175_72%_38%)] transition-colors"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -112,44 +112,48 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Overlay */}
-      {mobileOpen && (
-        <div
-          className="fixed inset-0 z-[49] bg-[hsl(220_25%_6%/0.97)] backdrop-blur-xl lg:hidden flex flex-col items-center justify-center"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Navigation menu"
-          onKeyDown={(e) => { if (e.key === "Escape") setMobileOpen(false); }}
-        >
-          <nav className="flex flex-col items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-xl font-heading font-medium text-white/70 hover:text-white transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-
+      {/* Mobile slide-down panel */}
+      <div
+        className={cn(
+          "fixed left-0 right-0 top-16 z-[49] lg:hidden",
+          "bg-white border-b border-[hsl(214_20%_90%)] shadow-lg",
+          "transition-all duration-300 ease-in-out overflow-hidden",
+          mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        )}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+      >
+        <nav className="flex flex-col px-6 py-6 gap-1">
+          {NAV_LINKS.map((link) => (
             <a
-              href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 text-white/60 hover:text-white transition-colors mt-4"
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-base font-medium text-[hsl(215_15%_46%)] hover:text-[hsl(220_25%_14%)] hover:bg-[hsl(210_25%_97%)] rounded-lg px-4 py-3 transition-colors"
             >
-              <Phone className="w-5 h-5 text-gold" />
-              <span className="font-body text-lg">{COMPANY.phone}</span>
+              {link.label}
             </a>
+          ))}
 
-            <button
-              onClick={scrollToBooking}
-              className="bg-gold text-gold-foreground hover:bg-gold-light font-heading font-semibold text-base px-8 py-3 rounded-lg transition-colors mt-2"
-            >
-              Book a Discovery Call
-            </button>
-          </nav>
-        </div>
-      )}
+          <hr className="my-3 border-[hsl(214_20%_90%)]" />
+
+          <a
+            href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
+            className="flex items-center gap-2 text-sm text-[hsl(215_15%_46%)] px-4 py-3"
+          >
+            <Phone className="w-4 h-4" />
+            {COMPANY.phone}
+          </a>
+
+          <button
+            onClick={scrollToBooking}
+            className="mt-2 w-full bg-[hsl(175_72%_38%)] text-white font-semibold text-sm px-5 py-3 rounded-lg transition-all hover:brightness-110"
+          >
+            Book a Call
+          </button>
+        </nav>
+      </div>
     </>
   );
 }

@@ -11,53 +11,53 @@ export default function ChatbotWidget() {
       <button
         onClick={() => setOpen(true)}
         className={cn(
-          "fixed z-40 w-14 h-14 rounded-full bg-gold text-gold-foreground",
-          "flex items-center justify-center shadow-lg",
-          "hover:bg-gold-light transition-colors",
-          "animate-glow-pulse",
-          "bottom-20 right-6 lg:bottom-8 lg:right-8"
+          "fixed z-40 flex h-14 w-14 items-center justify-center rounded-full",
+          "bg-[hsl(175_72%_38%)] text-white shadow-lg",
+          "hover:bg-[hsl(175_72%_32%)] hover:shadow-[0_4px_20px_hsl(175_72%_38%/0.35)]",
+          "transition-all",
+          "bottom-20 right-6 lg:bottom-8 lg:right-8",
         )}
         aria-label="Open AI assistant"
       >
-        <MessageCircle className="w-6 h-6" />
+        <MessageCircle className="h-6 w-6" />
       </button>
 
       {/* Modal Overlay */}
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm"
           onClick={() => setOpen(false)}
         >
           <div
-            className="relative bg-[hsl(220_25%_8%)] border border-white/10 rounded-2xl shadow-2xl max-w-sm w-full mx-6 p-8"
+            className="relative mx-6 w-full max-w-sm rounded-2xl border border-border bg-white p-8 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
             <button
               onClick={() => setOpen(false)}
-              className="absolute top-4 right-4 p-1.5 text-white/40 hover:text-white transition-colors"
+              className="absolute right-4 top-4 p-1.5 text-muted-foreground transition-colors hover:text-foreground"
               aria-label="Close"
             >
-              <X className="w-5 h-5" />
+              <X className="h-5 w-5" />
             </button>
 
             {/* Content */}
-            <div className="flex flex-col items-center text-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center">
-                <MessageCircle className="w-8 h-8 text-gold" />
+            <div className="flex flex-col items-center gap-4 text-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(175_72%_38%/0.08)]">
+                <MessageCircle className="h-8 w-8 text-[hsl(175_72%_38%)]" />
               </div>
-              <h3 className="text-xl font-heading font-bold text-white">
-                AI Assistant
+              <h3 className="font-heading text-xl font-bold text-foreground">
+                AI Assistant Coming Soon
               </h3>
-              <p className="text-sm font-body text-white/60 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Our AI-powered assistant is coming soon. In the meantime, feel
                 free to book a discovery call or reach out directly.
               </p>
               <button
                 onClick={() => setOpen(false)}
-                className="mt-2 bg-gold text-gold-foreground hover:bg-gold-light font-heading font-semibold text-sm px-6 py-2.5 rounded-lg transition-colors"
+                className="mt-2 rounded-lg bg-[hsl(175_72%_38%)] px-6 py-2.5 font-heading text-sm font-semibold text-white transition-colors hover:bg-[hsl(175_72%_32%)]"
               >
-                Got It
+                Got it
               </button>
             </div>
           </div>

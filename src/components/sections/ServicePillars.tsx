@@ -1,12 +1,10 @@
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { SERVICE_PILLARS, type ServicePillar } from "@/data/services";
+import { cn } from "@/lib/utils"
+import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+import { SERVICE_PILLARS, type ServicePillar } from "@/data/services"
 import {
   Zap,
   Brain,
   Shield,
-  ChevronDown,
   Megaphone,
   Users,
   Mail,
@@ -25,169 +23,46 @@ import {
   Server,
   Headphones,
   RefreshCw,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+} from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 
 const ICON_MAP: Record<string, LucideIcon> = {
-  Zap,
-  Brain,
-  Shield,
-  Megaphone,
-  Users,
-  Mail,
-  Bot,
-  PhoneCall,
-  Smartphone,
-  GraduationCap,
-  Mic,
-  TrendingUp,
-  BarChart3,
-  Cog,
-  Search,
-  Workflow,
-  Cloud,
-  ShieldCheck,
-  Server,
-  Headphones,
-  RefreshCw,
-};
+  Zap, Brain, Shield, Megaphone, Users, Mail, Bot, PhoneCall,
+  Smartphone, GraduationCap, Mic, TrendingUp, BarChart3, Cog,
+  Search, Workflow, Cloud, ShieldCheck, Server, Headphones, RefreshCw,
+}
 
-const COLOR_MAP: Record<ServicePillar["color"], { ring: string; bg: string; text: string }> = {
-  gold: {
-    ring: "ring-gold/30",
-    bg: "bg-gold/10",
-    text: "text-gold",
-  },
-  teal: {
-    ring: "ring-teal/30",
-    bg: "bg-teal/10",
-    text: "text-teal",
-  },
-  blue: {
-    ring: "ring-blue-500/30",
-    bg: "bg-blue-500/10",
-    text: "text-blue-400",
-  },
-};
+const ICON_BG: Record<ServicePillar["color"], string> = {
+  teal: "bg-teal-50",
+  gold: "bg-amber-50",
+  blue: "bg-blue-50",
+}
 
-function PillarCard({
-  pillar,
-  isExpanded,
-  onToggle,
-  index,
-  isVisible,
-}: {
-  pillar: ServicePillar;
-  isExpanded: boolean;
-  onToggle: () => void;
-  index: number;
-  isVisible: boolean;
-}) {
-  const PillarIcon = ICON_MAP[pillar.icon] ?? Zap;
-  const colors = COLOR_MAP[pillar.color];
-
-  return (
-    <div
-      className={cn(
-        "group relative flex flex-col rounded-xl border border-white/10 bg-card p-6 transition-all duration-500",
-        "hover:border-white/20 hover:shadow-lg",
-        isExpanded && "border-white/15",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
-      )}
-      style={{ transitionDelay: `${index * 150}ms` }}
-    >
-      {/* Icon + Title */}
-      <div className="mb-4 flex items-center gap-4">
-        <div
-          className={cn(
-            "flex h-12 w-12 shrink-0 items-center justify-center rounded-full ring-2",
-            colors.bg,
-            colors.ring,
-          )}
-        >
-          <PillarIcon className={cn("h-5 w-5", colors.text)} />
-        </div>
-        <div>
-          <h3 className="font-heading text-lg font-bold text-white">
-            {pillar.title}
-          </h3>
-          <p className="text-sm text-muted-foreground">{pillar.description}</p>
-        </div>
-      </div>
-
-      {/* Toggle */}
-      <button
-        onClick={onToggle}
-        className="mt-auto inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-white"
-      >
-        {isExpanded ? "Hide services" : `View ${pillar.services.length} services`}
-        <ChevronDown
-          className={cn(
-            "h-4 w-4 transition-transform duration-300",
-            isExpanded && "rotate-180",
-          )}
-        />
-      </button>
-
-      {/* Expanded service list */}
-      <div
-        className={cn(
-          "grid transition-all duration-300",
-          isExpanded
-            ? "mt-5 grid-rows-[1fr] opacity-100"
-            : "grid-rows-[0fr] opacity-0",
-        )}
-      >
-        <div className="overflow-hidden">
-          <ul className="space-y-3 border-t border-white/5 pt-5">
-            {pillar.services.map((service) => {
-              const ServiceIcon = ICON_MAP[service.icon] ?? Zap;
-              return (
-                <li key={service.name} className="flex items-start gap-3">
-                  <ServiceIcon
-                    className={cn("mt-0.5 h-4 w-4 shrink-0", colors.text)}
-                  />
-                  <div>
-                    <span className="text-sm font-medium text-white">
-                      {service.name}
-                      {service.nickname && (
-                        <span className="ml-1.5 text-xs text-muted-foreground">
-                          — {service.nickname}
-                        </span>
-                      )}
-                    </span>
-                    <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                      {service.description}
-                    </p>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
+const ICON_TEXT: Record<ServicePillar["color"], string> = {
+  teal: "text-[hsl(175_72%_38%)]",
+  gold: "text-[hsl(40_80%_52%)]",
+  blue: "text-blue-500",
 }
 
 export default function ServicePillars() {
-  const { ref, isVisible } = useScrollAnimation();
-  const [expanded, setExpanded] = useState<string>(SERVICE_PILLARS[0]?.id ?? "");
+  const { ref, isVisible } = useScrollAnimation()
 
   return (
     <section
       id="services"
       ref={ref}
-      className={cn("reveal py-20 lg:py-28", isVisible && "visible")}
+      className={cn("bg-white py-20 lg:py-28", "reveal", isVisible && "visible")}
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto px-6">
         {/* Header */}
         <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="overline mb-4 inline-flex">What We Deliver</span>
-          <h2 className="mt-4 font-heading text-3xl font-bold text-white md:text-4xl">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(175_72%_38%)]">
+            What We Deliver
+          </span>
+          <h2 className="text-3xl font-extrabold text-[hsl(220_25%_14%)] md:text-4xl">
             Enterprise-Level Solutions, SMB-Friendly Pricing
           </h2>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-4 text-[hsl(215_15%_46%)]">
             Three interconnected pillars that cover every stage of your digital
             transformation — from foundational infrastructure to AI-powered
             growth engines.
@@ -195,21 +70,62 @@ export default function ServicePillars() {
         </div>
 
         {/* Pillar cards */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {SERVICE_PILLARS.map((pillar, i) => (
-            <PillarCard
-              key={pillar.id}
-              pillar={pillar}
-              index={i}
-              isVisible={isVisible}
-              isExpanded={expanded === pillar.id}
-              onToggle={() =>
-                setExpanded((prev) => (prev === pillar.id ? "" : pillar.id))
-              }
-            />
-          ))}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {SERVICE_PILLARS.map((pillar, i) => {
+            const PillarIcon = ICON_MAP[pillar.icon] ?? Zap
+            return (
+              <div
+                key={pillar.id}
+                className={cn(
+                  "group flex flex-col rounded-2xl border border-[hsl(214_20%_90%)] bg-white p-8 shadow-sm",
+                  "transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(175_72%_38%_/_0.3)] hover:shadow-lg",
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
+                )}
+                style={{ transitionDelay: `${i * 150}ms` }}
+              >
+                {/* Icon */}
+                <div
+                  className={cn(
+                    "mb-5 flex h-10 w-10 items-center justify-center rounded-full",
+                    ICON_BG[pillar.color],
+                  )}
+                >
+                  <PillarIcon className={cn("h-5 w-5", ICON_TEXT[pillar.color])} />
+                </div>
+
+                {/* Title & description */}
+                <h3 className="text-xl font-bold text-[hsl(220_25%_14%)]">
+                  {pillar.title}
+                </h3>
+                <p className="mt-2 text-[hsl(215_15%_46%)]">
+                  {pillar.description}
+                </p>
+
+                {/* Service chips */}
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {pillar.services.map((service) => (
+                    <span
+                      key={service.name}
+                      className="rounded-full bg-[hsl(214_20%_96%)] px-3 py-1 text-xs text-[hsl(215_15%_46%)]"
+                    >
+                      {service.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Full-width team image */}
+        <div className="mt-14">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=500&fit=crop&q=80"
+            alt="Team collaborating in a modern office"
+            className="h-[320px] w-full rounded-2xl object-cover lg:h-[400px]"
+          />
         </div>
       </div>
     </section>
-  );
+  )
 }

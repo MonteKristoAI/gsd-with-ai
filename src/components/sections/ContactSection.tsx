@@ -1,8 +1,14 @@
 import { useState, type FormEvent } from "react";
 import { cn } from "@/lib/utils";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Phone, Mail, CheckCircle, Send, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Loader2, CheckCircle } from "lucide-react";
 import { COMPANY } from "@/data/companyInfo";
+
+const inputCls = cn(
+  "w-full rounded-lg border border-border bg-white px-4 py-3 text-sm text-foreground",
+  "placeholder:text-muted-foreground transition-all",
+  "focus:outline-none focus:ring-2 focus:ring-[hsl(175_72%_38%/0.3)] focus:border-[hsl(175_72%_38%)]",
+);
 
 export default function ContactSection() {
   const { ref, isVisible } = useScrollAnimation(0.05);
@@ -36,21 +42,29 @@ export default function ContactSection() {
     }
   };
 
-  const BENEFITS = [
-    "Free discovery call",
-    "Response within 1 business day",
-    "No obligation",
+  const CONTACT_INFO = [
+    {
+      icon: Phone,
+      label: COMPANY.phone,
+      href: `tel:${COMPANY.phone.replace(/\s/g, "")}`,
+    },
+    {
+      icon: Mail,
+      label: COMPANY.email,
+      href: `mailto:${COMPANY.email}`,
+    },
+    {
+      icon: MapPin,
+      label: COMPANY.location,
+      href: undefined,
+    },
   ];
-
-  const inputClasses =
-    "w-full bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 rounded-lg px-4 py-3 text-sm transition-colors";
 
   return (
     <section
       id="contact"
       ref={ref}
-      className="relative py-20 lg:py-28"
-      style={{ background: "hsl(220 25% 5%)" }}
+      className="border-t border-border bg-white py-20 lg:py-28"
     >
       <div
         className={cn(
@@ -58,83 +72,81 @@ export default function ContactSection() {
           isVisible && "visible",
         )}
       >
-        {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left side — info */}
-          <div className="flex flex-col justify-center lg:py-16">
-            <span className="inline-block font-heading text-xs font-semibold uppercase tracking-[0.2em] text-gold mb-4">
+        <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
+          {/* Left -- info */}
+          <div className="flex flex-col">
+            <span className="mb-4 block font-heading text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(175_72%_38%)]">
               Get in Touch
             </span>
 
-            <h2 className="font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
-              Ready to Eliminate{" "}
-              <span className="text-gradient-gold">Administrative Drag</span>?
+            <h2 className="font-heading text-3xl font-bold text-foreground leading-tight md:text-4xl lg:text-5xl">
+              Let&rsquo;s Talk
             </h2>
 
-            <p className="mt-6 text-white/60 text-base sm:text-lg leading-relaxed max-w-lg">
+            <p className="mt-6 max-w-lg text-base text-muted-foreground leading-relaxed sm:text-lg">
               Book a free 30-minute discovery call and we&rsquo;ll map out
               exactly how AI-powered workflows can remove the bottlenecks
-              slowing your business down. No sales pitch — just a clear
-              blueprint for growth.
+              slowing your business down.
             </p>
 
             {/* Contact info */}
             <div className="mt-10 flex flex-col gap-4">
-              <a
-                href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-                className="inline-flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
-              >
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold/10">
-                  <Phone className="h-5 w-5 text-gold" />
-                </span>
-                <span className="text-sm sm:text-base">{COMPANY.phone}</span>
-              </a>
-              <a
-                href={`mailto:${COMPANY.email}`}
-                className="inline-flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
-              >
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold/10">
-                  <Mail className="h-5 w-5 text-gold" />
-                </span>
-                <span className="text-sm sm:text-base">{COMPANY.email}</span>
-              </a>
+              {CONTACT_INFO.map(({ icon: Icon, label, href }) => {
+                const content = (
+                  <span className="inline-flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[hsl(175_72%_38%/0.08)]">
+                      <Icon className="h-5 w-5 text-[hsl(175_72%_38%)]" />
+                    </span>
+                    <span className="text-sm text-foreground/80 sm:text-base">
+                      {label}
+                    </span>
+                  </span>
+                );
+                return href ? (
+                  <a
+                    key={label}
+                    href={href}
+                    className="transition-colors hover:text-foreground"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div key={label}>{content}</div>
+                );
+              })}
             </div>
 
-            {/* Benefits */}
-            <ul className="mt-10 flex flex-col gap-3">
-              {BENEFITS.map((b) => (
-                <li
-                  key={b}
-                  className="inline-flex items-center gap-2.5 text-white/70 text-sm"
-                >
-                  <CheckCircle className="h-4 w-4 text-teal shrink-0" />
-                  {b}
-                </li>
-              ))}
-            </ul>
+            {/* Image */}
+            <div className="mt-10 overflow-hidden rounded-xl">
+              <img
+                src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&h=400&fit=crop&q=80"
+                alt="Business communication"
+                className="h-auto w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
 
-          {/* Right side — form */}
-          <div className="lg:py-16">
-            <div className="rounded-2xl border border-[hsl(220_14%_18%)] bg-[hsl(220_18%_10%)] p-7">
+          {/* Right -- form */}
+          <div>
+            <div className="rounded-2xl border border-border bg-white p-7 shadow-[0_1px_3px_0_rgb(0_0_0/0.04),0_6px_24px_0_rgb(0_0_0/0.04)]">
               {success ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-teal/10">
-                    <CheckCircle className="h-7 w-7 text-teal" />
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[hsl(175_72%_38%/0.1)]">
+                    <CheckCircle className="h-7 w-7 text-[hsl(175_72%_38%)]" />
                   </div>
-                  <h3 className="font-heading text-xl font-semibold text-white">
+                  <h3 className="font-heading text-xl font-semibold text-foreground">
                     Message Sent!
                   </h3>
-                  <p className="mt-2 text-sm text-white/50 max-w-xs">
+                  <p className="mt-2 max-w-xs text-sm text-muted-foreground">
                     We&rsquo;ll get back to you within one business day. Looking
                     forward to connecting.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                  {/* Full Name */}
                   <div>
-                    <label className="text-white/70 text-sm font-medium mb-1.5 block">
+                    <label className="mb-1.5 block text-sm font-medium text-foreground/70">
                       Full Name
                     </label>
                     <input
@@ -142,26 +154,24 @@ export default function ContactSection() {
                       name="name"
                       required
                       placeholder="John Smith"
-                      className={inputClasses}
+                      className={inputCls}
                     />
                   </div>
 
-                  {/* Company */}
                   <div>
-                    <label className="text-white/70 text-sm font-medium mb-1.5 block">
+                    <label className="mb-1.5 block text-sm font-medium text-foreground/70">
                       Company
                     </label>
                     <input
                       type="text"
                       name="company"
                       placeholder="Acme Corp"
-                      className={inputClasses}
+                      className={inputCls}
                     />
                   </div>
 
-                  {/* Email */}
                   <div>
-                    <label className="text-white/70 text-sm font-medium mb-1.5 block">
+                    <label className="mb-1.5 block text-sm font-medium text-foreground/70">
                       Email
                     </label>
                     <input
@@ -169,26 +179,24 @@ export default function ContactSection() {
                       name="email"
                       required
                       placeholder="john@acme.com"
-                      className={inputClasses}
+                      className={inputCls}
                     />
                   </div>
 
-                  {/* Phone */}
                   <div>
-                    <label className="text-white/70 text-sm font-medium mb-1.5 block">
+                    <label className="mb-1.5 block text-sm font-medium text-foreground/70">
                       Phone
                     </label>
                     <input
                       type="tel"
                       name="phone"
                       placeholder="+1 (555) 000-0000"
-                      className={inputClasses}
+                      className={inputCls}
                     />
                   </div>
 
-                  {/* Message */}
                   <div>
-                    <label className="text-white/70 text-sm font-medium mb-1.5 block">
+                    <label className="mb-1.5 block text-sm font-medium text-foreground/70">
                       Message
                     </label>
                     <textarea
@@ -196,22 +204,22 @@ export default function ContactSection() {
                       rows={4}
                       required
                       placeholder="Tell us about your project or challenge..."
-                      className={cn(inputClasses, "resize-none")}
+                      className={cn(inputCls, "resize-none")}
                     />
                   </div>
 
-                  {/* Error */}
                   {error && (
-                    <p className="text-sm text-red-400">{error}</p>
+                    <p className="text-sm text-red-500">{error}</p>
                   )}
 
-                  {/* Submit */}
                   <button
                     type="submit"
                     disabled={loading}
                     className={cn(
-                      "inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 font-heading text-sm font-semibold text-gold-foreground",
-                      "transition-all hover:brightness-110 disabled:opacity-60 disabled:cursor-not-allowed",
+                      "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-heading text-sm font-semibold",
+                      "bg-[hsl(175_72%_38%)] text-white transition-all",
+                      "hover:bg-[hsl(175_72%_32%)] shadow-[0_2px_8px_hsl(175_72%_38%/0.25)]",
+                      "disabled:opacity-60 disabled:cursor-not-allowed",
                     )}
                   >
                     {loading ? (
@@ -222,13 +230,12 @@ export default function ContactSection() {
                     ) : (
                       <>
                         <Send className="h-4 w-4" />
-                        Send Inquiry
+                        Send Message
                       </>
                     )}
                   </button>
 
-                  {/* Privacy */}
-                  <p className="text-[11px] text-white/30 leading-relaxed">
+                  <p className="text-[11px] text-muted-foreground/60 leading-relaxed">
                     We respect your privacy. Your information is only used to
                     respond to your inquiry and is never shared with third
                     parties.
@@ -237,24 +244,6 @@ export default function ContactSection() {
               )}
             </div>
           </div>
-        </div>
-
-        {/* Google Maps embed */}
-        <div className="mt-16 rounded-2xl overflow-hidden opacity-80">
-          <iframe
-            title="GSD with AI — Houston, TX"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d443088.5429003966!2d-95.68190929999999!3d29.8171079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b8b4488d8501%3A0xca0d02def365053b!2sHouston%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000"
-            width="100%"
-            height="300"
-            style={{
-              border: 0,
-              filter:
-                "grayscale(100%) invert(92%) hue-rotate(180deg) contrast(0.8)",
-            }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
         </div>
       </div>
     </section>

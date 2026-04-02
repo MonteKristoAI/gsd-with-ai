@@ -1,49 +1,19 @@
 import { cn } from "@/lib/utils";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useCountUp } from "@/hooks/useCountUp";
-import { ArrowRight, Clock, Building2, MapPin } from "lucide-react";
+import { COMPANY } from "@/data/companyInfo";
+import { CheckCircle2, ArrowRight, Play } from "lucide-react";
 
-const TRUST_CHIPS = [
-  { icon: Clock, label: "20+ Years Experience" },
-  { icon: Building2, label: "Fortune 100 Background" },
-  { icon: MapPin, label: "Texas-Based" },
+const TRUST_ITEMS = [
+  "20+ Years Experience",
+  "Fortune 100 Background",
+  "Texas-Based",
 ];
 
 const STATS = [
-  { target: 20, suffix: "+", label: "Years of Experience" },
-  { target: 100, suffix: "+", label: "Automations Deployed" },
-  { target: 3, suffix: "X", label: "Productivity Boost" },
+  { value: "20+", label: "Years of Experience" },
+  { value: "100+", label: "Automations Deployed" },
+  { value: "3X", label: "Productivity Boost" },
 ];
-
-function StatCard({
-  target,
-  suffix,
-  label,
-  delay,
-}: {
-  target: number;
-  suffix: string;
-  label: string;
-  delay: number;
-}) {
-  const { count, ref } = useCountUp(target, 2000);
-
-  return (
-    <div
-      className={cn(
-        "glass rounded-xl p-6 text-center",
-        "opacity-0 animate-fade-up",
-      )}
-      style={{ animationDelay: `${delay}ms`, animationFillMode: "forwards" }}
-    >
-      <span ref={ref} className="block font-mono text-3xl font-bold text-gold">
-        {count}
-        {suffix}
-      </span>
-      <span className="mt-1 block text-sm text-muted-foreground">{label}</span>
-    </div>
-  );
-}
 
 export default function HeroSection() {
   const { ref, isVisible } = useScrollAnimation(0.05);
@@ -51,98 +21,126 @@ export default function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative bg-white overflow-hidden"
     >
-      {/* Background layers */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: [
-            "radial-gradient(ellipse 800px 600px at 10% 30%, hsl(43 85% 52% / 0.07) 0%, transparent 70%)",
-            "radial-gradient(ellipse 700px 700px at 85% 75%, hsl(175 72% 42% / 0.06) 0%, transparent 70%)",
-            "hsl(220 20% 6%)",
-          ].join(", "),
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-dots opacity-40"
-      />
-      <div aria-hidden className="pointer-events-none absolute inset-0 noise" />
+      <div className="container mx-auto px-6 py-20 lg:py-32">
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center">
+          {/* Left content — 7 cols */}
+          <div
+            className={cn(
+              "lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left",
+              "transition-all duration-700",
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6"
+            )}
+          >
+            {/* Badge */}
+            <span className="inline-flex items-center gap-2 rounded-full bg-[hsl(175_72%_38%/0.08)] px-4 py-1.5 text-sm font-medium text-[hsl(175_72%_38%)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[hsl(175_72%_38%)]" />
+              AI-Powered Business Solutions
+            </span>
 
-      {/* Content */}
-      <div className="container relative z-10 mx-auto grid grid-cols-1 gap-12 py-24 lg:grid-cols-5 lg:gap-16 lg:py-0">
-        {/* Left column */}
-        <div
-          className={cn(
-            "flex flex-col items-center text-center lg:col-span-3 lg:items-start lg:text-left",
-            "reveal",
-            isVisible && "visible",
-          )}
-        >
-          {/* Overline */}
-          <span className="overline mb-6">AI-Powered Digital Transformation</span>
+            {/* Headline */}
+            <h1 className="mt-8 text-4xl font-extrabold tracking-tight leading-[1.08] text-[hsl(220_25%_14%)] md:text-5xl lg:text-6xl max-w-2xl">
+              Smart IT &amp; AI Solutions That Actually{" "}
+              <span className="text-[hsl(175_72%_38%)]">Get Stuff Done</span>
+            </h1>
 
-          {/* Headline */}
-          <h1 className="font-heading text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
-            <span className="text-gradient-gold">Smart</span> IT &amp; AI
-            Solutions That Get Stuff Done
-          </h1>
+            {/* Subtitle */}
+            <p className="mt-6 text-lg leading-relaxed text-[hsl(215_15%_46%)] max-w-lg">
+              We design, build, and deploy AI agents and automations that replace
+              manual work — so your team can focus on growth instead of busywork.
+            </p>
 
-          {/* Subtitle */}
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-            We design, build, and deploy AI agents and automations that replace
-            manual work — so your team can focus on growth instead of busywork.
-          </p>
+            {/* CTAs */}
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href="#contact"
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-xl px-8 py-4 text-sm font-semibold text-white",
+                  "bg-[hsl(175_72%_38%)] shadow-[0_4px_14px_hsl(175_72%_38%/0.35)]",
+                  "transition-all hover:shadow-[0_6px_20px_hsl(175_72%_38%/0.45)] hover:brightness-110"
+                )}
+              >
+                Book a Free Discovery Call
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#services"
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-xl border border-[hsl(175_72%_38%)] px-8 py-4 text-sm font-semibold text-[hsl(175_72%_38%)]",
+                  "transition-all hover:bg-[hsl(175_72%_38%/0.05)]"
+                )}
+              >
+                <Play className="h-4 w-4" />
+                See How It Works
+              </a>
+            </div>
 
-          {/* CTAs */}
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#contact"
-              className={cn(
-                "inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 font-heading text-sm font-semibold text-gold-foreground",
-                "transition-all hover:brightness-110 animate-glow-pulse",
-              )}
-            >
-              Book a Discovery Call
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#services"
-              className={cn(
-                "inline-flex items-center gap-2 rounded-lg border border-teal px-6 py-3 font-heading text-sm font-semibold text-teal",
-                "transition-all hover:bg-teal/10",
-              )}
-            >
-              Explore Solutions
-            </a>
+            {/* Trust strip */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 lg:justify-start">
+              {TRUST_ITEMS.map((item) => (
+                <span
+                  key={item}
+                  className="inline-flex items-center gap-1.5 text-sm text-[hsl(215_15%_46%)]"
+                >
+                  <CheckCircle2 className="h-4 w-4 text-[hsl(175_72%_38%)]" />
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
-          {/* Trust chips */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-            {TRUST_CHIPS.map(({ icon: Icon, label }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/60"
-              >
-                <Icon className="h-4 w-4 text-gold-light" />
-                {label}
-              </span>
-            ))}
+          {/* Right side — image */}
+          <div
+            className={cn(
+              "lg:col-span-5 flex justify-center",
+              "transition-all duration-700 delay-200",
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6"
+            )}
+          >
+            <div className="relative w-full max-w-md lg:max-w-none">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=900&fit=crop&q=80"
+                alt="Professional woman working with technology in a modern office"
+                className="w-full rounded-2xl object-cover shadow-xl shadow-black/8 aspect-[4/5]"
+                loading="eager"
+              />
+              {/* Decorative accent behind image */}
+              <div
+                aria-hidden
+                className="absolute -z-10 -bottom-4 -right-4 h-full w-full rounded-2xl bg-[hsl(175_72%_38%/0.06)]"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Right column — stat cards (desktop only) */}
-        <div className="hidden flex-col gap-5 lg:col-span-2 lg:flex lg:justify-center">
-          {STATS.map((stat, i) => (
-            <StatCard
+        {/* Stat cards row */}
+        <div
+          className={cn(
+            "mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6",
+            "transition-all duration-700 delay-300",
+            isVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-6"
+          )}
+        >
+          {STATS.map((stat) => (
+            <div
               key={stat.label}
-              target={stat.target}
-              suffix={stat.suffix}
-              label={stat.label}
-              delay={400 + i * 200}
-            />
+              className="rounded-2xl border border-[hsl(214_20%_90%)] bg-white px-8 py-6 text-center shadow-sm"
+            >
+              <span className="block text-3xl font-bold text-[hsl(175_72%_38%)]">
+                {stat.value}
+              </span>
+              <span className="mt-1 block text-sm text-[hsl(215_15%_46%)]">
+                {stat.label}
+              </span>
+            </div>
           ))}
         </div>
       </div>
