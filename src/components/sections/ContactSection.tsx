@@ -146,10 +146,11 @@ export default function ContactSection() {
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+                    <label htmlFor="cf-name" className="mb-1.5 block text-sm font-medium text-foreground/70">
                       Full Name
                     </label>
                     <input
+                      id="cf-name"
                       type="text"
                       name="name"
                       required
@@ -159,10 +160,11 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+                    <label htmlFor="cf-company" className="mb-1.5 block text-sm font-medium text-foreground/70">
                       Company
                     </label>
                     <input
+                      id="cf-company"
                       type="text"
                       name="company"
                       placeholder="Acme Corp"
@@ -171,10 +173,11 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+                    <label htmlFor="cf-email" className="mb-1.5 block text-sm font-medium text-foreground/70">
                       Email
                     </label>
                     <input
+                      id="cf-email"
                       type="email"
                       name="email"
                       required
@@ -184,10 +187,11 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+                    <label htmlFor="cf-phone" className="mb-1.5 block text-sm font-medium text-foreground/70">
                       Phone
                     </label>
                     <input
+                      id="cf-phone"
                       type="tel"
                       name="phone"
                       placeholder="+1 (555) 000-0000"
@@ -196,10 +200,11 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="mb-1.5 block text-sm font-medium text-foreground/70">
+                    <label htmlFor="cf-message" className="mb-1.5 block text-sm font-medium text-foreground/70">
                       Message
                     </label>
                     <textarea
+                      id="cf-message"
                       name="message"
                       rows={4}
                       required

@@ -15,16 +15,6 @@ const HEADSHOTS = [
   "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&q=80",
 ];
 
-const AVATAR_COLORS = [
-  "bg-teal-100 text-[hsl(175_72%_38%)]",
-  "bg-amber-100 text-[hsl(40_80%_52%)]",
-  "bg-blue-100 text-blue-600",
-  "bg-purple-100 text-purple-600",
-  "bg-rose-100 text-rose-600",
-  "bg-emerald-100 text-emerald-600",
-  "bg-cyan-100 text-cyan-600",
-  "bg-orange-100 text-orange-600",
-]
 
 export default function ReviewsCarousel() {
   const { ref, isVisible } = useScrollAnimation(0.1)

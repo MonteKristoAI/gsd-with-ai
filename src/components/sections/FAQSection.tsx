@@ -50,7 +50,7 @@ export default function FAQSection() {
                 id={triggerId}
                 type="button"
                 onClick={() => toggle(i)}
-                className="flex w-full cursor-pointer items-center justify-between py-5 text-left text-base font-semibold text-foreground"
+                className="flex w-full cursor-pointer items-center justify-between py-5 text-left text-base font-semibold text-foreground rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
               >
