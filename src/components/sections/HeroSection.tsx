@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { COMPANY } from "@/data/companyInfo";
 import { CheckCircle2, ArrowRight, Play } from "lucide-react";
 
 const TRUST_ITEMS = [

@@ -144,13 +144,15 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <a
-              href="/privacy"
+              href="#"
+              title="Coming soon"
               className="text-xs text-[hsl(215_15%_46%)] hover:text-[hsl(175_72%_38%)] transition-colors"
             >
               Privacy Policy
             </a>
             <a
-              href="/terms"
+              href="#"
+              title="Coming soon"
               className="text-xs text-[hsl(215_15%_46%)] hover:text-[hsl(175_72%_38%)] transition-colors"
             >
               Terms of Service

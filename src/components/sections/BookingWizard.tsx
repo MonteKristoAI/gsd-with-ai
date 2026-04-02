@@ -560,6 +560,25 @@ export default function BookingWizard() {
   };
 
   /* ---------------------------------------------------------------- */
+  /*  Error state                                                      */
+  /* ---------------------------------------------------------------- */
+
+  if (submitError) {
+    return (
+      <section id="booking" className="bg-[hsl(210_25%_97%)] py-20 lg:py-28">
+        <div className="container mx-auto flex flex-col items-center py-12 text-center">
+          <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-red-50">
+            <span className="text-3xl">!</span>
+          </div>
+          <h2 className="font-heading text-2xl font-bold text-foreground">Something went wrong</h2>
+          <p className="mt-3 max-w-md text-muted-foreground">We couldn't submit your booking. Please try again or call us directly at {COMPANY.phone}.</p>
+          <button onClick={() => { setSubmitError(false); }} className="mt-6 rounded-lg bg-primary px-6 py-3 font-semibold text-white hover:brightness-110 transition-all">Try Again</button>
+        </div>
+      </section>
+    );
+  }
+
+  /* ---------------------------------------------------------------- */
   /*  Success state                                                    */
   /* ---------------------------------------------------------------- */
 

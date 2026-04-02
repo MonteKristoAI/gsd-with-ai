@@ -49,7 +49,7 @@ export default function HomePage() {
         id="ld-breadcrumb"
       />
       <Header />
-      <main>
+      <main id="main">
         <HeroSection />
         <PartnersStrip />
         <ServicePillars />

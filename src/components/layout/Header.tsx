@@ -50,6 +50,10 @@ export default function Header() {
 
   return (
     <>
+      {/* Skip to content */}
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:text-sm focus:font-semibold">
+        Skip to content
+      </a>
       <header
         className={cn(
           "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
@@ -70,7 +74,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-medium text-[hsl(215_15%_46%)] hover:text-[hsl(220_25%_14%)] transition-colors"
+                className="text-sm font-medium text-[hsl(215_15%_46%)] hover:text-[hsl(220_25%_14%)] transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2"
               >
                 {link.label}
               </a>

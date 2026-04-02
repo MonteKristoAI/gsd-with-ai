@@ -92,7 +92,10 @@ export default function ReviewsCarousel() {
           <div
             ref={scrollRef}
             onScroll={checkScroll}
-            className="flex gap-6 overflow-x-auto py-2 scrollbar-hide"
+            tabIndex={0}
+            role="region"
+            aria-label="Customer reviews"
+            className="flex gap-6 overflow-x-auto py-2 scrollbar-hide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-4 rounded-xl"
             style={{ scrollSnapType: "x mandatory" }}
           >
             {REVIEWS.map((review, i) => (
