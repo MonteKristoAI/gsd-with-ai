@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/data/companyInfo";
 import { Phone, Menu, X } from "lucide-react";
-import gsdLogo from "@/assets/gsd-logo.webp";
+import gsdLogo from "@/assets/gsd-logo.png";
 
 const NAV_LINKS = [
   { label: "Services", href: "/services" },

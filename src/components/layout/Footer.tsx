@@ -1,6 +1,6 @@
 import { COMPANY } from "@/data/companyInfo";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
-import gsdLogo from "@/assets/gsd-logo.webp";
+import gsdLogo from "@/assets/gsd-logo.png";
 
 const QUICK_LINKS = [
   { label: "Services", href: "/services" },
