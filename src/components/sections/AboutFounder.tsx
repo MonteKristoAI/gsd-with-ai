@@ -73,27 +73,38 @@ export default function AboutFounder() {
           ref={ref2}
           className={cn("mt-20", "reveal", isVisible2 && "visible")}
         >
-          <div className="rounded-2xl bg-[hsl(214_20%_97%)] px-8 py-12 text-center">
-            <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(175_72%_38%)]">
-              Our Commitment
-            </span>
-            <h3 className="text-2xl font-extrabold text-[hsl(220_25%_14%)]">
-              The GSD Promise
-            </h3>
-            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-[hsl(215_15%_46%)]">
-              Smart solutions. Real results. No &ldquo;administrative
-              drag.&rdquo; We handle the tech, so you can focus on the
-              high-impact growth that matters most.
-            </p>
-            <p className="mt-6 text-lg font-bold text-[hsl(175_72%_38%)]">
-              Let&rsquo;s Get Stuff Done.
-            </p>
-            <a
-              href="#contact"
-              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[hsl(175_72%_38%)] px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
-            >
-              Start a Conversation
-            </a>
+          <div className="relative rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=400&fit=crop&q=80"
+              alt="Team collaboration"
+              className="w-full h-[300px] object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-white/90" />
+            <div className="absolute inset-0 flex items-center justify-center p-8 text-center">
+              <div>
+                <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(175_72%_38%)]">
+                  Our Commitment
+                </span>
+                <h3 className="text-2xl font-extrabold text-[hsl(220_25%_14%)]">
+                  The GSD Promise
+                </h3>
+                <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-[hsl(215_15%_46%)]">
+                  Smart solutions. Real results. No &ldquo;administrative
+                  drag.&rdquo; We handle the tech, so you can focus on the
+                  high-impact growth that matters most.
+                </p>
+                <p className="mt-6 text-lg font-bold text-[hsl(175_72%_38%)]">
+                  Let&rsquo;s Get Stuff Done.
+                </p>
+                <a
+                  href="#contact"
+                  className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[hsl(175_72%_38%)] px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
+                >
+                  Start a Conversation
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

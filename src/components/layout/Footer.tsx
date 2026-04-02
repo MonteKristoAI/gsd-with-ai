@@ -34,7 +34,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <img src={gsdLogo} alt="GSD with AI" className="h-10 w-auto" />
+            <img src={gsdLogo} alt="GSD with AI" className="h-12 w-auto" />
             <p className="text-sm text-[hsl(215_15%_46%)] leading-relaxed max-w-xs">
               {COMPANY.tagline}
             </p>

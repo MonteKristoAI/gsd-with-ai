@@ -32,6 +32,21 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Search, Workflow, Cloud, ShieldCheck, Server, Headphones, RefreshCw,
 }
 
+const PILLAR_IMAGES: Record<string, string> = {
+  "digital-foundations":
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop&q=80",
+  "ai-powered-growth":
+    "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=300&fit=crop&q=80",
+  "secure-scalable-it":
+    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=300&fit=crop&q=80",
+}
+
+const PILLAR_ALTS: Record<string, string> = {
+  "digital-foundations": "Analytics dashboard showing business metrics",
+  "ai-powered-growth": "Abstract AI technology visualization",
+  "secure-scalable-it": "Modern data center server room",
+}
+
 const ICON_BG: Record<ServicePillar["color"], string> = {
   teal: "bg-teal-50",
   gold: "bg-amber-50",
@@ -83,6 +98,18 @@ export default function ServicePillars() {
                 )}
                 style={{ transitionDelay: `${i * 150}ms` }}
               >
+                {/* Pillar image */}
+                {PILLAR_IMAGES[pillar.id] && (
+                  <div className="h-40 -mx-8 -mt-8 mb-6 rounded-t-2xl overflow-hidden">
+                    <img
+                      src={PILLAR_IMAGES[pillar.id]}
+                      alt={PILLAR_ALTS[pillar.id] ?? pillar.title}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+
                 {/* Icon */}
                 <div
                   className={cn(
