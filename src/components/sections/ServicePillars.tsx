@@ -75,11 +75,13 @@ function PillarCard({
   isExpanded,
   onToggle,
   index,
+  isVisible,
 }: {
   pillar: ServicePillar;
   isExpanded: boolean;
   onToggle: () => void;
   index: number;
+  isVisible: boolean;
 }) {
   const PillarIcon = ICON_MAP[pillar.icon] ?? Zap;
   const colors = COLOR_MAP[pillar.color];
@@ -87,11 +89,12 @@ function PillarCard({
   return (
     <div
       className={cn(
-        "group relative flex flex-col rounded-xl border border-white/10 bg-card p-6 transition-all duration-300",
+        "group relative flex flex-col rounded-xl border border-white/10 bg-card p-6 transition-all duration-500",
         "hover:border-white/20 hover:shadow-lg",
         isExpanded && "border-white/15",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
       )}
-      style={{ animationDelay: `${index * 150}ms` }}
+      style={{ transitionDelay: `${index * 150}ms` }}
     >
       {/* Icon + Title */}
       <div className="mb-4 flex items-center gap-4">
@@ -198,6 +201,7 @@ export default function ServicePillars() {
               key={pillar.id}
               pillar={pillar}
               index={i}
+              isVisible={isVisible}
               isExpanded={expanded === pillar.id}
               onToggle={() =>
                 setExpanded((prev) => (prev === pillar.id ? "" : pillar.id))

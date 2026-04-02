@@ -40,10 +40,11 @@ export default function CaseStudies() {
               className={cn(
                 "group flex flex-col rounded-xl border-t-2 border-gold bg-card p-6",
                 "border-x border-b border-x-white/10 border-b-white/10",
-                "transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_hsl(43_85%_52%_/_0.12)]",
+                "transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_hsl(43_85%_52%_/_0.12)]",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
               )}
               style={{
-                animationDelay: `${i * 150}ms`,
+                transitionDelay: `${i * 150}ms`,
               }}
             >
               {/* Category badge */}

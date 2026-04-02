@@ -114,7 +114,13 @@ export default function Header() {
 
       {/* Mobile Overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-[49] bg-[hsl(220_25%_6%/0.97)] backdrop-blur-xl lg:hidden flex flex-col items-center justify-center">
+        <div
+          className="fixed inset-0 z-[49] bg-[hsl(220_25%_6%/0.97)] backdrop-blur-xl lg:hidden flex flex-col items-center justify-center"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          onKeyDown={(e) => { if (e.key === "Escape") setMobileOpen(false); }}
+        >
           <nav className="flex flex-col items-center gap-8">
             {NAV_LINKS.map((link) => (
               <a

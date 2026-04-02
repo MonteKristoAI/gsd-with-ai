@@ -49,7 +49,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="relative py-20 lg:py-10"
+      className="relative py-20 lg:py-28"
       style={{ background: "hsl(220 25% 5%)" }}
     >
       <div
