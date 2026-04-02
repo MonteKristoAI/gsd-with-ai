@@ -8,7 +8,10 @@ export default function AboutFounder() {
   const { ref: ref2, isVisible: isVisible2 } = useScrollAnimation(0.1)
 
   return (
-    <section id="about" className="bg-white py-20 lg:py-28">
+    <section id="about" className="relative overflow-hidden bg-white py-20 lg:py-28">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&q=80" alt="" className="h-full w-full object-cover opacity-[0.02]" />
+      </div>
       <div
         ref={ref}
         className={cn("container mx-auto px-6", "reveal", isVisible && "visible")}

@@ -15,8 +15,11 @@ export default function FAQSection() {
     <section
       id="faq"
       ref={ref}
-      className="bg-[hsl(214_20%_97%)] py-20 lg:py-28"
+      className="relative overflow-hidden bg-[hsl(214_20%_97%)] py-20 lg:py-28"
     >
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&h=1080&fit=crop&q=80" alt="" className="h-full w-full object-cover opacity-[0.03]" />
+      </div>
       <div
         className={cn(
           "container mx-auto mb-14 text-center reveal",

@@ -45,8 +45,11 @@ export default function ReviewsCarousel() {
   return (
     <section
       ref={ref}
-      className={cn("bg-white py-20 lg:py-28", "reveal", isVisible && "visible")}
+      className={cn("relative bg-white py-20 lg:py-28", "reveal", isVisible && "visible")}
     >
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop&q=80" alt="" className="h-full w-full object-cover opacity-[0.04]" />
+      </div>
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="mx-auto mb-14 max-w-2xl text-center">
