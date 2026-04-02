@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/data/companyInfo";
 import { Phone, Menu, X } from "lucide-react";
@@ -37,15 +38,32 @@ export default function Header() {
     el?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
+  const navigate = useNavigate();
+
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       e.preventDefault();
       setMobileOpen(false);
-      const id = href.replace("#", "");
-      const el = document.getElementById(id);
-      el?.scrollIntoView({ behavior: "smooth" });
+
+      // Page routes like /services, /case-studies, /about
+      if (href.startsWith("/") && !href.startsWith("/#")) {
+        navigate(href);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      // Hash links like /#faq, /#contact or #booking
+      const hash = href.includes("#") ? href.split("#")[1] : "";
+      if (hash) {
+        if (window.location.pathname !== "/") {
+          navigate("/#" + hash);
+        } else {
+          const el = document.getElementById(hash);
+          el?.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     },
-    []
+    [navigate]
   );
 
   return (

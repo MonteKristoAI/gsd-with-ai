@@ -3,11 +3,11 @@ import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import gsdLogo from "@/assets/gsd-logo.webp";
 
 const QUICK_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "About", href: "#about" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/services" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "About", href: "/about" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 const SERVICES = [
@@ -104,8 +104,7 @@ export default function Footer() {
               {SERVICES.map((service) => (
                 <li key={service}>
                   <a
-                    href="#services"
-                    onClick={(e) => scrollToSection(e, "#services")}
+                    href="/services"
                     className="text-sm text-[hsl(215_15%_46%)] hover:text-[hsl(175_72%_38%)] transition-colors"
                   >
                     {service}
