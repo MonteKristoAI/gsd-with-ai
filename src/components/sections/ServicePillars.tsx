@@ -100,13 +100,14 @@ export default function ServicePillars() {
               >
                 {/* Pillar image */}
                 {PILLAR_IMAGES[pillar.id] && (
-                  <div className="h-40 -mx-8 -mt-8 mb-6 rounded-t-2xl overflow-hidden">
+                  <div className="relative h-40 -mx-8 -mt-8 mb-6 rounded-t-2xl overflow-hidden">
                     <img
                       src={PILLAR_IMAGES[pillar.id]}
                       alt={PILLAR_ALTS[pillar.id] ?? pillar.title}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[hsl(175_72%_38%/0.1)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 )}
 

@@ -117,10 +117,10 @@ export default function ContactSection() {
             </div>
 
             {/* Image */}
-            <div className="mt-10 overflow-hidden rounded-xl">
+            <div className="mt-10 overflow-hidden rounded-2xl shadow-md">
               <img
-                src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&h=400&fit=crop&q=80"
-                alt="Business communication"
+                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop&q=80"
+                alt="Modern workspace with technology"
                 className="h-auto w-full object-cover"
                 loading="lazy"
               />

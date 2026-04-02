@@ -103,7 +103,7 @@ export default function ReviewsCarousel() {
                 key={review.name}
                 className={cn(
                   "group shrink-0 w-[380px] rounded-2xl border border-[hsl(214_20%_90%)] bg-white p-6 shadow-sm",
-                  "transition-all duration-300 hover:shadow-lg",
+                  "transition-all duration-300 hover:-translate-y-1 hover:shadow-lg",
                 )}
                 style={{ scrollSnapAlign: "start" }}
               >

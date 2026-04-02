@@ -1,6 +1,6 @@
 import { COMPANY } from "@/data/companyInfo";
-import { MapPin, Phone, Mail } from "lucide-react";
-import gsdLogo from "@/assets/gsd-logo.png";
+import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import gsdLogo from "@/assets/gsd-logo.webp";
 
 const QUICK_LINKS = [
   { label: "Services", href: "#services" },
@@ -29,6 +29,16 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
+    <>
+    <section className="border-t border-[hsl(214_20%_90%)] bg-gradient-to-r from-[hsl(175_72%_38%/0.04)] via-white to-[hsl(175_72%_38%/0.04)] py-16">
+      <div className="container mx-auto px-6 text-center">
+        <h2 className="text-2xl font-extrabold text-[hsl(220_25%_14%)] sm:text-3xl">Ready to transform your business?</h2>
+        <p className="mx-auto mt-3 max-w-lg text-[hsl(215_15%_46%)]">Book a free 30-minute discovery call and get a custom AI roadmap for your business.</p>
+        <a href="/#booking" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[hsl(175_72%_38%)] px-8 py-4 text-sm font-semibold text-white shadow-[0_4px_14px_hsl(175_72%_38%/0.3)] transition-all hover:shadow-[0_8px_25px_hsl(175_72%_38%/0.4)] hover:brightness-110">
+          Book a Discovery Call <ArrowRight className="h-4 w-4" />
+        </a>
+      </div>
+    </section>
     <footer className="bg-[hsl(210_25%_97%)] border-t border-[hsl(214_20%_90%)]">
       <div className="container mx-auto px-6 py-16 lg:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
@@ -161,5 +171,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
