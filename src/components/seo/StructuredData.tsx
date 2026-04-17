@@ -43,12 +43,12 @@ export const ORGANIZATION_DATA: Record<string, unknown> = {
   url: "https://www.getsstuffdone.com",
   logo: "https://www.getsstuffdone.com/logo.png",
   description:
-    "Smart IT & AI Solutions — Affordable, Scalable, Impactful. We design, build, and deploy AI agents and automations that replace manual work.",
+    "AI and automation consulting for SMB operators. We design and ship the automation layer on top of the tools you already run. Founded by a 20-year Schlumberger data veteran.",
   foundingDate: "2024",
   founder: {
     "@type": "Person",
     name: "Maxine Aitkenhead",
-    jobTitle: "Founder & CEO",
+    jobTitle: "Founder",
   },
   address: {
     "@type": "PostalAddress",
@@ -75,7 +75,7 @@ export const PROFESSIONAL_SERVICE_DATA: Record<string, unknown> = {
   name: "GSD with AI",
   url: "https://www.getsstuffdone.com",
   description:
-    "AI and IT consulting for small and mid-size businesses. Workflow automation, CRM integration, AI agent deployment, and digital transformation.",
+    "AI and IT consulting for SMB operators. Workflow automation, CRM integration, AI agent deployment, and the reporting layer that sits on top.",
   telephone: "+1-281-844-2458",
   email: "info@getsstuffdone.com",
   priceRange: "$$",

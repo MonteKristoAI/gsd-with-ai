@@ -1,7 +1,7 @@
 export const COMPANY = {
   name: "GSD with AI",
   legal: "Gets Stuff Done LLC",
-  tagline: "Smart IT & AI Solutions — Affordable, Scalable, Impactful",
+  tagline: "AI and automation, built for operators who ship",
   phone: "+1 (281) 844-2458",
   email: "info@getsstuffdone.com",
   location: "Texas, USA",
@@ -12,19 +12,19 @@ export const COMPANY = {
   },
   founder: {
     name: "Maxine Aitkenhead",
-    title: "Founder & CEO",
-    bio: "At GSD, we believe technology should be a catalyst, not a hurdle. Founded by Maxine Aitkenhead, Get Stuff Done LLC was born from a simple observation: most businesses are held back by \"administrative drag\" — the manual, siloed processes that drain time and stifle innovation. Our mission is to level the playing field by making enterprise-level operational intelligence accessible, affordable, and impactful for businesses of all sizes.",
+    title: "Founder",
+    bio: "Maxine spent twenty years inside Schlumberger, the oilfield data company that taught her what enterprise systems look like when they have to survive in places without reliable electricity. She started GSD because most SMBs already own the right tools. They are not missing software. They are missing the wiring between the tools, the discipline to ship one change a week, and someone who has watched a Fortune 100 system work across six continents.",
     credentials: [
-      "20+ Years Enterprise Experience",
-      "Fortune 100 Background (Schlumberger)",
-      "Master's in International Business Marketing",
-      "Certified in Subsurface Petroleum Data Management",
-      "Blockchain & Smart Contract Expertise",
+      "20 years at Schlumberger",
+      "Subsurface Petroleum Data Management certified",
+      "MSc, International Business Marketing",
+      "Blockchain and smart-contract practitioner",
+      "Texas-based. Works US and international SMBs.",
     ],
     vision: [
-      { title: "Global Innovation", text: "From developing massive query databases in London to training teams across Europe, Russia, and Africa, Maxine has a proven track record of transforming raw data into organizational answers." },
-      { title: "Technical Depth", text: "With a Master's in International Business Marketing and a background in Subsurface Petroleum Data Management, she bridges the gap between complex technical architecture and real-world business needs." },
-      { title: "Modern Expertise", text: "Her recent decade has been spent at the intersection of blockchain-powered smart contracts, data governance, and high-level business development." },
+      { title: "Work across geographies", text: "Built query systems in London. Ran training across Europe, Russia, and Africa. The pattern is always the same. Once the team trusts the data, everything downstream gets faster." },
+      { title: "Bridge the tech-to-ops gap", text: "Most consultants speak one language. Maxine speaks both. An International Business Marketing background sits on top of a Subsurface Petroleum Data Management certification, which is a long way of saying that the technical architecture and the P&L conversation happen in the same sentence." },
+      { title: "Modern stack, classical discipline", text: "The recent decade has been blockchain, smart contracts, and the governance layer under them. The classical discipline is unchanged. Ship something real every two weeks or the engagement is in trouble." },
     ],
   },
   webhooks: {

@@ -6,7 +6,8 @@ import HeroSection from "@/components/sections/HeroSection";
 import PartnersStrip from "@/components/sections/PartnersStrip";
 import ServicePillars from "@/components/sections/ServicePillars";
 import CaseStudies from "@/components/sections/CaseStudies";
-import ReviewsCarousel from "@/components/sections/ReviewsCarousel";
+// ReviewsCarousel intentionally omitted until real client testimonials are collected.
+// The component still exists at components/sections/ReviewsCarousel.tsx for future re-enable.
 import AboutFounder from "@/components/sections/AboutFounder";
 import BookingWizard from "@/components/sections/BookingWizard";
 import FAQSection from "@/components/sections/FAQSection";
@@ -37,15 +38,15 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="GSD with AI | Smart IT & AI Solutions — Affordable, Scalable, Impactful"
-        description="Enterprise-level IT and AI solutions for SMBs. Workflow automation, AI implementation, CRM, digital transformation. Book a free discovery call."
+        title="GSD with AI | AI and automation for operators who ship"
+        description="A 20-year Schlumberger data veteran and a three-pillar service menu. Workflow automation, AI voice agents, and the reporting layer that sits on top of the tools you already pay for."
         canonical="/"
       />
       <StructuredData data={ORGANIZATION_DATA} id="ld-org" />
       <StructuredData data={PROFESSIONAL_SERVICE_DATA} id="ld-service" />
       <StructuredData data={buildFAQData(FAQS)} id="ld-faq" />
       <StructuredData
-        data={buildBreadcrumbData([{ name: "Home", url: "https://www.getsstuffdone.com/" }])}
+        data={buildBreadcrumbData([{ name: "Home", url: (import.meta.env.VITE_SITE_URL as string | undefined) ?? "https://gsd-with-ai.vercel.app/" }])}
         id="ld-breadcrumb"
       />
       <Header />
@@ -57,7 +58,6 @@ export default function HomePage() {
         <CaseStudies />
         <div className="section-divider" />
         <AboutFounder />
-        <ReviewsCarousel />
         <div className="section-divider" />
         <BookingWizard />
         <FAQSection />

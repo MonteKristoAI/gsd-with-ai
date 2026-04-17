@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/data/companyInfo";
 import { Phone, Menu, X } from "lucide-react";
@@ -32,13 +32,19 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToBooking = useCallback(() => {
     setMobileOpen(false);
+    // If we're not on "/", navigate first; HomePage will handle the hash scroll
+    if (location.pathname !== "/") {
+      navigate("/#booking");
+      return;
+    }
     const el = document.getElementById("booking") || document.getElementById("contact");
     el?.scrollIntoView({ behavior: "smooth" });
-  }, []);
-
-  const navigate = useNavigate();
+  }, [location.pathname, navigate]);
 
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -80,12 +86,12 @@ export default function Header() {
         )}
       >
         <div className="mx-auto flex items-center justify-between h-20 lg:h-[88px] px-3 lg:px-4 max-w-[1440px]">
-          {/* Logo — edge to edge, minimal padding */}
-          <a href="/" className="shrink-0">
+          {/* Logo: edge to edge, minimal padding */}
+          <Link to="/" className="shrink-0">
             <img src={gsdLogo} alt="GSD with AI" className="h-[72px] lg:h-[80px] w-auto" />
-          </a>
+          </Link>
 
-          {/* Desktop Nav — center */}
+          {/* Desktop Nav (center) */}
           <nav className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <a

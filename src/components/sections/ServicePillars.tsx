@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { SERVICE_PILLARS, type ServicePillar } from "@/data/services"
@@ -76,15 +77,13 @@ export default function ServicePillars() {
         {/* Header */}
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(175_72%_38%)]">
-            What We Deliver
+            Three pillars
           </span>
           <h2 className="text-3xl font-extrabold text-[hsl(220_25%_14%)] md:text-4xl">
-            Enterprise-Level Solutions, SMB-Friendly Pricing
+            What we ship for SMB operators
           </h2>
           <p className="mt-4 text-[hsl(215_15%_46%)]">
-            Three interconnected pillars that cover every stage of your digital
-            transformation — from foundational infrastructure to AI-powered
-            growth engines.
+            Lead capture that hits within 2 minutes. Voice agents that answer when your team is asleep. A reporting layer that tells you the truth on Monday. Pick the pillar that matches the fire closest to your desk.
           </p>
         </div>
 
@@ -93,11 +92,13 @@ export default function ServicePillars() {
           {SERVICE_PILLARS.map((pillar, i) => {
             const PillarIcon = ICON_MAP[pillar.icon] ?? Zap
             return (
-              <div
+              <Link
                 key={pillar.id}
+                to={`/services#${pillar.id}`}
                 className={cn(
                   "group flex flex-col rounded-2xl border border-[hsl(214_20%_90%)] bg-white p-8 shadow-sm",
                   "transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(175_72%_38%_/_0.3)] hover:shadow-lg",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(175_72%_38%/0.4)] focus-visible:ring-offset-2",
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
                 )}
                 style={{ transitionDelay: `${i * 150}ms` }}
@@ -144,7 +145,15 @@ export default function ServicePillars() {
                     </span>
                   ))}
                 </div>
-              </div>
+
+                {/* Affordance: explicit link hint so cards read as navigable */}
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[hsl(175_72%_38%)] opacity-80 transition-opacity group-hover:opacity-100">
+                  Explore this pillar
+                  <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </Link>
             )
           })}
         </div>

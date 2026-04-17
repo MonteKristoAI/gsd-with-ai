@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { CASE_STUDIES } from "@/data/caseStudies"
@@ -31,25 +32,26 @@ export default function CaseStudies() {
         {/* Header */}
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(175_72%_38%)]">
-            Proven Results
+            Operational Scenarios
           </span>
           <h2 className="text-3xl font-extrabold text-[hsl(220_25%_14%)] md:text-4xl">
-            Real Impact, Measurable Outcomes
+            What the work actually changes
           </h2>
           <p className="mt-4 text-[hsl(215_15%_46%)]">
-            See how our AI-powered solutions have transformed operations and
-            driven measurable growth for real businesses.
+            Three composite scenarios drawn from patterns we see in mid-market finance, property, and facilities teams. Click any card to read the full breakdown.
           </p>
         </div>
 
         {/* Case study cards */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {CASE_STUDIES.map((study, i) => (
-            <div
+            <Link
               key={study.id}
+              to={`/case-studies#${study.id}`}
               className={cn(
                 "group flex flex-col overflow-hidden rounded-2xl border border-[hsl(214_20%_90%)] bg-white shadow-sm",
                 "transition-all duration-300 hover:-translate-y-1 hover:shadow-lg",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(175_72%_38%/0.4)] focus-visible:ring-offset-2",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
               )}
               style={{ transitionDelay: `${i * 150}ms` }}
@@ -92,8 +94,16 @@ export default function CaseStudies() {
                     </div>
                   ))}
                 </div>
+
+                {/* Affordance */}
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[hsl(175_72%_38%)] opacity-80 transition-opacity group-hover:opacity-100">
+                  Read the scenario
+                  <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

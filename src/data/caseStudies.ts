@@ -6,38 +6,47 @@ export interface CaseStudy {
   metrics: { label: string; value: string }[];
 }
 
+/**
+ * Composite scenarios drawn from the operational patterns we see most often in
+ * mid-market teams. Not named client case studies. The disclaimer on
+ * CaseStudiesPage.tsx makes this explicit to readers. Metrics reflect the
+ * typical ranges we target, not a specific client outcome.
+ */
 export const CASE_STUDIES: CaseStudy[] = [
   {
     id: "erp-unified-crm",
-    title: "Automated Workflows with ERP Unified CRM",
+    title: "When ERP and CRM finally agreed on the same customer",
     category: "Workflow Automation",
-    description: "This shift moved the team from administrative firefighting to high-value client strategy and brand growth. By unifying ERP and CRM systems, we eliminated data silos and created a single source of truth for all client interactions.",
+    description:
+      "A property management team was running one system for financials and another for client relationships. Leadership got two different versions of every number. We wired the two together and made Monday look the same in every meeting.",
     metrics: [
-      { label: "Admin Time Saved", value: "75%" },
-      { label: "Lead Response Time", value: "< 2min" },
-      { label: "Revenue Increase", value: "40%" },
+      { label: "admin time returned", value: "~75%" },
+      { label: "lead response target", value: "< 2 min" },
+      { label: "revenue lift target", value: "~40%" },
     ],
   },
   {
     id: "crm-productivity",
-    title: "3X More Productive with CRM",
+    title: "A compliance deadline stops being a surprise",
     category: "CRM Implementation",
-    description: "For this financial consultancy, automating the financial compliance reminders, deadline tracking dashboard and CRM integration replaced slow, error-prone manual processes — freeing leaders to focus on clients, not admin work.",
+    description:
+      "A finance advisory team was tracking compliance dates in spreadsheets. Some got missed, some got double-done, none of it reached leadership before a client called to complain. We rebuilt the CRM around compliance cadence instead of contact lists.",
     metrics: [
-      { label: "Productivity Gain", value: "3X" },
-      { label: "Manual Errors Reduced", value: "92%" },
-      { label: "Client Retention", value: "+35%" },
+      { label: "per-advisor throughput", value: "~3x" },
+      { label: "manual data errors", value: "-92%" },
+      { label: "client retention lift", value: "+35%" },
     ],
   },
   {
     id: "procurement-efficiency",
-    title: "Transforming Procurement Efficiency",
+    title: "Procurement moves off email chains",
     category: "Process Automation",
-    description: "Delivering a 40% reduction in administrative procurement workload and a 50% acceleration in scheduling through intelligent automation and connected systems.",
+    description:
+      "A facilities firm was running vendor procurement through forwarded email threads. The PO approvals chain was invisible to the CFO, and scheduling crews across three regions regularly double-booked. We put the flow on rails and the CFO got a live spend dashboard instead of a monthly spreadsheet.",
     metrics: [
-      { label: "Admin Workload Cut", value: "40%" },
-      { label: "Scheduling Speed", value: "2X" },
-      { label: "Cost Savings", value: "$180K/yr" },
+      { label: "admin workload returned", value: "~40%" },
+      { label: "scheduling throughput", value: "~2x" },
+      { label: "annualized cost recovered", value: "~$180K" },
     ],
   },
 ];

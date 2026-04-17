@@ -1,40 +1,69 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { COMPANY } from "@/data/companyInfo";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import gsdLogo from "@/assets/gsd-logo.png";
 
-const QUICK_LINKS = [
-  { label: "Services", href: "/services" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "About", href: "/about" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Contact", href: "/#contact" },
+type QuickLink = { label: string; to: string };
+
+const QUICK_LINKS: readonly QuickLink[] = [
+  { label: "Services", to: "/services" },
+  { label: "Case Studies", to: "/case-studies" },
+  { label: "About", to: "/about" },
+  { label: "FAQ", to: "/#faq" },
+  { label: "Contact", to: "/#contact" },
 ] as const;
 
-const SERVICES = [
-  "AI Agent Development",
-  "CRM Automation",
-  "Sales Outreach",
-  "Data Integration",
-  "Process Optimization",
+const SERVICES_LINKS: readonly { label: string; to: string }[] = [
+  { label: "AI Agent Development", to: "/services#ai-powered-growth" },
+  { label: "CRM Automation", to: "/services#digital-foundations" },
+  { label: "Sales Outreach", to: "/services#digital-foundations" },
+  { label: "Data Integration", to: "/services#secure-scalable-it" },
+  { label: "Process Optimization", to: "/services#ai-powered-growth" },
 ] as const;
-
-function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
-  e.preventDefault();
-  const id = href.replace("#", "");
-  const el = document.getElementById(id);
-  el?.scrollIntoView({ behavior: "smooth" });
-}
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  /**
+   * Smart route + anchor handler.
+   * - /about, /services, /case-studies  -> client-side navigate (no reload)
+   * - /#faq, /#contact                  -> if on "/", scroll to hash; else navigate
+   * - /#booking (bottom CTA)            -> same logic
+   */
+  const handleSmartClick = (e: React.MouseEvent<HTMLAnchorElement>, to: string) => {
+    e.preventDefault();
+
+    // Plain route (no hash)
+    if (!to.includes("#")) {
+      navigate(to);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const [pathPart, hash] = to.split("#");
+    const targetPath = pathPart || "/";
+
+    if (location.pathname === targetPath) {
+      const el = document.getElementById(hash);
+      el?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(to);
+    }
+  };
 
   return (
     <>
     <section className="border-t border-[hsl(214_20%_90%)] bg-gradient-to-r from-[hsl(175_72%_38%/0.04)] via-white to-[hsl(175_72%_38%/0.04)] py-16">
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-2xl font-extrabold text-[hsl(220_25%_14%)] sm:text-3xl">Ready to transform your business?</h2>
-        <p className="mx-auto mt-3 max-w-lg text-[hsl(215_15%_46%)]">Book a free 30-minute discovery call and get a custom AI roadmap for your business.</p>
-        <a href="/#booking" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[hsl(175_72%_38%)] px-8 py-4 text-sm font-semibold text-white shadow-[0_4px_14px_hsl(175_72%_38%/0.3)] transition-all hover:shadow-[0_8px_25px_hsl(175_72%_38%/0.4)] hover:brightness-110">
+        <h2 className="text-2xl font-extrabold text-[hsl(220_25%_14%)] sm:text-3xl">Ready to see where the automation layer would land?</h2>
+        <p className="mx-auto mt-3 max-w-lg text-[hsl(215_15%_46%)]">A 30-minute discovery call. You walk us through the friction. We walk back a diagnostic on the first thing worth automating.</p>
+        <a
+          href="/#booking"
+          onClick={(e) => handleSmartClick(e, "/#booking")}
+          className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[hsl(175_72%_38%)] px-8 py-4 text-sm font-semibold text-white shadow-[0_4px_14px_hsl(175_72%_38%/0.3)] transition-all hover:shadow-[0_8px_25px_hsl(175_72%_38%/0.4)] hover:brightness-110"
+        >
           Book a Discovery Call <ArrowRight className="h-4 w-4" />
         </a>
       </div>
@@ -82,16 +111,31 @@ export default function Footer() {
               Quick Links
             </h4>
             <nav className="flex flex-col gap-2.5">
-              {QUICK_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => scrollToSection(e, link.href)}
-                  className="text-sm text-[hsl(215_15%_46%)] hover:text-[hsl(175_72%_38%)] transition-colors w-fit"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {QUICK_LINKS.map((link) => {
+                // Plain route: use <Link> for SPA navigation
+                if (!link.to.includes("#")) {
+                  return (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      className="text-sm text-[hsl(215_15%_46%)] hover:text-[hsl(175_72%_38%)] transition-colors w-fit"
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                }
+                // Hash link: use smart handler (scroll if on page, navigate otherwise)
+                return (
+                  <a
+                    key={link.to}
+                    href={link.to}
+                    onClick={(e) => handleSmartClick(e, link.to)}
+                    className="text-sm text-[hsl(215_15%_46%)] hover:text-[hsl(175_72%_38%)] transition-colors w-fit"
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </nav>
           </div>
 
@@ -101,14 +145,14 @@ export default function Footer() {
               Services
             </h4>
             <ul className="flex flex-col gap-2.5">
-              {SERVICES.map((service) => (
-                <li key={service}>
-                  <a
-                    href="/services"
+              {SERVICES_LINKS.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    to={item.to}
                     className="text-sm text-[hsl(215_15%_46%)] hover:text-[hsl(175_72%_38%)] transition-colors"
                   >
-                    {service}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -152,20 +196,18 @@ export default function Footer() {
             &copy; {year} {COMPANY.legal}. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a
-              href="#"
-              title="Coming soon"
+            <Link
+              to="/privacy"
               className="text-xs text-[hsl(215_15%_46%)] hover:text-[hsl(175_72%_38%)] transition-colors"
             >
               Privacy Policy
-            </a>
-            <a
-              href="#"
-              title="Coming soon"
+            </Link>
+            <Link
+              to="/terms"
               className="text-xs text-[hsl(215_15%_46%)] hover:text-[hsl(175_72%_38%)] transition-colors"
             >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

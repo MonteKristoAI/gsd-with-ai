@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gsd-with-ai.vercel.app/sitemap.xml

@@ -28,11 +28,10 @@ export default function FAQSection() {
       >
         <span className="overline mb-4 block">FAQ</span>
         <h2 className="font-heading text-3xl font-extrabold text-foreground md:text-4xl">
-          Frequently Asked Questions
+          The questions operators actually ask
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground leading-relaxed">
-          Everything you need to know about working with GSD. Can't find
-          what you're looking for? Reach out — we're happy to help.
+          Direct answers to the eight questions that come up every discovery call. If yours is not here, reach out. Maxine answers the inbox herself.
         </p>
       </div>
 

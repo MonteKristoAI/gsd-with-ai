@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, CheckCircle2, Sparkles, Play, Zap, Bot, BarChart3 } from "lucide-react";
 
 const TRUST_ITEMS = [
-  "20+ Years Experience",
-  "Fortune 100 Background",
-  "Texas-Based",
+  "20 years at Schlumberger",
+  "Enterprise data systems background",
+  "Houston operator perspective",
 ];
 
 const ROTATING_WORDS = [
-  "Scale Your Business",
-  "Automate Everything",
   "Replace Busywork",
-  "Accelerate Growth",
+  "Scale Without Headcount",
+  "Run Without You",
+  "Ship on Monday",
 ];
 
 function RotatingText() {
@@ -46,9 +47,9 @@ function RotatingText() {
 }
 
 const CAPABILITIES = [
-  { icon: Bot, label: "AI Agents", desc: "24/7 intelligent automation" },
-  { icon: Zap, label: "Workflow Automation", desc: "Eliminate manual processes" },
-  { icon: BarChart3, label: "Smart Analytics", desc: "Data-driven decisions" },
+  { icon: Bot, label: "AI Voice Agents", desc: "Answer calls at 2am. Book meetings.", target: "/services#ai-powered-growth" },
+  { icon: Zap, label: "Workflow Automation", desc: "Replace the spreadsheet handoffs.", target: "/services#digital-foundations" },
+  { icon: BarChart3, label: "Operational Reporting", desc: "One number. Every Monday.", target: "/services#ai-powered-growth" },
 ];
 
 export default function HeroSection() {
@@ -58,7 +59,7 @@ export default function HeroSection() {
     <section ref={ref} className="relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0">
-        {/* Primary bg image — abstract AI/network visualization */}
+        {/* Primary bg image: abstract AI/network visualization */}
         <img
           src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&h=1080&fit=crop&q=80"
           alt=""
@@ -81,17 +82,17 @@ export default function HeroSection() {
             <div className={cn("hero-animate hero-delay-1", isVisible && "visible")}>
               <span className="inline-flex items-center gap-2 rounded-full border border-[hsl(175_72%_38%/0.2)] bg-white/90 backdrop-blur-sm px-5 py-2.5 text-sm font-semibold text-[hsl(175_72%_38%)] shadow-sm">
                 <Sparkles className="h-4 w-4" />
-                AI-Powered Business Solutions
+                AI and automation for operators who ship
               </span>
             </div>
 
             {/* Headline */}
             <h1 className={cn("hero-animate hero-delay-2 mt-8", isVisible && "visible")}>
               <span className="block text-[2.75rem] font-extrabold leading-[1.06] tracking-[-0.03em] text-[hsl(220_25%_10%)] sm:text-[3.25rem] lg:text-[3.75rem]">
-                We Build AI Systems
+                Build the system that lets you
               </span>
               <span className="mt-1 block text-[2.75rem] font-extrabold leading-[1.06] tracking-[-0.03em] sm:text-[3.25rem] lg:text-[3.75rem]">
-                That <RotatingText />
+                <RotatingText />
               </span>
             </h1>
 
@@ -100,8 +101,7 @@ export default function HeroSection() {
               "hero-animate hero-delay-3 mt-7 max-w-[520px] text-[1.125rem] leading-[1.7] text-[hsl(215_15%_32%)]",
               isVisible && "visible"
             )}>
-              From CRM automation to AI voice agents — we design, build, and
-              deploy intelligent systems so SMBs can scale without adding headcount.
+              We design, build, and wire the AI and automation layer that sits on top of the tools you already pay for. CRM, voice, outreach, reporting. Real work, shipped in weeks, not slide decks.
             </p>
 
             {/* CTAs */}
@@ -113,26 +113,27 @@ export default function HeroSection() {
                 Book a Free Discovery Call
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </a>
-              <a
-                href="/services"
+              <Link
+                to="/services"
                 className="group inline-flex items-center gap-2.5 rounded-xl border border-[hsl(220_25%_14%/0.12)] bg-white/70 backdrop-blur-sm px-8 py-4 text-[0.9375rem] font-semibold text-[hsl(220_25%_14%)] transition-all duration-300 hover:border-[hsl(175_72%_38%/0.3)] hover:bg-white hover:shadow-md hover:-translate-y-0.5"
               >
                 <Play className="h-4 w-4 text-[hsl(175_72%_38%)]" />
                 See How It Works
-              </a>
+              </Link>
             </div>
 
             {/* Capabilities mini cards */}
             <div className={cn("hero-animate hero-delay-5 mt-12 grid grid-cols-3 gap-3", isVisible && "visible")}>
               {CAPABILITIES.map((cap) => (
-                <div
+                <Link
                   key={cap.label}
+                  to={cap.target}
                   className="group rounded-xl border border-[hsl(214_20%_90%/0.6)] bg-white/80 backdrop-blur-sm p-4 transition-all duration-300 hover:border-[hsl(175_72%_38%/0.3)] hover:shadow-md hover:-translate-y-0.5"
                 >
                   <cap.icon className="h-5 w-5 text-[hsl(175_72%_38%)] mb-2" />
                   <span className="block text-sm font-bold text-[hsl(220_25%_14%)]">{cap.label}</span>
                   <span className="block text-xs text-[hsl(215_15%_46%)] mt-0.5">{cap.desc}</span>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -157,9 +158,9 @@ export default function HeroSection() {
           isVisible && "visible"
         )}>
           {[
-            { value: "20+", label: "Years of Experience" },
-            { value: "100+", label: "Automations Deployed" },
-            { value: "3X", label: "Avg. Productivity Boost" },
+            { value: "20+", label: "years at Schlumberger" },
+            { value: "6", label: "continents of enterprise data work" },
+            { value: "3-6 wk", label: "from kickoff to first shipped automation" },
           ].map((stat) => (
             <div key={stat.label} className="px-4 text-center sm:px-8">
               <span className="block text-2xl font-extrabold text-[hsl(175_72%_38%)] sm:text-3xl">{stat.value}</span>

@@ -56,7 +56,7 @@ export default function PartnersStrip() {
         Trusted tools powering our solutions
       </p>
 
-      {/* Single-row infinite marquee — full width, no container */}
+      {/* Single-row infinite marquee (full width, no container) */}
       <div className="relative">
         {/* Fade edges */}
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 sm:w-40 bg-gradient-to-r from-[hsl(210_20%_98%)] to-transparent" />

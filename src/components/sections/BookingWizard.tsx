@@ -214,13 +214,15 @@ export default function BookingWizard() {
     if (!canContinue || submitting) return;
     setSubmitting(true);
     try {
-      await fetch(COMPANY.webhooks.booking, {
+      const res = await fetch(COMPANY.webhooks.booking, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, type: "booking" }),
       });
+      if (!res.ok) throw new Error(`Booking webhook returned ${res.status}`);
       setSubmitted(true);
-    } catch {
+    } catch (err) {
+      console.error("[GSD] Booking webhook failed:", err);
       setSubmitError(true);
     } finally {
       setSubmitting(false);
@@ -600,18 +602,18 @@ export default function BookingWizard() {
             <CheckCircle2 className="h-10 w-10 text-[hsl(175_72%_38%)]" />
           </div>
           <h2 className="font-heading text-3xl font-bold text-foreground">
-            You&rsquo;re All Set!
+            Booked.
           </h2>
           <p className="mt-4 max-w-md text-base text-muted-foreground">
-            We&rsquo;ve received your booking request. Maxine or a team member
-            will reach out within 24 hours to confirm your discovery call.
+            Maxine has your request. Confirmation lands inside 24 hours with a calendar invite and a couple of prep questions so we skip the small talk on the call.
           </p>
-          <a
-            href="#top"
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="mt-8 inline-flex items-center gap-2 rounded-lg border border-[hsl(175_72%_38%/0.3)] px-6 py-3 font-heading text-sm font-semibold text-[hsl(175_72%_38%)] transition-all hover:border-[hsl(175_72%_38%)] hover:bg-[hsl(175_72%_38%/0.05)]"
           >
             Back to Home
-          </a>
+          </button>
         </div>
       </section>
     );
@@ -643,11 +645,10 @@ export default function BookingWizard() {
             Get Started
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
-            Book Your Free Discovery Call
+            Book the discovery call
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
-            A 30-minute conversation to understand your challenges, explore
-            solutions, and map out a clear path forward -- no strings attached.
+            Thirty minutes. You walk us through where the work is friction right now. We walk back a diagnostic on where the automation layer would land first. Nothing committed, no follow-up sequence.
           </p>
         </div>
 

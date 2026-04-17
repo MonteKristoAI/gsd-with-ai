@@ -28,15 +28,16 @@ export default function ContactSection() {
       const res = await fetch(COMPANY.webhooks.contact, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, type: "contact" }),
       });
 
-      if (!res.ok) throw new Error("Submission failed");
+      if (!res.ok) throw new Error(`Submission failed: ${res.status}`);
 
       setSuccess(true);
       form.reset();
-    } catch {
-      setError("Something went wrong. Please try again or email us directly.");
+    } catch (err) {
+      console.error("[GSD] Contact webhook failed:", err);
+      setError("Something went wrong. Please try again or email us directly at info@getsstuffdone.com.");
     } finally {
       setLoading(false);
     }
@@ -73,20 +74,18 @@ export default function ContactSection() {
         )}
       >
         <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
-          {/* Left -- info */}
+          {/* Left side: info */}
           <div className="flex flex-col">
             <span className="mb-4 block font-heading text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(175_72%_38%)]">
               Get in Touch
             </span>
 
             <h2 className="font-heading text-3xl font-bold text-foreground leading-tight md:text-4xl lg:text-5xl">
-              Let&rsquo;s Talk
+              Write us directly
             </h2>
 
             <p className="mt-6 max-w-lg text-base text-muted-foreground leading-relaxed sm:text-lg">
-              Book a free 30-minute discovery call and we&rsquo;ll map out
-              exactly how AI-powered workflows can remove the bottlenecks
-              slowing your business down.
+              Not ready to schedule a discovery call? Send a note with the shape of the work. Maxine reads the inbox personally and replies inside one business day.
             </p>
 
             {/* Contact info */}
@@ -127,7 +126,7 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Right -- form */}
+          {/* Right side: form */}
           <div>
             <div className="rounded-2xl border border-border bg-white p-7 shadow-[0_1px_3px_0_rgb(0_0_0/0.04),0_6px_24px_0_rgb(0_0_0/0.04)]">
               {success ? (
@@ -136,11 +135,10 @@ export default function ContactSection() {
                     <CheckCircle className="h-7 w-7 text-[hsl(175_72%_38%)]" />
                   </div>
                   <h3 className="font-heading text-xl font-semibold text-foreground">
-                    Message Sent!
+                    Got it.
                   </h3>
                   <p className="mt-2 max-w-xs text-sm text-muted-foreground">
-                    We&rsquo;ll get back to you within one business day. Looking
-                    forward to connecting.
+                    Your note landed in Maxine&rsquo;s inbox. Expect a reply inside one business day.
                   </p>
                 </div>
               ) : (

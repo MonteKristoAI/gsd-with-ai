@@ -1,34 +1,34 @@
 export const FAQS = [
   {
-    q: "How is GSD different from a typical IT company?",
-    a: "We don't just install software — we build connected systems. Our approach combines enterprise-level operational intelligence with SMB-friendly pricing. Every solution is designed to make your departments 'talk to each other,' eliminating silos and automating the administrative drag that slows growth.",
+    q: "How is GSD different from a typical IT agency?",
+    a: "Most IT agencies install tools. We connect them. Every GSD engagement starts with mapping where your CRM, finance, operations, and outreach systems are lying to each other, then wiring in the automation layer that makes them agree. The output is a single operational picture your team actually trusts, built on infrastructure you already pay for.",
   },
   {
     q: "What does a typical engagement look like?",
-    a: "It starts with a free 30-minute discovery call where we explore your current workflow and identify pain points. From there, we create a tailored roadmap — usually starting with quick wins that deliver ROI within 30 days, then building toward a fully connected system.",
+    a: "A 30-minute discovery call on our side, a working diagnostic back to you within a week. If we find the gap worth closing, we scope it as a fixed-price project (usually 3 to 6 weeks) or an ongoing monthly retainer if you want a technology partner rather than a one-shot deliverable. No ambiguous SOW, no hourly billing surprises.",
   },
   {
     q: "How much do your services cost?",
-    a: "Our solutions are designed for SMB budgets, not enterprise-only pricing. Engagements typically start from $2,500/month for ongoing managed services, or project-based work starting at $5,000. We always provide a clear scope and timeline before any commitment.",
+    a: "Pricing scales with scope. Fixed-price projects usually land between the mid four and low five figures. Ongoing managed services start in the low four figures per month. We provide a written scope, timeline, and fixed quote before you ever sign anything. If a piece of work does not have clear ROI inside 90 days, we tell you upfront.",
   },
   {
     q: "Do you work with businesses outside of Texas?",
-    a: "Absolutely. While we're based in Texas, our team works remotely with clients across the US and internationally. AI and workflow automation can be implemented entirely remotely without compromising quality.",
+    a: "Yes. The work is remote-first and we already support clients across North America and internationally. Texas is where Maxine is based and where in-person kickoffs happen when they help. Time zone and geography have never been the constraint.",
   },
   {
     q: "What industries do you specialize in?",
-    a: "We work across industries including energy, financial services, consulting, SaaS, manufacturing, logistics, and professional services. Our founder's background spans Fortune 100 oil & gas, startups, and global enterprises — giving us versatility most agencies lack.",
+    a: "Energy (oil and gas, renewables), financial services, professional consulting, SaaS, manufacturing, and logistics. Maxine's background is 20 years inside Schlumberger, which means the team is unusually comfortable with regulated data, multi-region operations, and the internal politics of replacing a legacy system without breaking the business that runs on it.",
   },
   {
     q: "How long does it take to see results?",
-    a: "Most clients see measurable improvements within 30-60 days. Quick wins like CRM unification, workflow automation, or AI chatbot deployment can deliver ROI in weeks. Larger digital transformation projects typically take 3-6 months for full implementation.",
+    a: "Quick wins (a working CRM, a wired-up lead capture flow, one automation that eliminates a weekly admin fire) land inside the first 30 to 45 days. Broader transformation (connected ERP and CRM, AI voice agent on inbound, unified reporting layer) runs 3 to 6 months. We stage delivery so something measurable ships every 2 weeks, not once at the end.",
   },
   {
     q: "What technologies do you use?",
-    a: "We're technology-agnostic and choose the best tools for each situation. Our stack includes n8n for workflow automation, GoHighLevel for CRM, Apollo and Instantly for outreach, OpenAI for AI capabilities, and Claude Code for development — plus enterprise solutions like Salesforce, HubSpot, and custom integrations.",
+    a: "The client-facing stack varies by the problem. Most engagements touch n8n for workflow automation, GoHighLevel or HubSpot for CRM, Apollo or Instantly for outbound, Retell or similar for voice, and custom integrations where the off-the-shelf tool stops at 80%. We are not locked into any one vendor, which is how we end up replacing expensive platform contracts rather than adding to them.",
   },
   {
     q: "Is my data secure with your solutions?",
-    a: "Security is built into everything we do. We implement enterprise-grade cybersecurity protocols, encrypted data transmission, role-based access controls, and compliance frameworks (SOC 2, GDPR, HIPAA where applicable). Your data stays yours — always.",
+    a: "Every integration uses encryption in transit and at rest, role-based access controls, and audit logging on every system we touch. For clients in regulated industries we design the architecture around the compliance framework you already operate under. We do not hold copies of your data on our infrastructure and we do not sell any of it downstream.",
   },
 ];

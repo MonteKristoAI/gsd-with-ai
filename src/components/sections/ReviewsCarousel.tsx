@@ -62,8 +62,7 @@ export default function ReviewsCarousel() {
             What Our Clients Say
           </h2>
           <p className="mt-4 text-[hsl(215_15%_46%)]">
-            Don't just take our word for it — hear from the businesses we've
-            helped transform.
+            Read the work in the voice of the operators who saw it change their Mondays.
           </p>
         </div>
 
@@ -167,7 +166,8 @@ export default function ReviewsCarousel() {
 }
 
 /* ---------------------------------------------------------------- */
-/*  Review Modal — rating gate: good → Google, bad → internal form  */
+/*  Review Modal: all ratings land in Maxine's inbox, no external    */
+/*  redirects. Framing shifts based on rating, destination is one.   */
 /* ---------------------------------------------------------------- */
 
 const FEEDBACK_CATEGORIES = [
@@ -184,43 +184,56 @@ function ReviewModal({ open, onClose }: { open: boolean; onClose: () => void }) 
   const [step, setStep] = useState<"rating" | "feedback" | "thanks">("rating");
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
+  const [email, setEmail] = useState("");
   const [selectedCats, setSelectedCats] = useState<string[]>([]);
   const [improvement, setImprovement] = useState("");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   if (!open) return null;
 
   const reset = () => {
-    setStep("rating"); setRating(0); setHover(0);
-    setSelectedCats([]); setImprovement(""); setMessage("");
+    setStep("rating"); setRating(0); setHover(0); setEmail("");
+    setSelectedCats([]); setImprovement(""); setMessage(""); setSubmitting(false);
   };
   const handleClose = () => { reset(); onClose(); };
 
   const handleRatingSubmit = () => {
-    if (rating >= 4) {
-      // Good rating → open Google Reviews
-      window.open("https://www.google.com/search?q=Gets+Stuff+Done+LLC+reviews", "_blank");
-      setStep("thanks");
-      setTimeout(handleClose, 2500);
-    } else {
-      // Low rating → internal feedback form
-      setStep("feedback");
-    }
+    // All ratings flow into the internal feedback form.
+    // The question framing adjusts based on the rating but every rating
+    // ends up in info@getsstuffdone.com. No external redirects.
+    setStep("feedback");
   };
 
   const toggleCat = (cat: string) => {
     setSelectedCats((prev) => prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]);
   };
 
-  const handleFeedbackSubmit = () => {
-    fetch(COMPANY.webhooks.contact, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type: "review_feedback", rating, categories: selectedCats, improvement, message }),
-    }).catch(() => {});
+  const handleFeedbackSubmit = async () => {
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      await fetch(COMPANY.webhooks.contact, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "review",
+          rating,
+          email,
+          categories: selectedCats,
+          improvement,
+          message,
+          subject: `[GSD Review] ${rating} star from ${email || "anonymous"}`,
+        }),
+      });
+    } catch (err) {
+      console.error("[GSD] Review webhook failed:", err);
+    }
     setStep("thanks");
     setTimeout(handleClose, 2500);
   };
+
+  const isPositive = rating >= 4;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm p-4" onClick={handleClose}>
@@ -261,14 +274,36 @@ function ReviewModal({ open, onClose }: { open: boolean; onClose: () => void }) 
           </div>
         )}
 
-        {/* Step: Feedback (low rating) */}
+        {/* Step: Feedback (all ratings) */}
         {step === "feedback" && (
           <div>
-            <h3 className="text-xl font-bold text-[hsl(220_25%_14%)]">We'd Love Your Feedback</h3>
-            <p className="mt-2 text-sm text-[hsl(215_15%_46%)]">Help us improve by sharing what went wrong.</p>
+            <h3 className="text-xl font-bold text-[hsl(220_25%_14%)]">
+              {isPositive ? "Thanks. Tell us what worked." : "Sorry about that. Tell us what went wrong."}
+            </h3>
+            <p className="mt-2 text-sm text-[hsl(215_15%_46%)]">
+              {isPositive
+                ? "Your note lands in Maxine's inbox directly. We use what you share to improve the engagement for the next client."
+                : "Your note lands in Maxine's inbox directly. We read every one and respond within one business day."}
+            </p>
 
             <div className="mt-5">
-              <p className="mb-2 text-sm font-medium text-[hsl(220_25%_14%)]">What could we improve?</p>
+              <label htmlFor="rev-email" className="mb-1.5 block text-sm font-medium text-[hsl(220_25%_14%)]">
+                Your email <span className="text-[hsl(215_15%_62%)]">(optional, only if you'd like a reply)</span>
+              </label>
+              <input
+                id="rev-email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@company.com"
+                className="w-full rounded-lg border border-[hsl(214_20%_90%)] px-4 py-2.5 text-sm text-[hsl(220_25%_14%)] placeholder:text-[hsl(215_15%_70%)] focus:border-[hsl(175_72%_38%)] focus:outline-none focus:ring-2 focus:ring-[hsl(175_72%_38%/0.2)]"
+              />
+            </div>
+
+            <div className="mt-4">
+              <p className="mb-2 text-sm font-medium text-[hsl(220_25%_14%)]">
+                {isPositive ? "What stood out?" : "What could we improve?"}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {FEEDBACK_CATEGORIES.map((cat) => (
                   <button
@@ -288,21 +323,23 @@ function ReviewModal({ open, onClose }: { open: boolean; onClose: () => void }) 
             </div>
 
             <div className="mt-4">
-              <label className="mb-1.5 block text-sm font-medium text-[hsl(220_25%_14%)]">How can we do better?</label>
+              <label className="mb-1.5 block text-sm font-medium text-[hsl(220_25%_14%)]">
+                {isPositive ? "What specifically worked for your team?" : "How can we do better?"}
+              </label>
               <input
                 value={improvement}
                 onChange={(e) => setImprovement(e.target.value)}
-                placeholder="Tell us what we could improve"
+                placeholder={isPositive ? "One sentence is fine" : "One sentence is fine"}
                 className="w-full rounded-lg border border-[hsl(214_20%_90%)] px-4 py-2.5 text-sm text-[hsl(220_25%_14%)] placeholder:text-[hsl(215_15%_70%)] focus:border-[hsl(175_72%_38%)] focus:outline-none focus:ring-2 focus:ring-[hsl(175_72%_38%/0.2)]"
               />
             </div>
 
             <div className="mt-4">
-              <label className="mb-1.5 block text-sm font-medium text-[hsl(220_25%_14%)]">Additional details</label>
+              <label className="mb-1.5 block text-sm font-medium text-[hsl(220_25%_14%)]">Anything else</label>
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Any additional context..."
+                placeholder="Optional context. Project scope, team size, the specific outcome you saw."
                 rows={3}
                 className="w-full rounded-lg border border-[hsl(214_20%_90%)] px-4 py-2.5 text-sm text-[hsl(220_25%_14%)] placeholder:text-[hsl(215_15%_70%)] focus:border-[hsl(175_72%_38%)] focus:outline-none focus:ring-2 focus:ring-[hsl(175_72%_38%/0.2)] resize-none"
               />
@@ -310,16 +347,16 @@ function ReviewModal({ open, onClose }: { open: boolean; onClose: () => void }) 
 
             <button
               onClick={handleFeedbackSubmit}
-              className="mt-6 w-full rounded-xl bg-[hsl(175_72%_38%)] py-3 text-sm font-semibold text-white shadow-sm transition-all hover:brightness-110"
+              disabled={submitting}
+              className={cn(
+                "mt-6 w-full rounded-xl py-3 text-sm font-semibold transition-all",
+                submitting
+                  ? "bg-[hsl(175_72%_38%/0.6)] text-white cursor-wait"
+                  : "bg-[hsl(175_72%_38%)] text-white shadow-sm hover:brightness-110"
+              )}
             >
-              Submit Feedback
+              {submitting ? "Sending" : "Send to Maxine"}
             </button>
-            <p className="mt-3 text-center text-xs text-[hsl(215_15%_62%)]">
-              Prefer a public review?{" "}
-              <a href="https://www.google.com/search?q=Gets+Stuff+Done+LLC+reviews" target="_blank" rel="noopener noreferrer" className="text-[hsl(175_72%_38%)] hover:underline">
-                Leave one on Google
-              </a>
-            </p>
           </div>
         )}
 
@@ -329,9 +366,9 @@ function ReviewModal({ open, onClose }: { open: boolean; onClose: () => void }) 
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[hsl(175_72%_38%/0.1)]">
               <Star className="h-7 w-7 fill-[hsl(175_72%_38%)] text-[hsl(175_72%_38%)]" />
             </div>
-            <h3 className="text-xl font-bold text-[hsl(220_25%_14%)]">Thank You!</h3>
+            <h3 className="text-xl font-bold text-[hsl(220_25%_14%)]">Thank you.</h3>
             <p className="mt-2 text-sm text-[hsl(215_15%_46%)]">
-              {rating >= 4 ? "Redirecting you to leave a public review..." : "Your feedback has been submitted. We'll use it to improve."}
+              Your note is on its way. Maxine reviews every one personally.
             </p>
           </div>
         )}

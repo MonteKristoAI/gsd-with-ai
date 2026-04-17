@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SEOHead from "@/components/seo/SEOHead";
+import BookingLink from "@/components/shared/BookingLink";
 import { COMPANY } from "@/data/companyInfo";
 import founderImg from "@/assets/founder-maxine.webp";
 import {
@@ -13,21 +14,21 @@ import {
 const VALUES = [
   {
     icon: Network,
-    title: "Unified Operational Intelligence",
+    title: "One operational truth",
     description:
-      "We connect your CRM, marketing, finance, and operations into a single intelligent layer — so every team sees the same truth and every decision is data-driven.",
+      "When sales, finance, and operations each own their own spreadsheet, leadership never gets the same number twice. We connect the systems under the spreadsheets so Monday morning looks the same in every meeting.",
   },
   {
     icon: Workflow,
-    title: "Workflow Automation",
+    title: "Automation that survives Monday",
     description:
-      "Manual data entry, copy-paste handoffs, and spreadsheet chaos end here. We design automated workflows that eliminate repetitive tasks and free your team to focus on growth.",
+      "Most automation breaks the first time someone changes a field name. We design flows that log their own failures, notify the owner, and keep running. If a workflow needs a human babysitter, we rebuilt it wrong.",
   },
   {
     icon: Rocket,
-    title: "Digital Transformation",
+    title: "Ship every two weeks",
     description:
-      "From legacy processes to modern, scalable operations — we guide businesses through every stage of digital transformation with practical, ROI-focused solutions.",
+      "Transformation decks gather dust. Two-week ship cycles do not. Every engagement is structured so something runs in production on a regular cadence, and the client can see the number move between check-ins.",
   },
 ];
 
@@ -49,9 +50,7 @@ export default function AboutPage() {
               About <span className="text-[hsl(175_72%_38%)]">GSD with AI</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 md:text-xl">
-              We exist to eliminate administrative drag — the hidden tax on every
-              growing business. Enterprise-level operational intelligence,
-              made accessible for companies of all sizes.
+              A Schlumberger data veteran, a three-pillar service menu, and a deliberate refusal to sell shelf-ware. That is the short version. The longer version is below.
             </p>
           </div>
         </section>
@@ -126,14 +125,13 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-6">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-sm font-semibold uppercase tracking-widest text-[hsl(175_72%_38%)]">
-                What Drives Us
+                How we run engagements
               </p>
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Our Core Pillars
+                Three non-negotiables
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                Every engagement is built on three foundational principles that
-                ensure real, measurable impact.
+                The principles below are the ones we learned from twenty years of Fortune 100 data work. If they do not fit how your team operates, we will say so on the discovery call and save both sides a month.
               </p>
             </div>
 
@@ -184,21 +182,16 @@ export default function AboutPage() {
         <section className="bg-gray-50/70 py-20 md:py-28">
           <div className="mx-auto max-w-3xl px-6 text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-[hsl(175_72%_38%)]">
-              Our Commitment
+              What we commit to
             </p>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              The GSD Promise
+              The GSD promise
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-gray-600">
-              We don't sell shelf-ware or theoretical roadmaps. Every solution we
-              deliver is built to run — in your business, with your team, from day
-              one. If it doesn't move the needle on efficiency, revenue, or
-              scalability, we don't ship it. That's what "Gets Stuff Done" means.
+              We do not sell slide decks. We do not sell roadmaps. Every piece of work we deliver runs in your production stack, touches your team, and changes a number on your dashboard. If the first two weeks do not produce something real, the engagement is not tracking and we say so out loud.
             </p>
             <p className="mt-4 text-base leading-relaxed text-gray-500">
-              Our clients keep us because we treat their operational bottlenecks
-              as our own. We measure success not in deliverables, but in hours
-              saved, errors eliminated, and growth unlocked.
+              The clients who stay hire us because we treat their bottleneck as ours. The measure of an engagement is not the deliverables list. It is the hours they got back, the errors that stopped happening, and the revenue their team unlocked while not firefighting.
             </p>
           </div>
         </section>
@@ -207,20 +200,16 @@ export default function AboutPage() {
         <section className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-3xl px-6 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Ready to transform your business?
+              Want to see the pattern in your own operation?
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-gray-600">
-              Book a free discovery call and let's map out how AI and automation
-              can eliminate the drag holding your team back.
+              The discovery call is 30 minutes. You walk us through where the work is friction right now. We walk back a diagnostic on where the automation layer would land first. Nothing committed, no follow-up sequence.
             </p>
             <div className="mt-8">
-              <a
-                href="/#booking"
-                className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-colors hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
-              >
+              <BookingLink className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-8 py-3.5 text-base font-semibold text-white shadow-sm transition-colors hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600">
                 Book a Discovery Call
                 <ArrowRight className="h-5 w-5" />
-              </a>
+              </BookingLink>
             </div>
           </div>
         </section>

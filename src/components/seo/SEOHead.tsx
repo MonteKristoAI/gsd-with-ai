@@ -1,6 +1,14 @@
 import { useEffect } from "react";
 
-const BASE_URL = "https://www.getsstuffdone.com";
+// Base URL used for canonical links, OG tags, and absolute structured-data URLs.
+// Set from Vite env so we can swap between the live Vercel preview and the
+// getsstuffdone.com custom domain without touching source. The default points
+// at the production Vercel deploy; once the custom domain is wired up in
+// Vercel, flip VITE_SITE_URL in the Vercel dashboard (or .env.production) to
+// https://www.getsstuffdone.com and redeploy.
+const BASE_URL =
+  (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") ??
+  "https://gsd-with-ai.vercel.app";
 
 interface SEOHeadProps {
   title: string;

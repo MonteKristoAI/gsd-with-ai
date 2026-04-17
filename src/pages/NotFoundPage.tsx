@@ -6,9 +6,9 @@ export default function NotFoundPage() {
     <div className="min-h-screen bg-white flex items-center justify-center px-4">
       <div className="text-center max-w-md">
         <p className="text-7xl font-extrabold text-primary mb-4">404</p>
-        <h1 className="text-2xl font-bold text-foreground mb-3">Page Not Found</h1>
+        <h1 className="text-2xl font-bold text-foreground mb-3">This one is missing</h1>
         <p className="text-muted-foreground mb-8">
-          The page you're looking for doesn't exist or has been moved.
+          The URL is wrong, the page was moved, or you are early to a page that has not shipped yet. Head back to the home page and we will route you from there.
         </p>
         <Link
           to="/"

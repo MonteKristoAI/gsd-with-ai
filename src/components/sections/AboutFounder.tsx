@@ -18,22 +18,22 @@ export default function AboutFounder() {
       >
         {/* Two-column layout */}
         <div className="grid items-center gap-16 lg:grid-cols-2">
-          {/* Left — founder photo */}
+          {/* Left side: founder photo */}
           <div className="flex justify-center">
             <img
               src={founderImg}
-              alt={`${COMPANY.founder.name} — ${COMPANY.founder.title}`}
+              alt={`${COMPANY.founder.name}, ${COMPANY.founder.title} of GSD with AI`}
               className="h-auto max-h-[500px] w-full max-w-md rounded-2xl border border-[hsl(214_20%_90%)] object-cover shadow-lg"
             />
           </div>
 
-          {/* Right — content */}
+          {/* Right side: content */}
           <div>
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(175_72%_38%)]">
-              About GSD
+              The person behind GSD
             </span>
             <h2 className="text-3xl font-extrabold text-[hsl(220_25%_14%)] md:text-4xl">
-              Turning Complexity into Growth
+              Twenty years of Schlumberger discipline, applied to SMB operations
             </h2>
 
             <p className="mt-6 text-base leading-relaxed text-[hsl(215_15%_46%)]">
@@ -87,15 +87,13 @@ export default function AboutFounder() {
             <div className="absolute inset-0 flex items-center justify-center p-8 text-center">
               <div>
                 <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(175_72%_38%)]">
-                  Our Commitment
+                  How we work
                 </span>
                 <h3 className="text-2xl font-extrabold text-[hsl(220_25%_14%)]">
-                  The GSD Promise
+                  Ship something real every two weeks
                 </h3>
                 <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-[hsl(215_15%_46%)]">
-                  Smart solutions. Real results. No &ldquo;administrative
-                  drag.&rdquo; We handle the tech, so you can focus on the
-                  high-impact growth that matters most.
+                  The easiest way to make a consulting engagement fail is to show up at week six with nothing running. We work backwards from that. Every two weeks something measurable ships into your production stack. If it does not move a number on your dashboard, we flagged the wrong project.
                 </p>
                 <p className="mt-6 text-lg font-bold text-[hsl(175_72%_38%)]">
                   Let&rsquo;s Get Stuff Done.

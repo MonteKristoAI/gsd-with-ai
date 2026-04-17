@@ -1,6 +1,9 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SEOHead from "@/components/seo/SEOHead";
+import BookingLink from "@/components/shared/BookingLink";
 import { SERVICE_PILLARS } from "@/data/services";
 import {
   Megaphone,
@@ -62,11 +65,26 @@ const PILLAR_IMAGE_ALTS: Record<string, string> = {
 };
 
 export default function ServicesPage() {
+  const location = useLocation();
+
+  // When navigating here with a hash (e.g. /services#ai-powered-growth from a card),
+  // scroll to that pillar section after the page mounts.
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-background font-sans">
       <SEOHead
         title="Services | GSD with AI"
-        description="Enterprise-level IT and AI solutions built for SMBs. From digital foundations and AI-powered growth to secure, scalable infrastructure — discover the services that drive real results."
+        description="Three pillars: Digital Foundations, AI Powered Growth, Secure and Scalable IT. Shipped in weeks, not quarters. Built by a 20-year Schlumberger operator."
         canonical="/services"
       />
       <Header />
@@ -76,11 +94,10 @@ export default function ServicesPage() {
         <section className="relative overflow-hidden bg-gradient-to-br from-[hsl(175_72%_38%/0.05)] to-white py-24 md:py-32">
           <div className="mx-auto max-w-4xl px-6 text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              Our Services
+              What we build
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 md:text-xl">
-              Enterprise-grade IT and AI solutions — designed, priced, and
-              delivered for small and mid-size businesses that are ready to scale.
+              Three pillars, each scoped to a fixed-price project or an ongoing monthly retainer. Pick the one that maps to the fire closest to your desk. We can start with that and expand as the stack earns trust.
             </p>
           </div>
         </section>
@@ -94,7 +111,7 @@ export default function ServicesPage() {
             <section
               key={pillar.id}
               id={pillar.id}
-              className={`${bgClass} py-20 md:py-28`}
+              className={`${bgClass} py-20 md:py-28 scroll-mt-24`}
             >
               <div className="mx-auto max-w-7xl px-6">
                 <div
@@ -136,7 +153,7 @@ export default function ServicesPage() {
                                 {service.name}
                                 {service.nickname && (
                                   <span className="ml-2 text-sm font-medium text-teal-600">
-                                    — {service.nickname}
+                                    {service.nickname}
                                   </span>
                                 )}
                               </h3>
@@ -150,13 +167,10 @@ export default function ServicesPage() {
                     </ul>
 
                     <div className="mt-10">
-                      <a
-                        href="#booking"
-                        className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
-                      >
-                        Book a Call to Discuss
+                      <BookingLink className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600">
+                        Book a call on this pillar
                         <ArrowRight className="h-4 w-4" />
-                      </a>
+                      </BookingLink>
                     </div>
                   </div>
                 </div>
