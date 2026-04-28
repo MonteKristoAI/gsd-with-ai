@@ -101,9 +101,9 @@ function ContactBookingInner() {
               </div>
             </div>
 
-            <div className="rounded-2xl bg-teal-900 p-8 text-white">
+            <div className="rounded-2xl bg-zinc-900 p-8 text-white shadow-md">
               <h3 className="text-lg font-bold mb-3">Who we do NOT work with</h3>
-              <ul className="space-y-2 text-teal-100 text-sm list-disc pl-4">
+              <ul className="space-y-2 text-zinc-300 text-sm list-disc pl-4">
                 <li>Companies under 10 employees.</li>
                 <li>Requests for one-off &ldquo;AI strategy decks&rdquo;.</li>
                 <li>Operations outside the TX/OK/LA corridor.</li>
