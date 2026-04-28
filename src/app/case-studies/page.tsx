@@ -94,7 +94,10 @@ export default function CaseStudiesIndex() {
               <img
                 src={study.image}
                 alt={study.imageAlt}
+                width={900}
+                height={600}
                 loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <span className="absolute left-4 top-4 inline-flex items-center rounded-full bg-teal-600 px-3 py-1 text-xs font-semibold text-white shadow-sm">

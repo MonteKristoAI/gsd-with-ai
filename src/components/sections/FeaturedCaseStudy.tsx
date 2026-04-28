@@ -23,8 +23,11 @@ export default function FeaturedCaseStudy() {
             <img
               src="https://images.unsplash.com/photo-1614624533284-de7ddff85822?w=1200&h=900&fit=crop&q=80"
               alt="Wireline operator working at a wellsite"
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              width={1200}
+              height={900}
               loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <span className="absolute left-6 top-6 inline-flex items-center rounded-full bg-teal-600 px-3 py-1 text-xs font-semibold text-white shadow-sm">
               Field-to-Cash
