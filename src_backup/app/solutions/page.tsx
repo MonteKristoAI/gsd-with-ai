@@ -5,30 +5,18 @@ export default function SolutionsHub() {
   const skus = [
     {
       title: "Field-to-Cash",
-      persona: "For owner-operators reconciling invoices at 9pm",
-      outcome: "11 hours back per week",
-      price: "From $25K + $5K/mo",
-      timeline: "6 weeks",
       desc: "Stop chasing tickets. We automate the pipeline from field execution to invoice generation.",
       icon: DollarSign,
       href: "/solutions/field-to-cash",
     },
     {
       title: "Audit-Ready",
-      persona: "For HSE managers tracking certs in Excel",
-      outcome: "Pull-it-in-15-minutes audit-readiness",
-      price: "From $25K + $5K/mo",
-      timeline: "6 weeks",
       desc: "100% compliance without the weekend scrambles. We digitize and auto-file your safety and training certs.",
       icon: FileCheck,
       href: "/solutions/audit-ready",
     },
     {
       title: "Pipeline Reset",
-      persona: "For VP of Ops with a pipeline full of blind spots",
-      outcome: "Forecast you can commit to",
-      price: "From $25K + $5K/mo",
-      timeline: "6 weeks",
       desc: "Connect your CRM to the field. Know your margins, track your jobs, stop guessing.",
       icon: Target,
       href: "/solutions/pipeline-reset",
@@ -53,20 +41,9 @@ export default function SolutionsHub() {
           >
             <sku.icon className="h-10 w-10 text-teal-600 mb-6" />
             <h2 className="text-2xl font-bold text-zinc-900">{sku.title}</h2>
-            <p className="mt-2 text-sm font-semibold text-teal-600">{sku.outcome}</p>
-            <p className="mt-4 flex-1 text-sm text-zinc-600">{sku.persona}</p>
-            <div className="mt-6 flex flex-col gap-1 border-t border-zinc-100 pt-4 text-sm font-medium text-zinc-800">
-              <div className="flex justify-between">
-                <span className="text-zinc-500">Timeline:</span>
-                <span>{sku.timeline}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-zinc-500">Investment:</span>
-                <span>{sku.price}</span>
-              </div>
-            </div>
-            <div className="mt-6 flex items-center gap-2 font-semibold text-teal-600 group-hover:text-teal-700">
-              See the details
+            <p className="mt-4 flex-1 text-zinc-600">{sku.desc}</p>
+            <div className="mt-8 flex items-center gap-2 font-semibold text-teal-600 group-hover:text-teal-700">
+              See the blueprint
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </div>
           </Link>

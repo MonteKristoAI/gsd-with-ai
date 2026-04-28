@@ -50,7 +50,7 @@ export default function HeroSection() {
             {/* CTAs */}
             <div className={cn("hero-animate hero-delay-4 mt-10 flex flex-wrap gap-4", isVisible && "visible")}>
               <Link
-                href="#booking"
+                href="/contact"
                 className="group inline-flex items-center gap-2.5 rounded-xl bg-[hsl(175_72%_38%)] px-8 py-4 text-[0.9375rem] font-semibold text-white shadow-[0_4px_14px_hsl(175_72%_38%/0.3)] transition-all duration-300 hover:shadow-[0_8px_25px_hsl(175_72%_38%/0.4)] hover:brightness-110 hover:-translate-y-0.5"
               >
                 Book a 20-minute call

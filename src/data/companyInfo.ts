@@ -22,13 +22,13 @@ export const COMPANY = {
   founder: {
     name: "Maxine Aitkenhead",
     title: "Founder",
-    bio: "Maxine spent twenty years inside Schlumberger, the oilfield data company that taught her what enterprise systems look like when they have to survive in places without reliable electricity. She started GSD because most SMBs already own the right tools. They are not missing software. They are missing the wiring between the tools, the discipline to ship one change a week, and someone who has watched a Fortune 100 system work across six continents.",
+    bio: "Maxine spent twenty years inside Schlumberger, the oilfield data company that taught her what enterprise systems look like when they have to survive in places without reliable electricity. She started GSD with AI because most SMBs already own the right tools. They are not missing software. They are missing the wiring between the tools, the discipline to ship one change a week, and someone who has watched a Fortune 100 system work across six continents.",
     credentials: [
       "20 years at Schlumberger",
       "Subsurface Petroleum Data Management certified",
       "MSc, International Business Marketing",
       "Blockchain and smart-contract practitioner",
-      "Texas-based. Works US and international SMBs.",
+      "Texas-based. Works with US and international SMBs.",
     ],
     vision: [
       { title: "Work across geographies", text: "Built query systems in London. Ran training across Europe, Russia, and Africa. The pattern is always the same. Once the team trusts the data, everything downstream gets faster." },

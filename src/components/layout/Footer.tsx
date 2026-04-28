@@ -8,19 +8,17 @@ import gsdLogo from "@/assets/gsd-logo.png";
 type QuickLink = { label: string; to: string };
 
 const QUICK_LINKS: readonly QuickLink[] = [
-  { label: "Services", to: "/services" },
+  { label: "Solutions", to: "/solutions" },
   { label: "Case Studies", to: "/case-studies" },
   { label: "About", to: "/about" },
-  { label: "FAQ", to: "/#faq" },
-  { label: "Contact", to: "/#contact" },
+  { label: "Resources", to: "/resources" },
+  { label: "Contact", to: "/contact" },
 ] as const;
 
-const SERVICES_LINKS: readonly { label: string; to: string }[] = [
-  { label: "AI Agent Development", to: "/services#ai-powered-growth" },
-  { label: "CRM Automation", to: "/services#digital-foundations" },
-  { label: "Sales Outreach", to: "/services#digital-foundations" },
-  { label: "Data Integration", to: "/services#secure-scalable-it" },
-  { label: "Process Optimization", to: "/services#ai-powered-growth" },
+const SOLUTIONS_LINKS: readonly { label: string; to: string }[] = [
+  { label: "Field-to-Cash", to: "/solutions/field-to-cash" },
+  { label: "Audit-Ready", to: "/solutions/audit-ready" },
+  { label: "Pipeline Reset", to: "/solutions/pipeline-reset" },
 ] as const;
 
 export default function Footer() {
@@ -61,11 +59,10 @@ export default function Footer() {
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-2xl font-extrabold text-[hsl(220_25%_14%)] sm:text-3xl">Ready to see where the automation layer would land?</h2>
         <p className="mx-auto mt-3 max-w-lg text-[hsl(215_15%_46%)]">A 30-minute discovery call. You walk us through the friction. We walk back a diagnostic on the first thing worth automating.</p>
-        <Link href="/#booking"
-          onClick={(e) => handleSmartClick(e, "/#booking")}
+        <Link href="/contact"
           className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[hsl(175_72%_38%)] px-8 py-4 text-sm font-semibold text-white shadow-[0_4px_14px_hsl(175_72%_38%/0.3)] transition-all hover:shadow-[0_8px_25px_hsl(175_72%_38%/0.4)] hover:brightness-110"
         >
-          Book a Discovery Call <ArrowRight className="h-4 w-4" />
+          Book a 20-minute call <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
     </section>
@@ -139,13 +136,13 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Services */}
+          {/* Solutions */}
           <div className="space-y-4">
             <h4 className="text-sm font-semibold text-[hsl(220_25%_14%)] tracking-wide uppercase">
-              Services
+              Solutions
             </h4>
             <ul className="flex flex-col gap-2.5">
-              {SERVICES_LINKS.map((item) => (
+              {SOLUTIONS_LINKS.map((item) => (
                 <li key={item.label}>
                   <Link href={item.to}
                     className="text-sm text-[hsl(215_15%_46%)] hover:text-[hsl(175_72%_38%)] transition-colors"

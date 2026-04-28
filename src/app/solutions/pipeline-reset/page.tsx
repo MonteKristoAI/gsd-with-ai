@@ -1,6 +1,11 @@
 import Link from "next/link";
-import { CheckCircle2, Target } from "lucide-react";
+import { CheckCircle2, Target, Settings2 } from "lucide-react";
 import Script from "next/script";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pipeline Reset",
+};
 
 export default function PipelineReset() {
   const faqSchema = {
@@ -9,10 +14,18 @@ export default function PipelineReset() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How long does the Pipeline Reset implementation take?",
+        "name": "How long does it take?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our standard implementation timeline is exactly 6 weeks."
+          "text": "Our standard implementation timeline is exactly 6 weeks from kickoff to fully operational system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do we need to rip out our existing system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. We wire into it. We build on top of the tools you already use, wiring them together so data flows without manual entry."
         }
       }
     ]
@@ -21,7 +34,24 @@ export default function PipelineReset() {
   return (
     <>
       <Script id="faq-schema-pipeline" type="application/ld+json">
-        {JSON.stringify(faqSchema)}
+        {JSON.stringify([
+          faqSchema,
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Pipeline Reset",
+            "provider": {
+              "@type": "Organization",
+              "name": "GSD with AI"
+            },
+            "description": "We connect your CRM to the field. You get live job costing and a forecast you can actually commit to.",
+            "offers": {
+              "@type": "Offer",
+              "price": "25000.00",
+              "priceCurrency": "USD"
+            }
+          }
+        ])}
       </Script>
       
       <div className="container mx-auto px-6 py-24 min-h-[80vh]">
@@ -33,57 +63,67 @@ export default function PipelineReset() {
           <h1 className="text-4xl font-extrabold text-zinc-900 sm:text-5xl">
             Pipeline Reset
           </h1>
-          <p className="mt-6 text-xl text-zinc-600 leading-relaxed">
-            Stop guessing on margins. Connect your CRM to your field operations so you have real-time visibility into job costing and utilization.
+          <p className="mt-4 text-2xl font-medium text-teal-700">
+            For VP of Ops with a pipeline full of blind spots
           </p>
         </div>
 
         <div className="mt-16 grid gap-12 lg:grid-cols-2">
           {/* Left Column */}
           <div>
-            <h2 className="text-2xl font-bold text-zinc-900">This is for you if:</h2>
-            <ul className="mt-6 space-y-4">
-              {[
-                "You only find out a job lost money three weeks after it's done",
-                "Your sales team and field operators are completely disconnected",
-                "You have no single source of truth for operational reporting",
-              ].map((item, idx) => (
-                <li key={idx} className="flex gap-3 text-zinc-700">
-                  <CheckCircle2 className="h-6 w-6 text-teal-600 shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="mb-12">
+              <h2 className="text-xl font-bold text-zinc-900 uppercase tracking-wide text-zinc-500 mb-3">The Pain</h2>
+              <p className="text-lg text-zinc-700 leading-relaxed">
+                You have CRM data, but none of it connects to what's actually happening on the pad. Your pipeline is full of blind spots, and your CRM has 2,400 contacts but only 11 are real. You are guessing on margins and can't accurately forecast jobs.
+              </p>
+            </div>
 
-            <h2 className="mt-12 text-2xl font-bold text-zinc-900">What we install:</h2>
-            <div className="mt-6 grid gap-4">
-              <div className="rounded-xl border border-zinc-200 p-6 bg-white shadow-sm">
-                <h3 className="font-bold text-zinc-900">1. CRM Standardization</h3>
-                <p className="mt-2 text-zinc-600 text-sm">Clean, strict data pipelines for accurate job creation.</p>
-              </div>
-              <div className="rounded-xl border border-zinc-200 p-6 bg-white shadow-sm">
-                <h3 className="font-bold text-zinc-900">2. Real-time dashboards</h3>
-                <p className="mt-2 text-zinc-600 text-sm">One single view of fleet utilization and job margins.</p>
-              </div>
+            <div className="mb-12">
+              <h2 className="text-xl font-bold text-zinc-900 uppercase tracking-wide text-zinc-500 mb-3">The Fix</h2>
+              <p className="text-lg text-zinc-700 leading-relaxed">
+                We connect your CRM to the field. You get live job costing and a forecast you can actually commit to. We clean the pipeline, enrich the data, and automate the status updates based on actual field operations.
+              </p>
+            </div>
+
+            <div className="mb-12 rounded-xl bg-zinc-50 p-6 border border-zinc-200">
+              <h2 className="flex items-center gap-2 text-xl font-bold text-zinc-900 mb-4">
+                <Settings2 className="h-5 w-5 text-teal-600" />
+                The Tech Stack
+              </h2>
+              <ul className="space-y-3">
+                <li className="flex gap-3 text-zinc-700">
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 shrink-0" />
+                  <span>Your CRM (HubSpot, Salesforce, Pipedrive)</span>
+                </li>
+                <li className="flex gap-3 text-zinc-700">
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 shrink-0" />
+                  <span>Your field execution tracking software</span>
+                </li>
+                <li className="flex gap-3 text-zinc-700">
+                  <CheckCircle2 className="h-5 w-5 text-teal-600 shrink-0" />
+                  <span>Automated data enrichment and sync layer</span>
+                </li>
+              </ul>
             </div>
           </div>
 
           {/* Right Column (Pricing) */}
           <div className="lg:pl-12">
-            <div className="rounded-2xl border-2 border-zinc-900 bg-zinc-900 p-8 text-white sticky top-24">
-              <h3 className="text-xl font-bold text-zinc-100">Transparent Pricing</h3>
+            <div className="rounded-2xl border-2 border-zinc-900 bg-zinc-900 p-8 text-white sticky top-24 shadow-xl">
+              <h3 className="text-xl font-bold text-zinc-100">Pricing & Timeline</h3>
               <p className="mt-2 text-zinc-400">No gotchas. No endless consulting retainers.</p>
               
               <div className="mt-8 mb-8 pb-8 border-b border-zinc-800">
                 <span className="text-sm font-semibold tracking-wider text-teal-400 uppercase">Foundations Engagement</span>
-                <div className="mt-2 flex items-baseline gap-2">
+                <div className="mt-2 flex flex-col gap-1">
                   <span className="text-4xl font-extrabold">From $25K</span>
+                  <span className="text-xl font-medium text-zinc-300">+ $5K/mo operating retainer</span>
                 </div>
-                <p className="mt-4 text-sm text-zinc-400">Includes system architecture, integration build, and rollout training.</p>
+                <p className="mt-4 text-sm text-zinc-400">Includes system architecture, integration build, rollout training, and ongoing managed automation.</p>
               </div>
 
-              <Link href="/#booking" className="block w-full rounded-xl bg-teal-600 px-6 py-4 text-center font-bold text-white transition-colors hover:bg-teal-500">
-                Book a Scoping Call
+              <Link href="/contact" className="block w-full rounded-xl bg-teal-600 px-6 py-4 text-center font-bold text-white transition-colors hover:bg-teal-500">
+                Book a 20-minute call
               </Link>
             </div>
           </div>
