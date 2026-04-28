@@ -10,8 +10,11 @@ export default function MaxineMiniBlock() {
             <img
               src={founderImg.src}
               alt="Maxine Aitkenhead, founder of GSD with AI"
-              className="h-[280px] w-[280px] rounded-2xl border border-zinc-200 object-cover shadow-md"
+              width={280}
+              height={280}
               loading="lazy"
+              decoding="async"
+              className="h-[280px] w-[280px] rounded-2xl border border-zinc-200 object-cover shadow-md"
             />
           </div>
 

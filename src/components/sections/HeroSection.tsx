@@ -20,9 +20,12 @@ export default function HeroSection() {
         <img
           src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&h=1080&fit=crop&q=80"
           alt=""
+          width={1920}
+          height={1080}
           className="h-full w-full object-cover"
           aria-hidden="true"
           fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/[0.93] to-white/50 lg:via-white/[0.88] lg:to-white/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white" />

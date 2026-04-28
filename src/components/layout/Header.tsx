@@ -83,7 +83,14 @@ export default function Header() {
         <div className="mx-auto flex items-center justify-between h-20 lg:h-[88px] px-3 lg:px-4 max-w-[1440px]">
           {/* Logo: edge to edge, minimal padding */}
           <Link href="/" className="shrink-0">
-            <img src={gsdLogo.src} alt="GSD with AI" className="h-[72px] lg:h-[80px] w-auto" />
+            <img
+              src={gsdLogo.src}
+              alt="GSD with AI"
+              width={205}
+              height={80}
+              fetchPriority="high"
+              className="h-[72px] lg:h-[80px] w-auto"
+            />
           </Link>
 
           {/* Desktop Nav (center) */}
