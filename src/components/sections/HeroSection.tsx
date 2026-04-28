@@ -17,6 +17,13 @@ export default function HeroSection() {
     <section ref={ref} className="relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&h=1080&fit=crop&q=80"
+          alt=""
+          className="h-full w-full object-cover"
+          aria-hidden="true"
+          fetchPriority="high"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/[0.93] to-white/50 lg:via-white/[0.88] lg:to-white/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white" />
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/80 to-transparent" />
@@ -57,7 +64,7 @@ export default function HeroSection() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/case-studies"
+                href="/case-studies/wireline-operator"
                 className="group inline-flex items-center gap-2.5 rounded-xl border border-[hsl(220_25%_14%/0.12)] bg-white/70 backdrop-blur-sm px-8 py-4 text-[0.9375rem] font-semibold text-[hsl(220_25%_14%)] transition-all duration-300 hover:border-[hsl(175_72%_38%/0.3)] hover:bg-white hover:shadow-md hover:-translate-y-0.5"
               >
                 <Play className="h-4 w-4 text-[hsl(175_72%_38%)]" />

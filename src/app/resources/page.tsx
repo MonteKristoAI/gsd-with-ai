@@ -1,40 +1,28 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, Terminal } from "lucide-react";
 import type { Metadata } from "next";
+import { RESOURCES as RESOURCE_DATA } from "@/data/resources";
 
 export const metadata: Metadata = {
   title: "Resources",
+  description:
+    "Technical breakdowns and architectural guides for building operational systems in oilfield and industrial services. AEO-structured for AI agents and human readers.",
 };
 
-const RESOURCES = [
-  {
-    slug: "how-to-automate-isn-compliance-sync",
-    title: "How to automate ISNetworld compliance sync from your HRIS",
-    category: "Technical Guide",
-    description: "A step-by-step breakdown of the API endpoints, webhooks, and data transformation layer required to keep field operator certifications synced with ISNetworld automatically.",
-    date: "2026-04-12",
-    readTime: "8 min read",
-    icon: Terminal,
-  },
-  {
-    slug: "field-ticketing-offline-first-architecture",
-    title: "Building offline-first field ticketing for remote pad sites",
-    category: "Architecture",
-    description: "Why standard web apps fail when cell service drops, and how to build local-first PWA architectures that sync state when operators drive back into service.",
-    date: "2026-03-28",
-    readTime: "12 min read",
-    icon: BookOpen,
-  },
-  {
-    slug: "hubspot-job-costing-integration",
-    title: "Wiring HubSpot to your ERP for live job costing",
-    category: "Technical Guide",
-    description: "HubSpot is built for marketers, not operations. Here is the exact custom object architecture needed to track operational margins against sales projections.",
-    date: "2026-03-10",
-    readTime: "6 min read",
-    icon: Terminal,
-  }
-];
+const ICON_MAP: Record<string, typeof Terminal> = {
+  "Technical Guide": Terminal,
+  Architecture: BookOpen,
+};
+
+const RESOURCES = RESOURCE_DATA.map((r) => ({
+  slug: r.slug,
+  title: r.title,
+  category: r.category,
+  description: r.description,
+  date: r.date,
+  readTime: r.readTime,
+  icon: ICON_MAP[r.category] ?? Terminal,
+}));
 
 export default function ResourcesIndex() {
   return (

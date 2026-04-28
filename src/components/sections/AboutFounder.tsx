@@ -97,7 +97,7 @@ export default function AboutFounder() {
                   The easiest way to make a consulting engagement fail is to show up at week six with nothing running. We work backwards from that. Every two weeks something measurable ships into your production stack. If it does not move a number on your dashboard, we flagged the wrong project.
                 </p>
                 <p className="mt-6 text-lg font-bold text-[hsl(175_72%_38%)]">
-                  Let&rsquo;s Get Stuff Done.
+                  GSD with AI.
                 </p>
                 <a
                   href="#contact"
