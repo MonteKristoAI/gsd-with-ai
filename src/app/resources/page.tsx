@@ -1,17 +1,20 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, Terminal } from "lucide-react";
+import { ArrowRight, Activity, BookOpen, MessageCircle, Terminal } from "lucide-react";
 import type { Metadata } from "next";
 import { RESOURCES as RESOURCE_DATA } from "@/data/resources";
 
 export const metadata: Metadata = {
   title: "Resources",
   description:
-    "Technical breakdowns and architectural guides for building operational systems in oilfield and industrial services. AEO-structured for AI agents and human readers.",
+    "Operational Reality, Systems & Automation Teardowns, Point of View, Field Notes. Named-number breakdowns for oilfield + industrial-services SMBs in TX/OK/LA.",
+  alternates: { canonical: "https://www.getsstuffdone.com/resources" },
 };
 
 const ICON_MAP: Record<string, typeof Terminal> = {
-  "Technical Guide": Terminal,
-  Architecture: BookOpen,
+  "Operational Reality": Activity,
+  "Systems & Automation Teardowns": Terminal,
+  "Point of View": MessageCircle,
+  "Field Notes": BookOpen,
 };
 
 const RESOURCES = RESOURCE_DATA.map((r) => ({
@@ -32,8 +35,13 @@ export default function ResourcesIndex() {
           Resources
         </h1>
         <p className="mt-6 text-xl text-zinc-600 leading-relaxed">
-          Technical breakdowns and architectural guides for building operational systems in the oilfield and industrial services sector. No fluff.
+          Operational breakdowns from 20 years of energy data work. Each post names the tools, the hours saved, and the bid-killing patterns we&rsquo;ve seen in the TX/OK/LA corridor.
         </p>
+        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-zinc-600">
+          <span>20 years building data systems at global energy firms</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>Foundations from $25K, 6-8 weeks</span>
+        </div>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">

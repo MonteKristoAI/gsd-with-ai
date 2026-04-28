@@ -19,7 +19,7 @@ export const RESOURCES: Resource[] = [
   {
     slug: "how-to-automate-isn-compliance-sync",
     title: "How to automate ISNetworld compliance sync from your HRIS",
-    category: "Technical Guide",
+    category: "Systems & Automation Teardowns",
     description:
       "A step-by-step breakdown of the API endpoints, webhooks, and data transformation layer required to keep field operator certifications synced with ISNetworld automatically.",
     date: "2026-04-12",
@@ -78,7 +78,7 @@ export const RESOURCES: Resource[] = [
   {
     slug: "field-ticketing-offline-first-architecture",
     title: "Building offline-first field ticketing for remote pad sites",
-    category: "Architecture",
+    category: "Field Notes",
     description:
       "Why standard web apps fail when cell service drops, and how to build local-first PWA architectures that sync state when operators drive back into service.",
     date: "2026-03-28",
@@ -135,7 +135,7 @@ export const RESOURCES: Resource[] = [
   {
     slug: "hubspot-job-costing-integration",
     title: "Wiring HubSpot to your ERP for live job costing",
-    category: "Technical Guide",
+    category: "Operational Reality",
     description:
       "HubSpot is built for marketers, not operations. Here is the exact custom object architecture needed to track operational margins against sales projections.",
     date: "2026-03-10",

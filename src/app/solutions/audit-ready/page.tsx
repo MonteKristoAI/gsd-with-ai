@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Audit-Ready",
   description:
     "Pull-it-in-15-minutes audit-readiness for HSE managers in oilfield and industrial services. Live ISN/Avetta sync, automated cert tracking, MSA-ready reports. Foundations from $25K. 6 weeks.",
+  alternates: { canonical: "https://www.getsstuffdone.com/solutions/audit-ready" },
 };
 
 export default function AuditReadyPage() {

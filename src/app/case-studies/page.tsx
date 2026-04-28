@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Case Studies",
   description:
     "Three engagements, three named outcomes. How GSD with AI shipped Field-to-Cash, Audit-Ready, and Pipeline Reset systems for oilfield + industrial-services SMBs in the TX/OK/LA corridor.",
+  alternates: { canonical: "https://www.getsstuffdone.com/case-studies" },
 };
 
 const CASE_STUDIES = [
@@ -64,8 +65,22 @@ export default function CaseStudiesIndex() {
           Case Studies
         </h1>
         <p className="mt-6 text-xl text-zinc-600 leading-relaxed">
-          We don&rsquo;t build tech for the sake of tech. We build operational systems that change how the business runs. Three engagements. Three named outcomes.
+          We don&rsquo;t build tech for the sake of tech. We build operational systems that change how the business runs.
         </p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
+            <div className="text-2xl font-extrabold text-teal-600">14 days</div>
+            <div className="mt-1 text-xs font-medium text-zinc-600">Off DSO at a 40-person wireline operator</div>
+          </div>
+          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
+            <div className="text-2xl font-extrabold text-teal-600">100%</div>
+            <div className="mt-1 text-xs font-medium text-zinc-600">ISNetworld compliance held at a well servicing co.</div>
+          </div>
+          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
+            <div className="text-2xl font-extrabold text-teal-600">+22%</div>
+            <div className="mt-1 text-xs font-medium text-zinc-600">Win rate on profitable jobs at an industrial cleaner</div>
+          </div>
+        </div>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-3">
