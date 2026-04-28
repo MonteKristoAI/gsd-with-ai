@@ -88,15 +88,18 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl bg-red-50 p-8 border border-red-100 mt-8">
-            <h3 className="text-xl font-bold text-red-900">Who we do NOT work with</h3>
-            <p className="mt-3 text-red-800 font-medium">Saying who we aren&apos;t for is a credibility move.</p>
-            <ul className="mt-4 space-y-3 text-red-800/90 list-disc pl-4">
-              <li>Companies under 10 employees.</li>
-              <li>Requests for one-off &quot;AI strategy decks&quot; or consulting reports.</li>
-              <li>Operations outside the TX/OK/LA corridor.</li>
-            </ul>
-          </div>
+        </div>
+      </div>
+
+      <div className="max-w-3xl mx-auto rounded-2xl bg-red-50 p-8 border border-red-100 mt-16">
+        <h3 className="text-2xl font-bold text-red-900 text-center">Who we do NOT work with</h3>
+        <p className="mt-3 text-red-800 font-medium text-center">Saying who we aren&apos;t for is a credibility move.</p>
+        <div className="mt-6 flex justify-center">
+          <ul className="space-y-3 text-red-800/90 list-disc pl-4 text-left">
+            <li>Companies under 10 employees.</li>
+            <li>Requests for one-off &quot;AI strategy decks&quot; or consulting reports.</li>
+            <li>Operations outside the TX/OK/LA corridor.</li>
+          </ul>
         </div>
       </div>
 
