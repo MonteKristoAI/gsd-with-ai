@@ -14,8 +14,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-[80vh] flex flex-col">
       {/* Top Section with subtle background */}
-      <div className="relative overflow-hidden bg-section-alt bg-texture-dots border-b border-zinc-200">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/50 pointer-events-none" />
+      <div className="relative overflow-hidden bg-[#FAF8F4] border-b border-zinc-200">
         <div className="container relative mx-auto px-6 pt-24 pb-20">
       <Script id="person-schema" type="application/ld+json">
         {`
