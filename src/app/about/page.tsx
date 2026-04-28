@@ -12,7 +12,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-6 py-24 min-h-[80vh]">
+    <div className="min-h-[80vh] flex flex-col">
+      {/* Top Section with subtle background */}
+      <div className="relative overflow-hidden bg-section-alt bg-texture-dots border-b border-zinc-200">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/50 pointer-events-none" />
+        <div className="container relative mx-auto px-6 pt-24 pb-20">
       <Script id="person-schema" type="application/ld+json">
         {`
           {
@@ -46,6 +50,11 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+      </div>
+      </div>
+
+      {/* Bottom Section */}
+      <div className="container mx-auto px-6 py-20">
 
       <div className="grid gap-12 lg:grid-cols-2 mt-16">
         <div>
@@ -105,6 +114,7 @@ export default function AboutPage() {
 
       <div className="mt-24">
         <AboutFounder />
+      </div>
       </div>
     </div>
   );
