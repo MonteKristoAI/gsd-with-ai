@@ -100,7 +100,7 @@ export default function AboutPage() {
       </div>
 
       <div className="max-w-3xl mx-auto rounded-2xl bg-teal-900 p-8 shadow-md mt-16 text-white">
-        <h3 className="text-2xl font-bold text-center">Who we do NOT work with</h3>
+        <h3 className="text-2xl font-bold text-center text-white">Who we do NOT work with</h3>
         <p className="mt-3 text-teal-100 font-medium text-center">Saying who we aren&apos;t for is a credibility move.</p>
         <div className="mt-6 flex justify-center">
           <ul className="space-y-3 text-teal-100 list-disc pl-4 text-left">
