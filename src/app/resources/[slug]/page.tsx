@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -27,6 +28,7 @@ export async function generateMetadata({
       description: r.directAnswer.slice(0, 160),
       type: "article",
       publishedTime: r.date,
+      images: [{ url: r.image, width: 1200, height: 630, alt: r.imageAlt }],
     },
   };
 }
@@ -48,6 +50,7 @@ export default async function ResourcePage({
     author: { "@type": "Organization", name: "GSD with AI" },
     publisher: { "@type": "Organization", name: "GSD with AI" },
     description: r.directAnswer,
+    image: r.image,
   };
 
   const faqSchema = {
@@ -95,6 +98,17 @@ export default async function ResourcePage({
               <span>{r.readTime}</span>
             </div>
           </header>
+
+          <div className="relative mb-12 h-[400px] w-full overflow-hidden rounded-2xl bg-zinc-100 shadow-sm sm:h-[500px]">
+            <Image
+              src={r.image}
+              alt={r.imageAlt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 768px, 100vw"
+              className="object-cover"
+            />
+          </div>
 
           {/* Direct answer block — manifesto AEO spec: 40-60 words first */}
           <p className="rounded-xl border-l-4 border-teal-600 bg-teal-50/60 px-6 py-5 text-lg leading-relaxed text-zinc-800">

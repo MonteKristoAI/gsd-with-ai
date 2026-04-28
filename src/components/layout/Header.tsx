@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/data/companyInfo";
 import { Phone, Menu, X } from "lucide-react";
-import gsdLogo from "@/assets/gsd-logo.png";
+import gsdLogo from "@/assets/gsd-logo.webp";
 import { trackEvent } from "@/lib/plausible";
 
 const NAV_LINKS = [

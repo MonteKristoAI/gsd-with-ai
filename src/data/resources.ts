@@ -13,8 +13,9 @@ export type Resource = {
   sections: { question: string; body: string[] }[];
   faqs: ResourceFaq[];
   relatedSku: { slug: "audit-ready" | "field-to-cash" | "pipeline-reset"; label: string };
-  // Manifesto rule #10: blog post CTA = "Read the related case study"
   relatedCaseStudy: { slug: string; label: string };
+  image: string;
+  imageAlt: string;
 };
 
 export const RESOURCES: Resource[] = [
@@ -26,6 +27,8 @@ export const RESOURCES: Resource[] = [
       "A step-by-step breakdown of the API endpoints, webhooks, and data transformation layer required to keep field operator certifications synced with ISNetworld automatically.",
     date: "2026-04-12",
     readTime: "8 min read",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&h=600&fit=crop&q=80",
+    imageAlt: "Industrial tech equipment and compliance documentation",
     directAnswer:
       "Automating ISNetworld compliance sync from an HRIS takes three pieces: a normalized cert database in your system of record, an API integration with ISNetworld's contractor API that pushes cert updates as they change, and a 30-day expiry alert layer that notifies operators and supervisors before anything lapses. Most TX/OK/LA-corridor SMBs ship this in 4-6 weeks.",
     sections: [
@@ -89,6 +92,8 @@ export const RESOURCES: Resource[] = [
       "Why standard web apps fail when cell service drops, and how to build local-first PWA architectures that sync state when operators drive back into service.",
     date: "2026-03-28",
     readTime: "12 min read",
+    image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=900&h=600&fit=crop&q=80",
+    imageAlt: "Remote servers and networking equipment for offline-first architecture",
     directAnswer:
       "Offline-first field ticketing requires four design constraints: every write hits a local IndexedDB before the network, the UI never blocks waiting for a server response, conflicts get resolved with last-write-wins plus a manual review queue for collisions, and the sync layer retries with exponential backoff once the device reconnects. Skip any of these and the app fails the first cell-dead pad.",
     sections: [
@@ -150,6 +155,8 @@ export const RESOURCES: Resource[] = [
       "HubSpot is built for marketers, not operations. Here is the exact custom object architecture needed to track operational margins against sales projections.",
     date: "2026-03-10",
     readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=600&fit=crop&q=80",
+    imageAlt: "Financial dashboard showing live job costing metrics",
     directAnswer:
       "Live job costing in HubSpot requires three custom objects (Jobs, Cost Lines, Margin Rollups) wired to your ERP via a bi-directional sync. Sales sees the projected margin at deal close. Operations updates actuals as costs land. The rollup object recalculates daily so the weekly pipeline review runs on real numbers, not estimates.",
     sections: [
@@ -211,6 +218,8 @@ export const RESOURCES: Resource[] = [
       "If your office manager is reconciling field tickets on a Friday night, that's not a productivity problem. It's a $180K-a-year tax. Here's the math, the bottleneck, and the system that ends it.",
     date: "2026-04-22",
     readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&h=600&fit=crop&q=80",
+    imageAlt: "Accounting documents and calculator on a desk",
     directAnswer:
       "9pm invoicing costs a 30-person oilfield-services shop somewhere between $120K and $220K a year. The visible cost is overtime and burnout. The invisible cost is DSO drag, missed billable hours, and a single point of failure when the office manager takes vacation. Most of it disappears the moment field tickets stop being re-typed.",
     sections: [
