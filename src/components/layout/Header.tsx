@@ -1,18 +1,18 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
-import {  usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/data/companyInfo";
 import { Phone, Menu, X } from "lucide-react";
 import gsdLogo from "@/assets/gsd-logo.png";
 
 const NAV_LINKS = [
-  { label: "Services", href: "/services" },
+  { label: "Solutions", href: "/solutions" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Resources", href: "/resources" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export default function Header() {
@@ -35,18 +35,11 @@ export default function Header() {
   }, [mobileOpen]);
 
   const navigate = useRouter();
-  const location = usePathname();
 
   const scrollToBooking = useCallback(() => {
     setMobileOpen(false);
-    // If we're not on "/", navigate first; HomePage will handle the hash scroll
-    if (location !== "/") {
-      navigate.push("/#booking");
-      return;
-    }
-    const el = document.getElementById("booking") || document.getElementById("contact");
-    el?.scrollIntoView({ behavior: "smooth" });
-  }, [location, navigate]);
+    navigate.push("/contact");
+  }, [navigate]);
 
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

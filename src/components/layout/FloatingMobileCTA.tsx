@@ -1,20 +1,13 @@
 "use client";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { COMPANY } from "@/data/companyInfo";
 import { Phone, Calendar } from "lucide-react";
 
 export default function FloatingMobileCTA() {
-  const location = usePathname();
   const navigate = useRouter();
 
   const scrollToBooking = () => {
-    // On any non-home route, go home with hash. HomePage handles the scroll.
-    if (location !== "/") {
-      navigate.push("/#booking");
-      return;
-    }
-    const el = document.getElementById("booking");
-    el?.scrollIntoView({ behavior: "smooth" });
+    navigate.push("/contact");
   };
 
   return (

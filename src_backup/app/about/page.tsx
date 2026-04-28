@@ -1,32 +1,11 @@
 import AboutFounder from "@/components/sections/AboutFounder";
-import type { Metadata } from "next";
-import Script from "next/script";
-
-export const metadata: Metadata = {
-  title: "About",
-};
 
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-6 py-24 min-h-[80vh]">
-      <Script id="person-schema" type="application/ld+json">
-        {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Maxine Aitkenhead",
-            "jobTitle": "Founder",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "GSD with AI"
-            },
-            "url": "https://www.getsstuffdone.com/about"
-          }
-        `}
-      </Script>
       <div className="max-w-3xl mb-16">
         <h1 className="text-4xl font-extrabold text-zinc-900 sm:text-5xl">
-          About GSD with AI
+          About GetsStuffDone
         </h1>
         <p className="mt-6 text-xl text-zinc-600 leading-relaxed">
           We build operational systems for oilfield and industrial services SMBs in the Texas, Oklahoma, and Louisiana corridor.
@@ -68,20 +47,10 @@ export default function AboutPage() {
                 <span className="font-bold text-teal-600">From $45K</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="font-semibold text-zinc-900">Operating Retainer</span>
-                <span className="font-bold text-teal-600">From $5K/mo</span>
+                <span className="font-semibold text-zinc-900">Managed Automation</span>
+                <span className="font-bold text-teal-600">Custom Retainer</span>
               </div>
             </div>
-          </div>
-
-          <div className="rounded-2xl bg-red-50 p-8 border border-red-100 mt-8">
-            <h3 className="text-xl font-bold text-red-900">Who we do NOT work with</h3>
-            <p className="mt-3 text-red-800 font-medium">Saying who we aren&apos;t for is a credibility move.</p>
-            <ul className="mt-4 space-y-3 text-red-800/90 list-disc pl-4">
-              <li>Companies under 10 employees.</li>
-              <li>Requests for one-off &quot;AI strategy decks&quot; or consulting reports.</li>
-              <li>Operations outside the TX/OK/LA corridor.</li>
-            </ul>
           </div>
         </div>
       </div>
