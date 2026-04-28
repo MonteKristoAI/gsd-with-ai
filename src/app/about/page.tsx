@@ -99,11 +99,11 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto rounded-2xl bg-zinc-900 p-8 shadow-md mt-16 text-white">
+      <div className="max-w-3xl mx-auto rounded-2xl bg-teal-900 p-8 shadow-md mt-16 text-white">
         <h3 className="text-2xl font-bold text-center">Who we do NOT work with</h3>
-        <p className="mt-3 text-zinc-400 font-medium text-center">Saying who we aren&apos;t for is a credibility move.</p>
+        <p className="mt-3 text-teal-100 font-medium text-center">Saying who we aren&apos;t for is a credibility move.</p>
         <div className="mt-6 flex justify-center">
-          <ul className="space-y-3 text-zinc-300 list-disc pl-4 text-left">
+          <ul className="space-y-3 text-teal-100 list-disc pl-4 text-left">
             <li>Companies under 10 employees.</li>
             <li>Requests for one-off &quot;AI strategy decks&quot; or consulting reports.</li>
             <li>Operations outside the TX/OK/LA corridor.</li>
