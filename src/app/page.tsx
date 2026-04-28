@@ -60,7 +60,7 @@ export default function Home() {
       </section>
 
       {/* From -> To Strip */}
-      <section className="bg-zinc-900 py-12 text-white">
+      <section className="bg-[#041122] py-12 text-white">
         <div className="container mx-auto px-6">
           <div className="grid gap-8 md:grid-cols-3">
             {[

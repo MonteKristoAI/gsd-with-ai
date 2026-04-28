@@ -20,7 +20,7 @@ export default function FeaturedCaseStudy() {
         >
           {/* Branded stat panel — manifesto: empty better than fake stock photos.
               Replace with a real client photo when one is available. */}
-          <div className="relative flex flex-col justify-center gap-6 bg-zinc-900 p-10 lg:p-14">
+          <div className="relative flex flex-col justify-center gap-6 bg-[#041122] p-10 lg:p-14">
             <span className="inline-flex w-fit items-center rounded-full bg-teal-700 px-3 py-1 text-xs font-semibold text-white shadow-sm">
               Field-to-Cash · 40-person wireline operator
             </span>
