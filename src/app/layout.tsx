@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingMobileCTA from "@/components/layout/FloatingMobileCTA";
 import DesktopStickyCTA from "@/components/layout/DesktopStickyCTA";
 import Script from "next/script";
+
+// Self-host Inter via next/font/google — eliminates the render-blocking
+// fonts.googleapis.com round trip (was costing ~780ms per Lighthouse).
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const SITE_URL = "https://www.getsstuffdone.com";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
@@ -47,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         {/* Plausible Analytics — privacy-first, no cookie banner.
             Manifesto: Plausible/Fathom over GA4. Domain auto-detected from current host. */}
@@ -58,7 +67,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body className="antialiased font-sans flex min-h-screen flex-col">
+      <body className={`${inter.className} antialiased font-sans flex min-h-screen flex-col`}>
         <Script id="organization-schema" type="application/ld+json" strategy="beforeInteractive">
           {`
             [

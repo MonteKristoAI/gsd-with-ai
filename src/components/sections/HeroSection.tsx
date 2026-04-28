@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, CheckCircle2, Play, Sparkles } from "lucide-react";
@@ -17,15 +18,14 @@ export default function HeroSection() {
     <section ref={ref} className="relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&h=1080&fit=crop&q=80"
           alt=""
-          width={1920}
-          height={1080}
-          className="h-full w-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
           aria-hidden="true"
-          fetchPriority="high"
-          decoding="async"
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/[0.93] to-white/50 lg:via-white/[0.88] lg:to-white/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white" />
@@ -61,7 +61,7 @@ export default function HeroSection() {
             <div className={cn("hero-animate hero-delay-4 mt-10 flex flex-wrap gap-4", isVisible && "visible")}>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2.5 rounded-xl bg-[hsl(175_72%_38%)] px-8 py-4 text-[0.9375rem] font-semibold text-white shadow-[0_4px_14px_hsl(175_72%_38%/0.3)] transition-all duration-300 hover:shadow-[0_8px_25px_hsl(175_72%_38%/0.4)] hover:brightness-110 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2.5 rounded-xl bg-[hsl(175_72%_28%)] px-8 py-4 text-[0.9375rem] font-semibold text-white shadow-[0_4px_14px_hsl(175_72%_38%/0.3)] transition-all duration-300 hover:shadow-[0_8px_25px_hsl(175_72%_38%/0.4)] hover:brightness-110 hover:-translate-y-0.5"
               >
                 Book a 20-minute call
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -22,8 +23,8 @@ const CASE_STUDIES = [
       { label: "Admin Time Returned", value: "22 hrs/wk" },
     ],
     image:
-      "https://images.unsplash.com/photo-1614624533284-de7ddff85822?w=900&h=600&fit=crop&q=80",
-    imageAlt: "Wireline operator equipment at a remote wellsite",
+      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=900&h=600&fit=crop&q=80",
+    imageAlt: "Oilfield equipment at a remote wellsite",
   },
   {
     slug: "safety-compliance",
@@ -69,15 +70,15 @@ export default function CaseStudiesIndex() {
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
-            <div className="text-2xl font-extrabold text-teal-600">14 days</div>
+            <div className="text-2xl font-extrabold text-teal-700">14 days</div>
             <div className="mt-1 text-xs font-medium text-zinc-600">Off DSO at a 40-person wireline operator</div>
           </div>
           <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
-            <div className="text-2xl font-extrabold text-teal-600">100%</div>
+            <div className="text-2xl font-extrabold text-teal-700">100%</div>
             <div className="mt-1 text-xs font-medium text-zinc-600">ISNetworld compliance held at a well servicing co.</div>
           </div>
           <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
-            <div className="text-2xl font-extrabold text-teal-600">+22%</div>
+            <div className="text-2xl font-extrabold text-teal-700">+22%</div>
             <div className="mt-1 text-xs font-medium text-zinc-600">Win rate on profitable jobs at an industrial cleaner</div>
           </div>
         </div>
@@ -91,16 +92,14 @@ export default function CaseStudiesIndex() {
             className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-teal-600/30 hover:shadow-md"
           >
             <div className="relative h-48 overflow-hidden">
-              <img
+              <Image
                 src={study.image}
                 alt={study.imageAlt}
-                width={900}
-                height={600}
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                fill
+                sizes="(min-width: 1024px) 33vw, 100vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="absolute left-4 top-4 inline-flex items-center rounded-full bg-teal-600 px-3 py-1 text-xs font-semibold text-white shadow-sm">
+              <span className="absolute left-4 top-4 inline-flex items-center rounded-full bg-teal-700 px-3 py-1 text-xs font-semibold text-white shadow-sm">
                 {study.category}
               </span>
             </div>
@@ -108,7 +107,7 @@ export default function CaseStudiesIndex() {
             <div className="flex flex-1 flex-col p-7">
               <span className="text-xs font-medium text-zinc-500">{study.industry}</span>
 
-              <h2 className="mt-3 text-xl font-bold text-zinc-900 group-hover:text-teal-700 transition-colors">
+              <h2 className="mt-3 text-xl font-bold text-zinc-900 group-hover:text-teal-800 transition-colors">
                 {study.title}
               </h2>
 
@@ -117,13 +116,13 @@ export default function CaseStudiesIndex() {
               <div className="mt-6 grid grid-cols-2 gap-4 border-t border-zinc-100 pt-5">
                 {study.metrics.map((metric) => (
                   <div key={metric.label}>
-                    <div className="text-2xl font-extrabold text-teal-600">{metric.value}</div>
+                    <div className="text-2xl font-extrabold text-teal-700">{metric.value}</div>
                     <div className="mt-1 text-xs font-medium text-zinc-500">{metric.label}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 flex items-center text-sm font-semibold text-teal-600">
+              <div className="mt-6 flex items-center text-sm font-semibold text-teal-700">
                 Read the breakdown
                 <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import founderImg from "@/assets/founder-maxine.webp";
 
 export default function MaxineMiniBlock() {
@@ -7,13 +8,12 @@ export default function MaxineMiniBlock() {
       <div className="container mx-auto px-6">
         <div className="grid items-center gap-12 lg:grid-cols-[280px_1fr]">
           <div className="flex justify-center lg:justify-start">
-            <img
-              src={founderImg.src}
+            <Image
+              src={founderImg}
               alt="Maxine Aitkenhead, founder of GSD with AI"
               width={280}
               height={280}
-              loading="lazy"
-              decoding="async"
+              placeholder="blur"
               className="h-[280px] w-[280px] rounded-2xl border border-zinc-200 object-cover shadow-md"
             />
           </div>
@@ -37,7 +37,7 @@ export default function MaxineMiniBlock() {
 
             <Link
               href="/about"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-teal-600 hover:text-teal-700"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-teal-700 hover:text-teal-800"
             >
               Read the full story <span aria-hidden="true">→</span>
             </Link>

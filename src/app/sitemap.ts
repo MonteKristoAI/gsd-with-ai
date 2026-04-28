@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { RESOURCES } from "@/data/resources";
 
 const BASE_URL = "https://www.getsstuffdone.com";
 
@@ -19,10 +20,17 @@ const STATIC_ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[numb
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
+  const staticEntries = STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
     url: `${BASE_URL}${path}`,
     lastModified,
     changeFrequency,
     priority,
   }));
+  const resourceEntries = RESOURCES.map((r) => ({
+    url: `${BASE_URL}/resources/${r.slug}`,
+    lastModified: new Date(r.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+  return [...staticEntries, ...resourceEntries];
 }

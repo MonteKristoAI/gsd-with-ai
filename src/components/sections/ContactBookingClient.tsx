@@ -70,7 +70,7 @@ function ContactBookingInner() {
                   href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
                   className="flex items-center gap-4 group"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-600 transition-colors group-hover:bg-teal-600 group-hover:text-white">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-700 transition-colors group-hover:bg-teal-700 group-hover:text-white">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
@@ -83,7 +83,7 @@ function ContactBookingInner() {
                   href={`mailto:${COMPANY.email}`}
                   className="flex items-center gap-4 group"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-600 transition-colors group-hover:bg-teal-600 group-hover:text-white">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-700 transition-colors group-hover:bg-teal-700 group-hover:text-white">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
