@@ -12,7 +12,7 @@ export default function Home() {
       {/* Is This You? Cards */}
       <section className="py-24 bg-zinc-50">
         <div className="container mx-auto px-6">
-          <div className="mb-12 max-w-2xl">
+          <div className="mb-12 max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-extrabold text-zinc-900 sm:text-4xl">
               Is this you?
             </h2>

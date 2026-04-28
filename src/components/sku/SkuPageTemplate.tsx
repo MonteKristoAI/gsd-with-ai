@@ -45,7 +45,7 @@ export default function SkuPageTemplate({ sku }: Props) {
 
       <article className="container mx-auto px-6 py-24 min-h-[80vh]">
         {/* Above the fold */}
-        <header className="max-w-3xl">
+        <header className="max-w-4xl mx-auto text-center flex flex-col items-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-teal-500/20 bg-teal-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-teal-700 mb-6">
             6-week build · From $25K
           </span>
@@ -54,7 +54,7 @@ export default function SkuPageTemplate({ sku }: Props) {
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-zinc-600">{sku.subhead}</p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
             <Link
               href={`/contact?sku=${sku.slug}`}
               className="group inline-flex items-center gap-2 rounded-xl bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgb(13_148_136/0.3)] transition-all hover:bg-teal-600"
@@ -67,7 +67,7 @@ export default function SkuPageTemplate({ sku }: Props) {
         </header>
 
         {/* This is for you if */}
-        <section className="mt-20 max-w-3xl">
+        <section className="mt-20 max-w-3xl mx-auto">
           <h2 className="text-2xl font-extrabold text-zinc-900 sm:text-3xl">This is for you if&hellip;</h2>
           <ul className="mt-6 space-y-4">
             {sku.isForYou.map((line) => (
@@ -80,7 +80,7 @@ export default function SkuPageTemplate({ sku }: Props) {
         </section>
 
         {/* What we install */}
-        <section className="mt-20 max-w-4xl">
+        <section className="mt-20 max-w-4xl mx-auto">
           <h2 className="text-2xl font-extrabold text-zinc-900 sm:text-3xl">What we install</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {sku.whatWeInstall.map((item) => (
@@ -96,7 +96,7 @@ export default function SkuPageTemplate({ sku }: Props) {
         </section>
 
         {/* 6-week timeline */}
-        <section className="mt-20 max-w-4xl">
+        <section className="mt-20 max-w-4xl mx-auto">
           <h2 className="text-2xl font-extrabold text-zinc-900 sm:text-3xl">The 6-week timeline</h2>
           <ol className="mt-8 space-y-6">
             {sku.timeline.map((w) => (
@@ -115,7 +115,7 @@ export default function SkuPageTemplate({ sku }: Props) {
         </section>
 
         {/* What you actually get */}
-        <section className="mt-20 max-w-3xl">
+        <section className="mt-20 max-w-3xl mx-auto">
           <h2 className="text-2xl font-extrabold text-zinc-900 sm:text-3xl">What you actually get</h2>
           <ul className="mt-6 space-y-3">
             {sku.whatYouGet.map((item) => (
@@ -131,7 +131,7 @@ export default function SkuPageTemplate({ sku }: Props) {
         <section className="mt-20">
           <Link
             href={`/case-studies/${sku.caseStudy.slug}`}
-            className="group block max-w-4xl rounded-2xl border border-zinc-200 bg-white p-10 shadow-sm transition-all hover:-translate-y-1 hover:border-teal-600/30 hover:shadow-md"
+            className="group block max-w-4xl mx-auto rounded-2xl border border-zinc-200 bg-white p-10 shadow-sm transition-all hover:-translate-y-1 hover:border-teal-600/30 hover:shadow-md"
           >
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700">
               Proof
@@ -147,7 +147,7 @@ export default function SkuPageTemplate({ sku }: Props) {
         </section>
 
         {/* Pricing block expanded */}
-        <section className="mt-20 max-w-4xl">
+        <section className="mt-20 max-w-4xl mx-auto">
           <h2 className="text-2xl font-extrabold text-zinc-900 sm:text-3xl">Pricing</h2>
           <div className="mt-6 grid gap-4 lg:grid-cols-3">
             <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
@@ -175,7 +175,7 @@ export default function SkuPageTemplate({ sku }: Props) {
         </section>
 
         {/* FAQ block */}
-        <section className="mt-20 max-w-3xl">
+        <section className="mt-20 max-w-3xl mx-auto">
           <h2 className="text-2xl font-extrabold text-zinc-900 sm:text-3xl">Common questions</h2>
           <dl className="mt-8 space-y-6">
             {sku.faqs.map((f) => (
