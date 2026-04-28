@@ -189,7 +189,7 @@ export default function SkuPageTemplate({ sku }: Props) {
 
         {/* Pull quote */}
         <section className="mt-20">
-          <blockquote className="mx-auto max-w-3xl rounded-2xl bg-zinc-900 p-10 text-white">
+          <blockquote className="mx-auto max-w-3xl rounded-2xl bg-[#041122] p-10 text-white">
             <Quote className="h-8 w-8 text-teal-400" aria-hidden="true" />
             <p className="mt-4 text-xl font-medium leading-relaxed">
               We don&rsquo;t do general B2B SaaS. We wire systems for people who wear hardhats to work.

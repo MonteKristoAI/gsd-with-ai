@@ -187,7 +187,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </blockquote>
 
           {/* Per manifesto rule #10: case study CTA = Book a Call about THIS pattern */}
-          <section className="rounded-2xl bg-zinc-900 p-10 text-center text-white">
+          <section className="rounded-2xl bg-[#041122] p-10 text-center text-white">
             <h3 className="text-2xl font-bold text-white">Want this exact pattern in your stack?</h3>
             <p className="mx-auto mt-4 max-w-lg text-zinc-400">
               Book a 20-minute call. Walk us through where you sit on the same curve, and we&rsquo;ll walk back the first thing worth wiring.

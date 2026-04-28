@@ -62,7 +62,7 @@ export default function ResourcesIndex() {
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-zinc-900/80 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-white shadow-sm">
+              <span className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-[#041122]/80 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-white shadow-sm">
                 <resource.icon className="h-4 w-4" />
                 {resource.category}
               </span>

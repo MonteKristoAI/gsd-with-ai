@@ -5,7 +5,7 @@ import { trackEvent } from "@/lib/plausible";
 
 export default function HomepageFinalCTA() {
   return (
-    <section className="bg-zinc-900 py-24 text-white">
+    <section className="bg-[#041122] py-24 text-white">
       <div className="container mx-auto px-6 text-center">
         <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight text-white sm:text-4xl">
           Book a 20-minute call. Walk away with a blueprint, not a sales pitch.
