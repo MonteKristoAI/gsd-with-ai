@@ -19,16 +19,16 @@ export default function AboutFounder() {
         className={cn("container mx-auto px-6", "reveal", isVisible && "visible")}
       >
         {/* Two-column layout */}
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-start gap-16 lg:grid-cols-2">
           {/* Left side: founder photo */}
-          <div className="flex justify-center">
+          <div className="sticky top-32 flex justify-center">
             <Image
               src={founderImg}
               alt={`${COMPANY.founder.name}, ${COMPANY.founder.title} of GSD with AI`}
-              width={448}
-              height={500}
+              width={600}
+              height={700}
               placeholder="blur"
-              className="h-auto max-h-[500px] w-full max-w-md rounded-2xl border border-[hsl(214_20%_90%)] object-cover shadow-lg"
+              className="h-auto w-full max-w-lg rounded-2xl border border-[hsl(214_20%_90%)] object-cover shadow-lg"
             />
           </div>
 
@@ -81,15 +81,15 @@ export default function AboutFounder() {
           ref={ref2}
           className={cn("mt-20", "reveal", isVisible2 && "visible")}
         >
-          <div className="relative rounded-2xl overflow-hidden">
+          <div className="relative rounded-2xl overflow-hidden min-h-[400px] flex items-center justify-center p-8 lg:p-16 text-center">
             <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=400&fit=crop&q=80"
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop&q=80"
               alt="Team collaboration"
-              className="w-full h-[300px] object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-white/90" />
-            <div className="absolute inset-0 flex items-center justify-center p-8 text-center">
+            <div className="relative z-10 max-w-3xl mx-auto">
               <div>
                 <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(175_72%_38%)]">
                   How we work
