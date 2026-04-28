@@ -184,23 +184,25 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             </footer>
           </blockquote>
 
+          {/* Per manifesto rule #10: case study CTA = Book a Call about THIS pattern */}
           <section className="rounded-2xl bg-zinc-900 p-10 text-center text-white">
-            <h3 className="text-2xl font-bold">Want this same system in your stack?</h3>
+            <h3 className="text-2xl font-bold">Want this exact pattern in your stack?</h3>
             <p className="mx-auto mt-4 max-w-lg text-zinc-400">
-              See the SKU that ships this exact build, or book a 20-minute call to walk us through your friction.
+              Book a 20-minute call. Walk us through where you sit on the same curve, and we&rsquo;ll walk back the first thing worth wiring.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
-                href={data.skuLink}
+                href={`/contact?sku=${data.skuLink.replace("/solutions/", "")}`}
                 className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500"
               >
-                View the SKU
+                Book a call about {data.category}
+                <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/contact"
+                href={data.skuLink}
                 className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
               >
-                Book a Call <ArrowRight className="h-4 w-4" />
+                See the {data.category} SKU
               </Link>
             </div>
           </section>
