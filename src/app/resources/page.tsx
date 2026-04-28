@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Activity, BookOpen, MessageCircle, Terminal } from "lucide-react";
 import type { Metadata } from "next";
 import { RESOURCES as RESOURCE_DATA } from "@/data/resources";
@@ -24,6 +25,8 @@ const RESOURCES = RESOURCE_DATA.map((r) => ({
   description: r.description,
   date: r.date,
   readTime: r.readTime,
+  image: r.image,
+  imageAlt: r.imageAlt,
   icon: ICON_MAP[r.category] ?? Terminal,
 }));
 
@@ -49,33 +52,42 @@ export default function ResourcesIndex() {
           <Link
             key={resource.slug}
             href={`/resources/${resource.slug}`}
-            className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-teal-600/30 hover:shadow-md"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-teal-600/30 hover:shadow-md"
           >
-            <div className="mb-4 flex items-center justify-between">
-              <span className="inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-700">
+            <div className="relative h-64 overflow-hidden">
+              <Image
+                src={resource.image}
+                alt={resource.imageAlt}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-zinc-900/80 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-white shadow-sm">
+                <resource.icon className="h-4 w-4" />
                 {resource.category}
               </span>
-              <resource.icon className="h-5 w-5 text-zinc-400" />
             </div>
 
-            <h2 className="text-2xl font-bold text-zinc-900 group-hover:text-teal-800 transition-colors">
-              {resource.title}
-            </h2>
+            <div className="flex flex-1 flex-col p-8">
+              <h2 className="text-2xl font-bold text-zinc-900 group-hover:text-teal-800 transition-colors">
+                {resource.title}
+              </h2>
 
-            <p className="mt-4 text-zinc-600 flex-1 leading-relaxed">
-              {resource.description}
-            </p>
+              <p className="mt-4 text-zinc-600 flex-1 leading-relaxed">
+                {resource.description}
+              </p>
 
-            <div className="mt-8 flex items-center justify-between border-t border-zinc-100 pt-6">
-              <div className="flex items-center gap-4 text-sm text-zinc-500 font-medium">
-                <time dateTime={resource.date}>
-                  {new Date(resource.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                </time>
-                <span>&bull;</span>
-                <span>{resource.readTime}</span>
-              </div>
-              <div className="flex items-center text-sm font-semibold text-teal-700">
-                Read guide <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <div className="mt-8 flex items-center justify-between border-t border-zinc-100 pt-6">
+                <div className="flex items-center gap-4 text-sm text-zinc-500 font-medium">
+                  <time dateTime={resource.date}>
+                    {new Date(resource.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </time>
+                  <span>&bull;</span>
+                  <span>{resource.readTime}</span>
+                </div>
+                <div className="flex items-center text-sm font-semibold text-teal-700">
+                  Read guide <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
               </div>
             </div>
           </Link>
