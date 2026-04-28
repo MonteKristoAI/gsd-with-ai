@@ -13,6 +13,8 @@ export type Resource = {
   sections: { question: string; body: string[] }[];
   faqs: ResourceFaq[];
   relatedSku: { slug: "audit-ready" | "field-to-cash" | "pipeline-reset"; label: string };
+  // Manifesto rule #10: blog post CTA = "Read the related case study"
+  relatedCaseStudy: { slug: string; label: string };
 };
 
 export const RESOURCES: Resource[] = [
@@ -74,6 +76,10 @@ export const RESOURCES: Resource[] = [
       },
     ],
     relatedSku: { slug: "audit-ready", label: "Audit-Ready" },
+    relatedCaseStudy: {
+      slug: "safety-compliance",
+      label: "How a well servicing company hit 100% ISNetworld compliance",
+    },
   },
   {
     slug: "field-ticketing-offline-first-architecture",
@@ -131,6 +137,10 @@ export const RESOURCES: Resource[] = [
       },
     ],
     relatedSku: { slug: "field-to-cash", label: "Field-to-Cash" },
+    relatedCaseStudy: {
+      slug: "wireline-operator",
+      label: "How a 40-person wireline operator cut DSO by 14 days",
+    },
   },
   {
     slug: "hubspot-job-costing-integration",
@@ -188,6 +198,10 @@ export const RESOURCES: Resource[] = [
       },
     ],
     relatedSku: { slug: "pipeline-reset", label: "Pipeline Reset" },
+    relatedCaseStudy: {
+      slug: "pipeline-visibility",
+      label: "How an industrial cleaning firm lifted win rate by 22%",
+    },
   },
 ];
 

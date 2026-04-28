@@ -125,25 +125,25 @@ export default async function ResourcePage({
             </dl>
           </section>
 
-          {/* SKU CTA per manifesto: every blog post links to a SKU */}
+          {/* Per manifesto rule #10: blog post primary CTA = read the related case study */}
           <section className="mt-16 rounded-2xl bg-zinc-900 p-10 text-center text-white">
-            <h3 className="text-2xl font-bold">Want this shipped, not just explained?</h3>
+            <h3 className="text-2xl font-bold">See this pattern in production</h3>
             <p className="mx-auto mt-4 max-w-lg text-zinc-400">
-              Read about the SKU that ships this exact build — or book a 20-minute call.
+              {r.relatedCaseStudy.label}.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
-                href={`/solutions/${r.relatedSku.slug}`}
+                href={`/case-studies/${r.relatedCaseStudy.slug}`}
                 className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500"
               >
-                See the {r.relatedSku.label} SKU
+                Read the case study
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/contact"
+                href={`/solutions/${r.relatedSku.slug}?sku=${r.relatedSku.slug}`}
                 className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
               >
-                Book a Call
+                See the {r.relatedSku.label} SKU
               </Link>
             </div>
           </section>
