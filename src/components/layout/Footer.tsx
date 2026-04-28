@@ -4,7 +4,7 @@ import Image from "next/image";
 import {  usePathname, useRouter } from "next/navigation";
 import { COMPANY } from "@/data/companyInfo";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
-import gsdLogo from "@/assets/gsd-logo.png";
+import gsdLogo from "@/assets/gsd-logo.webp";
 
 type QuickLink = { label: string; to: string };
 

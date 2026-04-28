@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import heroImg from "@/assets/hero.webp";
 import { cn } from "@/lib/utils";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, CheckCircle2, Play, Sparkles } from "lucide-react";
