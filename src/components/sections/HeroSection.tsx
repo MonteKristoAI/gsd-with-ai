@@ -34,7 +34,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="container relative mx-auto px-6">
-        <div className="flex min-h-[92vh] items-center py-28 lg:py-36">
+        <div className="flex min-h-[85vh] items-center py-12 lg:py-16">
           <div className="max-w-[640px]">
             {/* Badge */}
             <div className={cn("hero-animate hero-delay-1", isVisible && "visible")}>
