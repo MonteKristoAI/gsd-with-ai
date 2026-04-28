@@ -19,9 +19,9 @@ export default function AboutFounder() {
         className={cn("container mx-auto px-6", "reveal", isVisible && "visible")}
       >
         {/* Two-column layout */}
-        <div className="grid items-start gap-16 lg:grid-cols-2">
+        <div className="grid items-stretch gap-16 lg:grid-cols-2">
           {/* Left side: founder photo */}
-          <div className="sticky top-32 flex justify-center">
+          <div className="sticky top-32 self-start flex justify-center">
             <Image
               src={founderImg}
               alt={`${COMPANY.founder.name}, ${COMPANY.founder.title} of GSD with AI`}
