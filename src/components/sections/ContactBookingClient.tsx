@@ -47,7 +47,7 @@ function ContactBookingInner() {
                 3. "What's the one system you'd most want to fix this quarter?" (open text)
               These questions self-deselect bad fits and pre-load the call with context.
           */}
-          <div className="bg-white rounded-2xl border border-zinc-200 shadow-sm overflow-hidden h-[800px] relative">
+          <div className="bg-white rounded-2xl border border-zinc-200 shadow-sm overflow-hidden h-[1050px] relative">
             {/* Loading Skeleton */}
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-50">
               <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-200 border-t-teal-600" />
