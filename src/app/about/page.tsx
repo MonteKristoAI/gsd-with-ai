@@ -28,7 +28,7 @@ export default function AboutPage() {
           }
         `}
       </Script>
-      <div className="max-w-3xl mb-16">
+      <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="text-4xl font-extrabold text-zinc-900 sm:text-5xl">
           About GSD with AI
         </h1>
@@ -38,7 +38,7 @@ export default function AboutPage() {
       </div>
 
       {/* Why I started GSD */}
-      <section className="max-w-3xl mb-20">
+      <section className="max-w-3xl mx-auto mb-20">
         <h2 className="text-2xl font-extrabold text-zinc-900 sm:text-3xl">Why I started GSD</h2>
         <div className="mt-6 space-y-5 text-lg leading-relaxed text-zinc-700">
           {COMPANY.founder.bioParagraphs.map((p, i) => (

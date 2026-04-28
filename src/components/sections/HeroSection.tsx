@@ -34,8 +34,8 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="container relative mx-auto px-6">
-        <div className="flex min-h-[92vh] items-center py-28 lg:py-36">
-          <div className="max-w-[640px]">
+        <div className="flex min-h-[92vh] items-center justify-center py-28 lg:py-36">
+          <div className="max-w-[800px] flex flex-col items-center text-center">
             {/* Badge */}
             <div className={cn("hero-animate hero-delay-1", isVisible && "visible")}>
               <span className="inline-flex items-center gap-2 rounded-full border border-[hsl(175_72%_38%/0.2)] bg-white/90 backdrop-blur-sm px-5 py-2.5 text-sm font-semibold text-[hsl(175_72%_38%)] shadow-sm">
@@ -58,7 +58,7 @@ export default function HeroSection() {
             </p>
 
             {/* CTAs */}
-            <div className={cn("hero-animate hero-delay-4 mt-10 flex flex-wrap gap-4", isVisible && "visible")}>
+            <div className={cn("hero-animate hero-delay-4 mt-10 flex flex-wrap justify-center gap-4", isVisible && "visible")}>
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2.5 rounded-xl bg-[hsl(175_72%_28%)] px-8 py-4 text-[0.9375rem] font-semibold text-white shadow-[0_4px_14px_hsl(175_72%_38%/0.3)] transition-all duration-300 hover:shadow-[0_8px_25px_hsl(175_72%_38%/0.4)] hover:brightness-110 hover:-translate-y-0.5"
@@ -76,7 +76,7 @@ export default function HeroSection() {
             </div>
 
             {/* Trust badges */}
-            <div className={cn("hero-animate hero-delay-6 mt-12 flex flex-col gap-y-3", isVisible && "visible")}>
+            <div className={cn("hero-animate hero-delay-6 mt-12 flex flex-col items-center gap-y-3", isVisible && "visible")}>
               {TRUST_ITEMS.map((item) => (
                 <span key={item} className="inline-flex items-center gap-2 text-sm font-medium text-[hsl(215_15%_40%)]">
                   <CheckCircle2 className="h-4 w-4 text-[hsl(175_72%_38%)] shrink-0" />
