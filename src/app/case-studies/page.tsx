@@ -38,7 +38,7 @@ const CASE_STUDIES = [
       { label: "HSE Reporting Time", value: "-85%" },
     ],
     image:
-      "https://images.unsplash.com/photo-1581094488379-6b8526a4f6e1?w=900&h=600&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&h=600&fit=crop&q=80",
     imageAlt: "Safety inspector reviewing documentation on a tablet",
   },
   {

@@ -143,7 +143,7 @@ export default async function ResourcePage({
 
           {/* Per manifesto rule #10: blog post primary CTA = read the related case study */}
           <section className="mt-16 rounded-2xl bg-zinc-900 p-10 text-center text-white">
-            <h3 className="text-2xl font-bold">See this pattern in production</h3>
+            <h3 className="text-2xl font-bold text-white">See this pattern in production</h3>
             <p className="mx-auto mt-4 max-w-lg text-zinc-400">
               {r.relatedCaseStudy.label}.
             </p>
