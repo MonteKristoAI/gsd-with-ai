@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Field-to-Cash",
   description:
     "11 hours per week back to your office manager. Mobile-first ticketing, QuickBooks sync, DSO drop. For owner-operators of 15-50-person wireline + completions shops. Foundations from $25K. 6 weeks.",
+  alternates: { canonical: "https://www.getsstuffdone.com/solutions/field-to-cash" },
 };
 
 export default function FieldToCashPage() {

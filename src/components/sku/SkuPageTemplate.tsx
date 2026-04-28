@@ -54,7 +54,7 @@ export default function SkuPageTemplate({ sku }: Props) {
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
-              href="/contact"
+              href={`/contact?sku=${sku.slug}`}
               className="group inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgb(13_148_136/0.3)] transition-all hover:bg-teal-500"
             >
               Book a 20-minute scoping call

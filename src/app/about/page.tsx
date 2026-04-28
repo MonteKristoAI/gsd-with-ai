@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "20 years building data systems for some of the world's most demanding operators. Now applying the same playbook to 30-person shops in the TX/OK/LA corridor.",
+  alternates: { canonical: "https://www.getsstuffdone.com/about" },
 };
 
 export default function AboutPage() {

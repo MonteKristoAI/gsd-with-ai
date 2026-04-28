@@ -11,7 +11,7 @@ export default function AboutFounder() {
   return (
     <section id="about" className="relative overflow-hidden bg-white bg-texture-dots bg-radial-gold py-20 lg:py-28">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&h=1080&fit=crop&q=80" alt="" className="h-full w-full object-cover opacity-[0.02]" />
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&h=1080&fit=crop&q=80" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover opacity-[0.02]" />
       </div>
       <div
         ref={ref}
@@ -24,6 +24,10 @@ export default function AboutFounder() {
             <img
               src={founderImg.src}
               alt={`${COMPANY.founder.name}, ${COMPANY.founder.title} of GSD with AI`}
+              loading="lazy"
+              decoding="async"
+              width={448}
+              height={500}
               className="h-auto max-h-[500px] w-full max-w-md rounded-2xl border border-[hsl(214_20%_90%)] object-cover shadow-lg"
             />
           </div>

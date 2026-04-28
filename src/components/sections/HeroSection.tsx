@@ -37,7 +37,7 @@ export default function HeroSection() {
             <div className={cn("hero-animate hero-delay-1", isVisible && "visible")}>
               <span className="inline-flex items-center gap-2 rounded-full border border-[hsl(175_72%_38%/0.2)] bg-white/90 backdrop-blur-sm px-5 py-2.5 text-sm font-semibold text-[hsl(175_72%_38%)] shadow-sm">
                 <Sparkles className="h-4 w-4" />
-                CTO-level engineering, applied to SMBs
+                Maxine &mdash; the CTO you can&rsquo;t afford to hire
               </span>
             </div>
 

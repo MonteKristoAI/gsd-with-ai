@@ -1,5 +1,13 @@
 import Link from "next/link";
 import { ArrowRight, DollarSign, FileCheck, Target } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Solutions",
+  description:
+    "Three SKUs, one playbook. Audit-Ready, Field-to-Cash, Pipeline Reset. Foundations from $25K. 6-week build. For oilfield + industrial-services SMBs in TX/OK/LA.",
+  alternates: { canonical: "https://www.getsstuffdone.com/solutions" },
+};
 
 export default function SolutionsHub() {
   const skus = [

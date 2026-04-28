@@ -2,9 +2,30 @@
 
 import Script from "next/script";
 import { Mail, Phone } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { COMPANY } from "@/data/companyInfo";
 
-export default function ContactBookingClient() {
+const BASE_CALENDLY = "https://calendly.com/maxine-gsd/discovery-call";
+
+function buildCalendlyUrl(skuParam: string | null) {
+  const params = new URLSearchParams({
+    hide_event_type_details: "1",
+    hide_gdpr_banner: "1",
+  });
+  if (skuParam) {
+    params.set("utm_source", "website");
+    params.set("utm_medium", "sku-cta");
+    params.set("utm_content", skuParam);
+  }
+  return `${BASE_CALENDLY}?${params.toString()}`;
+}
+
+function ContactBookingInner() {
+  const searchParams = useSearchParams();
+  const sku = searchParams.get("sku");
+  const calendlyUrl = buildCalendlyUrl(sku);
+
   return (
     <div className="container mx-auto px-6 py-24 min-h-[80vh]">
       <div className="max-w-4xl mx-auto">
@@ -28,8 +49,9 @@ export default function ContactBookingClient() {
           */}
           <div className="bg-white rounded-2xl border border-zinc-200 shadow-sm overflow-hidden h-[700px] relative">
             <div
+              key={calendlyUrl}
               className="calendly-inline-widget w-full h-full"
-              data-url="https://calendly.com/maxine-gsd/discovery-call?hide_event_type_details=1&hide_gdpr_banner=1"
+              data-url={calendlyUrl}
               style={{ minWidth: "320px", height: "100%" }}
             />
             <Script
@@ -84,5 +106,19 @@ export default function ContactBookingClient() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ContactBookingClient() {
+  return (
+    <Suspense
+      fallback={
+        <div className="container mx-auto flex min-h-[80vh] items-center justify-center px-6 py-24">
+          <div className="text-zinc-500">Loading the booking form&hellip;</div>
+        </div>
+      }
+    >
+      <ContactBookingInner />
+    </Suspense>
   );
 }
