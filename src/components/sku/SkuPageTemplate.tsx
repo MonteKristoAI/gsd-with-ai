@@ -2,6 +2,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { ArrowRight, CheckCircle2, Quote } from "lucide-react";
 import { type SkuData, PRICE_BAND_TEXT } from "@/data/skuData";
+import TrackPageView from "@/components/shared/TrackPageView";
 
 type Props = { sku: SkuData };
 
@@ -37,6 +38,7 @@ export default function SkuPageTemplate({ sku }: Props) {
 
   return (
     <>
+      <TrackPageView event="SKU View" props={{ sku: sku.slug }} />
       <Script id={`sku-schema-${sku.slug}`} type="application/ld+json">
         {JSON.stringify([serviceSchema, faqSchema])}
       </Script>
@@ -55,7 +57,7 @@ export default function SkuPageTemplate({ sku }: Props) {
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
               href={`/contact?sku=${sku.slug}`}
-              className="group inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgb(13_148_136/0.3)] transition-all hover:bg-teal-500"
+              className="group inline-flex items-center gap-2 rounded-xl bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgb(13_148_136/0.3)] transition-all hover:bg-teal-600"
             >
               Book a 20-minute scoping call
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -70,7 +72,7 @@ export default function SkuPageTemplate({ sku }: Props) {
           <ul className="mt-6 space-y-4">
             {sku.isForYou.map((line) => (
               <li key={line} className="flex gap-3 text-lg leading-relaxed text-zinc-700">
-                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-teal-600" />
+                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-teal-700" />
                 <span>{line}</span>
               </li>
             ))}
@@ -118,7 +120,7 @@ export default function SkuPageTemplate({ sku }: Props) {
           <ul className="mt-6 space-y-3">
             {sku.whatYouGet.map((item) => (
               <li key={item} className="flex gap-3 text-zinc-700">
-                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-teal-600" />
+                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-teal-700" />
                 <span>{item}</span>
               </li>
             ))}
@@ -134,11 +136,11 @@ export default function SkuPageTemplate({ sku }: Props) {
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700">
               Proof
             </span>
-            <h3 className="mt-3 text-2xl font-extrabold text-zinc-900 group-hover:text-teal-700 sm:text-3xl">
+            <h3 className="mt-3 text-2xl font-extrabold text-zinc-900 group-hover:text-teal-800 sm:text-3xl">
               {sku.caseStudy.headline}
             </h3>
             <p className="mt-4 text-base leading-relaxed text-zinc-600">{sku.caseStudy.blurb}</p>
-            <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-600">
+            <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-700">
               Read the breakdown <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
           </Link>
@@ -197,7 +199,7 @@ export default function SkuPageTemplate({ sku }: Props) {
         </section>
 
         {/* Final CTA */}
-        <section className="mt-20 rounded-2xl bg-teal-600 p-12 text-center text-white">
+        <section className="mt-20 rounded-2xl bg-teal-700 p-12 text-center text-white">
           <h2 className="text-3xl font-extrabold sm:text-4xl">Ready to ship?</h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-teal-100">
             A 20-minute call. You walk us through the friction. We walk back the first thing worth wiring.

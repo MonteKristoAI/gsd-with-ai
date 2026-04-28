@@ -58,7 +58,7 @@ export default function ResourcesIndex() {
               <resource.icon className="h-5 w-5 text-zinc-400" />
             </div>
 
-            <h2 className="text-2xl font-bold text-zinc-900 group-hover:text-teal-700 transition-colors">
+            <h2 className="text-2xl font-bold text-zinc-900 group-hover:text-teal-800 transition-colors">
               {resource.title}
             </h2>
 
@@ -74,7 +74,7 @@ export default function ResourcesIndex() {
                 <span>&bull;</span>
                 <span>{resource.readTime}</span>
               </div>
-              <div className="flex items-center text-sm font-semibold text-teal-600">
+              <div className="flex items-center text-sm font-semibold text-teal-700">
                 Read guide <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </div>
             </div>

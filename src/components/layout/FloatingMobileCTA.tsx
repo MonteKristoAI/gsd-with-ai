@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { COMPANY } from "@/data/companyInfo";
 import { MessageSquareText, Calendar } from "lucide-react";
+import { trackEvent } from "@/lib/plausible";
 
 export default function FloatingMobileCTA() {
   const navigate = useRouter();
@@ -12,8 +13,11 @@ export default function FloatingMobileCTA() {
       <div className="container flex items-center gap-3 py-3">
         {/* Book a 20-min call (primary) */}
         <button
-          onClick={() => navigate.push("/contact")}
-          className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[hsl(175_72%_38%)] py-2.5 font-heading text-sm font-semibold text-white transition-colors hover:bg-[hsl(175_72%_32%)]"
+          onClick={() => {
+            trackEvent("Book Call", { source: "mobile-sticky" });
+            navigate.push("/contact");
+          }}
+          className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[hsl(175_72%_28%)] py-2.5 font-heading text-sm font-semibold text-white transition-colors hover:bg-[hsl(175_72%_22%)]"
         >
           <Calendar className="h-4 w-4" />
           Book a 20-min call

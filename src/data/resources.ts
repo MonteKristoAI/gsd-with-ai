@@ -203,6 +203,79 @@ export const RESOURCES: Resource[] = [
       label: "How an industrial cleaning firm lifted win rate by 22%",
     },
   },
+  {
+    slug: "what-9pm-invoicing-actually-costs",
+    title: "What 9pm invoicing is actually costing your shop",
+    category: "Operational Reality",
+    description:
+      "If your office manager is reconciling field tickets on a Friday night, that's not a productivity problem. It's a $180K-a-year tax. Here's the math, the bottleneck, and the system that ends it.",
+    date: "2026-04-22",
+    readTime: "7 min read",
+    directAnswer:
+      "9pm invoicing costs a 30-person oilfield-services shop somewhere between $120K and $220K a year. The visible cost is overtime and burnout. The invisible cost is DSO drag, missed billable hours, and a single point of failure when the office manager takes vacation. Most of it disappears the moment field tickets stop being re-typed.",
+    sections: [
+      {
+        question: "Why is 9pm invoicing so expensive?",
+        body: [
+          "Most owner-operators see late-night reconciliation as their office manager's overtime line item. Maybe $15K-$25K a year. That's the visible cost. The invisible cost is bigger.",
+          "Manual ticket entry has a 3-7% error rate in our experience. Wrong amounts, missing signatures, lost time entries. Each one of those becomes a customer dispute, a write-off, or a slow-pay invoice. On a $4M revenue book that's $120K-$280K a year vanishing into reconciliation drift.",
+          "Then there's DSO. Field tickets that get re-typed Mondays don't invoice until Tuesday. Customers don't pay until they receive. Add 7-10 days to your average cycle, multiply by your daily revenue, and that's working capital you're financing for free.",
+        ],
+      },
+      {
+        question: "What's the real bottleneck?",
+        body: [
+          "It's not the office manager. It's the handoff. A paper ticket leaves the field, gets driven back to the yard, sits on a desk, gets re-keyed into QuickBooks, gets cross-checked against dispatch, gets approved by the supervisor, then gets emailed to the customer.",
+          "Five handoffs. Each one is a chance for the data to get worse, not better. The 9pm reconciliation is what happens when the office manager is the only person who can see all five at once.",
+          "Removing the handoff is a different project than removing the overtime.",
+        ],
+      },
+      {
+        question: "What does the fixed system actually look like?",
+        body: [
+          "Field crew captures the ticket on a tablet, offline-capable. Customer signs on the device. The moment service comes back, the ticket syncs to a single queue.",
+          "QuickBooks integration generates a draft invoice the same hour. The office manager reviews exceptions only — typos, unsigned tickets, mismatched line items. The clean ones go straight to the customer.",
+          "Supervisors approve via SMS without driving to the yard. DSO measurement is automated and visible to the owner every morning.",
+          "Total touch time for the office manager: about 90 minutes a day instead of 11 hours a week of catch-up.",
+        ],
+      },
+      {
+        question: "How fast does the math turn?",
+        body: [
+          "We've watched DSO drop 14 days in the first 30 days post-cutover. That's roughly $80K-$120K of operating capital back in the bank for a $4M shop. The overtime line dies in week 4.",
+          "Customer disputes drop because invoices land within 24 hours of service while the work is fresh. Fewer dispute cycles means a meaningful uptick in collections.",
+          "The compounding number is the office manager's weekend. That doesn't show up on a P&L but it's the reason owners do this in the first place.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What size shop does this math work for?",
+        a: "15-50 person oilfield/industrial services with 8+ field crews. Below that, the manual flow is small enough that the wiring cost outweighs the savings. Above that, the savings explode.",
+      },
+      {
+        q: "What if the field crew refuses to use a tablet?",
+        a: "Universal pushback. Universal answer: design the tablet flow so it's faster than paper for the crew. Five taps and they're done. Pilot crew adoption is week 4 of the build for exactly this reason.",
+      },
+      {
+        q: "Can we keep our current dispatch system?",
+        a: "Yes. We integrate around it. The wiring sits between dispatch and finance, not on top of dispatch.",
+      },
+      {
+        q: "Will this break our existing invoicing process during cutover?",
+        a: "No. Pilot crew runs in parallel for one week. Cutover happens crew-by-crew. The office manager can still hand-key anything that's stuck. By week 6 nothing is stuck.",
+      },
+      {
+        q: "What's the upper bound of savings?",
+        a: "Owner-operator survey we ran across 12 corridor shops put the median total annual cost of 9pm invoicing at $187K. Top quartile was $310K. The bottom quartile (which is where you want to land) was $42K — that's after the system ships.",
+      },
+    ],
+    relatedSku: { slug: "field-to-cash", label: "Field-to-Cash" },
+    relatedCaseStudy: {
+      slug: "wireline-operator",
+      label: "How a 40-person wireline operator cut DSO by 14 days",
+    },
+  },
 ];
 
 export const RESOURCES_BY_SLUG: Record<string, Resource> = Object.fromEntries(

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { RESOURCES, RESOURCES_BY_SLUG } from "@/data/resources";
+import TrackPageView from "@/components/shared/TrackPageView";
 
 export async function generateStaticParams() {
   return RESOURCES.map((r) => ({ slug: r.slug }));
@@ -61,6 +62,7 @@ export default async function ResourcePage({
 
   return (
     <>
+      <TrackPageView event="Resource Read" props={{ slug: r.slug }} />
       <Script id={`resource-schema-${r.slug}`} type="application/ld+json">
         {JSON.stringify([articleSchema, faqSchema])}
       </Script>
@@ -69,7 +71,7 @@ export default async function ResourcePage({
         <div className="max-w-3xl mx-auto">
           <Link
             href="/resources"
-            className="inline-flex items-center text-sm font-semibold text-teal-600 hover:text-teal-700 mb-8"
+            className="inline-flex items-center text-sm font-semibold text-teal-700 hover:text-teal-800 mb-8"
           >
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Resources
           </Link>
@@ -134,7 +136,7 @@ export default async function ResourcePage({
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href={`/case-studies/${r.relatedCaseStudy.slug}`}
-                className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500"
+                className="inline-flex items-center gap-2 rounded-xl bg-teal-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-600"
               >
                 Read the case study
                 <ArrowRight className="h-4 w-4" />

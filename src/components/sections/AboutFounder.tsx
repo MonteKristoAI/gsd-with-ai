@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
 import { COMPANY } from "@/data/companyInfo"
@@ -21,13 +22,12 @@ export default function AboutFounder() {
         <div className="grid items-center gap-16 lg:grid-cols-2">
           {/* Left side: founder photo */}
           <div className="flex justify-center">
-            <img
-              src={founderImg.src}
+            <Image
+              src={founderImg}
               alt={`${COMPANY.founder.name}, ${COMPANY.founder.title} of GSD with AI`}
-              loading="lazy"
-              decoding="async"
               width={448}
               height={500}
+              placeholder="blur"
               className="h-auto max-h-[500px] w-full max-w-md rounded-2xl border border-[hsl(214_20%_90%)] object-cover shadow-lg"
             />
           </div>
@@ -105,7 +105,7 @@ export default function AboutFounder() {
                 </p>
                 <a
                   href="#contact"
-                  className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[hsl(175_72%_38%)] px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
+                  className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[hsl(175_72%_28%)] px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
                 >
                   Start a Conversation
                 </a>

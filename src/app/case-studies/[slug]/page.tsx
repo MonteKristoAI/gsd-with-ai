@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import TrackPageView from "@/components/shared/TrackPageView";
 
 // Hardcoded data for the template, typically this would be fetched from a CMS
 type Outcome = { value: string; label: string };
@@ -122,8 +123,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
   return (
     <article className="container mx-auto px-6 py-24 min-h-[80vh]">
+      <TrackPageView event="Case Study Read" props={{ slug: resolvedParams.slug }} />
       <div className="max-w-3xl mx-auto">
-        <Link href="/case-studies" className="inline-flex items-center text-sm font-semibold text-teal-600 hover:text-teal-700 mb-8">
+        <Link href="/case-studies" className="inline-flex items-center text-sm font-semibold text-teal-700 hover:text-teal-800 mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Case Studies
         </Link>
 
@@ -140,7 +142,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <section className="mb-16 grid gap-4 sm:grid-cols-3">
           {data.outcomes.map((o) => (
             <div key={o.label} className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
-              <div className="text-3xl font-extrabold text-teal-600">{o.value}</div>
+              <div className="text-3xl font-extrabold text-teal-700">{o.value}</div>
               <div className="mt-2 text-sm font-medium text-zinc-700">{o.label}</div>
             </div>
           ))}
@@ -162,7 +164,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <h2 className="mb-4 border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500">
               The Approach
             </h2>
-            <ul className="list-disc space-y-3 pl-5 text-lg text-zinc-700 marker:text-teal-600">
+            <ul className="list-disc space-y-3 pl-5 text-lg text-zinc-700 marker:text-teal-700">
               {data.approach.map((b, idx) => (
                 <li key={idx} className="pl-2">{b}</li>
               ))}
@@ -177,7 +179,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           </section>
 
           {/* Pull quote */}
-          <blockquote className="rounded-2xl bg-teal-600 p-10 text-white">
+          <blockquote className="rounded-2xl bg-teal-700 p-10 text-white">
             <p className="text-xl leading-relaxed">&ldquo;{data.pullQuote.text}&rdquo;</p>
             <footer className="mt-6 text-sm font-medium text-teal-100">
               — {data.pullQuote.attribution}
@@ -193,7 +195,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href={`/contact?sku=${data.skuLink.replace("/solutions/", "")}`}
-                className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-500"
+                className="inline-flex items-center gap-2 rounded-xl bg-teal-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-600"
               >
                 Book a call about {data.category}
                 <ArrowRight className="h-4 w-4" />

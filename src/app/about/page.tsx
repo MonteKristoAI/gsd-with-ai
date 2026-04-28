@@ -75,15 +75,15 @@ export default function AboutPage() {
             <div className="mt-6 space-y-4">
               <div className="flex justify-between items-center border-b border-zinc-200 pb-4">
                 <span className="font-semibold text-zinc-900">Foundations Engagement</span>
-                <span className="font-bold text-teal-600">From $25K</span>
+                <span className="font-bold text-teal-700">From $25K</span>
               </div>
               <div className="flex justify-between items-center border-b border-zinc-200 pb-4">
                 <span className="font-semibold text-zinc-900">Core Systems Overhaul</span>
-                <span className="font-bold text-teal-600">From $45K</span>
+                <span className="font-bold text-teal-700">From $45K</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="font-semibold text-zinc-900">Operating Retainer</span>
-                <span className="font-bold text-teal-600">From $5K/mo</span>
+                <span className="font-bold text-teal-700">From $5K/mo</span>
               </div>
             </div>
           </div>

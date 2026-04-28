@@ -59,9 +59,9 @@ export default function SolutionsHub() {
             href={sku.href}
             className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm transition-all hover:border-teal-500 hover:shadow-md"
           >
-            <sku.icon className="h-10 w-10 text-teal-600 mb-6" />
+            <sku.icon className="h-10 w-10 text-teal-700 mb-6" />
             <h2 className="text-2xl font-bold text-zinc-900">{sku.title}</h2>
-            <p className="mt-2 text-sm font-semibold text-teal-600">{sku.outcome}</p>
+            <p className="mt-2 text-sm font-semibold text-teal-700">{sku.outcome}</p>
             <p className="mt-4 flex-1 text-sm text-zinc-600">{sku.persona}</p>
             <div className="mt-6 flex flex-col gap-1 border-t border-zinc-100 pt-4 text-sm font-medium text-zinc-800">
               <div className="flex justify-between">
@@ -73,7 +73,7 @@ export default function SolutionsHub() {
                 <span>{sku.price}</span>
               </div>
             </div>
-            <div className="mt-6 flex items-center gap-2 font-semibold text-teal-600 group-hover:text-teal-700">
+            <div className="mt-6 flex items-center gap-2 font-semibold text-teal-700 group-hover:text-teal-800">
               See the details
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </div>

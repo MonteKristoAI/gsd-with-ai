@@ -46,11 +46,11 @@ export default function Home() {
               },
             ].map((card, idx) => (
               <a href={card.href} key={idx} className="group relative block rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-teal-600/30">
-                <card.icon className="h-8 w-8 text-teal-600" />
-                <h3 className="mt-6 text-xl font-bold text-zinc-900 group-hover:text-teal-700">{card.title}</h3>
+                <card.icon className="h-8 w-8 text-teal-700" />
+                <h3 className="mt-6 text-xl font-bold text-zinc-900 group-hover:text-teal-800">{card.title}</h3>
                 <p className="mt-2 text-sm font-medium italic text-zinc-500">{card.quote}</p>
                 <p className="mt-4 text-zinc-600">{card.desc}</p>
-                <div className="mt-6 flex items-center text-sm font-semibold text-teal-600">
+                <div className="mt-6 flex items-center text-sm font-semibold text-teal-700">
                   See the SKU <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </div>
               </a>
