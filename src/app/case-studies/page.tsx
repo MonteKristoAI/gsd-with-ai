@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, BarChart3, Clock, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Case Studies",
+  description:
+    "Three engagements, three named outcomes. How GSD with AI shipped Field-to-Cash, Audit-Ready, and Pipeline Reset systems for oilfield + industrial-services SMBs in the TX/OK/LA corridor.",
 };
 
 const CASE_STUDIES = [
@@ -11,37 +13,46 @@ const CASE_STUDIES = [
     slug: "wireline-operator",
     title: "40-person wireline operator cuts DSO by 14 days",
     category: "Field-to-Cash",
-    problem: "Field tickets were written on paper, driven to the office on Fridays, and manually entered into QuickBooks on Mondays.",
-    build: "We deployed a mobile-first ticketing app that syncs instantly to dispatch and finance.",
+    industry: "Wireline · 40 employees · TX/OK basins",
+    summary:
+      "Field tickets used to live on paper, get driven to the office Fridays, and re-typed into QuickBooks Mondays. We wired the field straight to finance.",
     metrics: [
-      { label: "DSO Reduction", value: "14 Days" },
-      { label: "Admin Time Saved", value: "22 hrs/wk" },
+      { label: "DSO Reduction", value: "14 days" },
+      { label: "Admin Time Returned", value: "22 hrs/wk" },
     ],
-    icon: Clock,
+    image:
+      "https://images.unsplash.com/photo-1614624533284-de7ddff85822?w=900&h=600&fit=crop&q=80",
+    imageAlt: "Wireline operator equipment at a remote wellsite",
   },
   {
     slug: "safety-compliance",
     title: "Well servicing company achieves 100% ISNetworld compliance",
     category: "Audit-Ready",
-    problem: "HSE manager spent 3 days a month tracking down expired operator certs across 5 different field locations.",
-    build: "We automated cert tracking from their HRIS directly into ISNetworld with 30-day proactive text alerts.",
+    industry: "Well servicing · 60 employees · OK",
+    summary:
+      "HSE manager was burning 3 days a month chasing expired operator certs across 5 locations. We automated the ISN sync and gave the team an instant audit dashboard.",
     metrics: [
       { label: "Compliance Rate", value: "100%" },
       { label: "HSE Reporting Time", value: "-85%" },
     ],
-    icon: ShieldCheck,
+    image:
+      "https://images.unsplash.com/photo-1581094488379-6b8526a4f6e1?w=900&h=600&fit=crop&q=80",
+    imageAlt: "Safety inspector reviewing documentation on a tablet",
   },
   {
     slug: "pipeline-visibility",
     title: "Industrial cleaning firm stops bidding blind",
     category: "Pipeline Reset",
-    problem: "Sales team lived in HubSpot, operations lived in spreadsheets, and nobody knew the actual margin on completed jobs.",
-    build: "We connected HubSpot to field operations to calculate live job costing and historical margin per client.",
+    industry: "Industrial cleaning · 75 employees · LA",
+    summary:
+      "Sales lived in HubSpot, ops lived in spreadsheets, nobody knew real margin until quarter-end. We wired the two and gave them live job-costing.",
     metrics: [
+      { label: "Win Rate Lift", value: "+22%" },
       { label: "Margin Accuracy", value: "98%" },
-      { label: "Pipeline Visibility", value: "Real-time" },
     ],
-    icon: BarChart3,
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=600&fit=crop&q=80",
+    imageAlt: "Operations dashboard showing real-time job costing data",
   },
 ];
 
@@ -53,7 +64,7 @@ export default function CaseStudiesIndex() {
           Case Studies
         </h1>
         <p className="mt-6 text-xl text-zinc-600 leading-relaxed">
-          We don't build tech for the sake of tech. We build operational systems that change how the business runs. Here is what that looks like in practice.
+          We don&rsquo;t build tech for the sake of tech. We build operational systems that change how the business runs. Three engagements. Three named outcomes.
         </p>
       </div>
 
@@ -62,41 +73,42 @@ export default function CaseStudiesIndex() {
           <Link
             key={study.slug}
             href={`/case-studies/${study.slug}`}
-            className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-teal-600/30 hover:shadow-md"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-teal-600/30 hover:shadow-md"
           >
-            <div className="mb-6 flex items-center justify-between">
-              <span className="inline-flex items-center rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src={study.image}
+                alt={study.imageAlt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="absolute left-4 top-4 inline-flex items-center rounded-full bg-teal-600 px-3 py-1 text-xs font-semibold text-white shadow-sm">
                 {study.category}
               </span>
-              <study.icon className="h-5 w-5 text-zinc-400" />
             </div>
 
-            <h2 className="text-2xl font-bold text-zinc-900 group-hover:text-teal-700 transition-colors">
-              {study.title}
-            </h2>
+            <div className="flex flex-1 flex-col p-7">
+              <span className="text-xs font-medium text-zinc-500">{study.industry}</span>
 
-            <div className="mt-6 space-y-4 flex-1">
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-500">The Problem</h3>
-                <p className="mt-1 text-sm text-zinc-700">{study.problem}</p>
+              <h2 className="mt-3 text-xl font-bold text-zinc-900 group-hover:text-teal-700 transition-colors">
+                {study.title}
+              </h2>
+
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-zinc-600">{study.summary}</p>
+
+              <div className="mt-6 grid grid-cols-2 gap-4 border-t border-zinc-100 pt-5">
+                {study.metrics.map((metric) => (
+                  <div key={metric.label}>
+                    <div className="text-2xl font-extrabold text-teal-600">{metric.value}</div>
+                    <div className="mt-1 text-xs font-medium text-zinc-500">{metric.label}</div>
+                  </div>
+                ))}
               </div>
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-500">The Build</h3>
-                <p className="mt-1 text-sm text-zinc-700">{study.build}</p>
+
+              <div className="mt-6 flex items-center text-sm font-semibold text-teal-600">
+                Read the breakdown
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </div>
-            </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-4 border-t border-zinc-100 pt-6">
-              {study.metrics.map((metric, idx) => (
-                <div key={idx}>
-                  <div className="text-2xl font-extrabold text-teal-600">{metric.value}</div>
-                  <div className="text-xs font-medium text-zinc-500 mt-1">{metric.label}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 flex items-center text-sm font-semibold text-teal-600">
-              Read the case study <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </div>
           </Link>
         ))}

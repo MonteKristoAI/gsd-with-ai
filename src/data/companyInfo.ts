@@ -22,17 +22,24 @@ export const COMPANY = {
   founder: {
     name: "Maxine Aitkenhead",
     title: "Founder",
-    bio: "Maxine spent twenty years inside Schlumberger, the oilfield data company that taught her what enterprise systems look like when they have to survive in places without reliable electricity. She started GSD with AI because most SMBs already own the right tools. They are not missing software. They are missing the wiring between the tools, the discipline to ship one change a week, and someone who has watched a Fortune 100 system work across six continents.",
+    positioningLine:
+      "20 years building data systems for some of the world's most demanding operators. Now applying the same playbook to 30-person shops in the TX/OK/LA corridor.",
+    bio: "I spent 20 years inside Schlumberger building data systems that had to survive in places without reliable electricity. Six continents, two languages, one constant: the operators who actually win are the ones whose tools talk to each other.",
+    bioParagraphs: [
+      "I spent 20 years inside Schlumberger building data systems that had to survive in places without reliable electricity. Six continents, two languages, one constant: the operators who actually win are the ones whose tools talk to each other.",
+      "I started GSD with AI because most SMBs in the TX/OK/LA corridor already own the right tools. HubSpot, QuickBooks, ISN, Avetta. They're not missing software. They're missing the wiring between the tools, the discipline to ship one change a week, and someone who has watched a Fortune 100 system work in 17 countries.",
+      "We don't run 12-month digital transformations. We ship something measurable into your stack every two weeks. Week 6, a system runs that wasn't running on day one. That's the whole job.",
+    ],
     credentials: [
       "20 years at Schlumberger",
       "Subsurface Petroleum Data Management certified",
       "MSc, International Business Marketing",
       "Blockchain and smart-contract practitioner",
-      "Texas-based. Works with US and international SMBs.",
+      "Houston-based. Works with TX/OK/LA corridor SMBs.",
     ],
     vision: [
       { title: "Work across geographies", text: "Built query systems in London. Ran training across Europe, Russia, and Africa. The pattern is always the same. Once the team trusts the data, everything downstream gets faster." },
-      { title: "Bridge the tech-to-ops gap", text: "Most consultants speak one language. Maxine speaks both. An International Business Marketing background sits on top of a Subsurface Petroleum Data Management certification, which is a long way of saying that the technical architecture and the P&L conversation happen in the same sentence." },
+      { title: "Bridge the tech-to-ops gap", text: "Most consultants speak one language. I speak both. An International Business Marketing background sits on top of a Subsurface Petroleum Data Management certification, which is a long way of saying that the technical architecture and the P&L conversation happen in the same sentence." },
       { title: "Modern stack, classical discipline", text: "The recent decade has been blockchain, smart contracts, and the governance layer under them. The classical discipline is unchanged. Ship something real every two weeks or the engagement is in trouble." },
     ],
   },

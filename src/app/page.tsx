@@ -1,7 +1,7 @@
 import HeroSection from "@/components/sections/HeroSection";
-import AboutFounder from "@/components/sections/AboutFounder";
-import ContactSection from "@/components/sections/ContactSection";
-import CaseStudies from "@/components/sections/CaseStudies";
+import FeaturedCaseStudy from "@/components/sections/FeaturedCaseStudy";
+import MaxineMiniBlock from "@/components/sections/MaxineMiniBlock";
+import HomepageFinalCTA from "@/components/sections/HomepageFinalCTA";
 import { Clock, ShieldAlert, TrendingDown } from "lucide-react";
 
 export default function Home() {
@@ -9,43 +9,12 @@ export default function Home() {
     <>
       <HeroSection />
 
-      {/* From -> To Strip */}
-      <section className="bg-zinc-900 py-12 text-white">
-        <div className="container mx-auto px-6">
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              {
-                from: "9pm invoicing",
-                to: "11 hours back per week",
-              },
-              {
-                from: "Missing safety certs",
-                to: "100% audit-ready",
-              },
-              {
-                from: "Guessing on margins",
-                to: "Live job costing",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="flex flex-col border-l border-zinc-700 pl-6">
-                <span className="text-sm font-medium text-zinc-400 line-through">
-                  From: {item.from}
-                </span>
-                <span className="mt-1 text-lg font-bold text-teal-400">
-                  To: {item.to}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Is This You? Cards */}
       <section className="py-24 bg-zinc-50">
         <div className="container mx-auto px-6">
           <div className="mb-12 max-w-2xl">
             <h2 className="text-3xl font-extrabold text-zinc-900 sm:text-4xl">
-              Who we build for
+              Is this you?
             </h2>
             <p className="mt-4 text-lg text-zinc-600">
               We don&apos;t do general B2B SaaS. We wire systems for people who wear hardhats to work.
@@ -90,9 +59,40 @@ export default function Home() {
         </div>
       </section>
 
-      <CaseStudies />
-      <AboutFounder />
-      <ContactSection />
+      {/* From -> To Strip */}
+      <section className="bg-zinc-900 py-12 text-white">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              {
+                from: "9pm invoicing",
+                to: "11 hours back per week",
+              },
+              {
+                from: "2-week audit scrambles",
+                to: "Pull-it-in-15-minutes audit-readiness",
+              },
+              {
+                from: "Pipeline forecast that's a guess",
+                to: "Forecast you can commit to",
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="flex flex-col border-l border-zinc-700 pl-6">
+                <span className="text-sm font-medium text-zinc-400 line-through">
+                  From: {item.from}
+                </span>
+                <span className="mt-1 text-lg font-bold text-teal-400">
+                  To: {item.to}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FeaturedCaseStudy />
+      <MaxineMiniBlock />
+      <HomepageFinalCTA />
     </>
   );
 }

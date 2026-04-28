@@ -1,9 +1,12 @@
 import AboutFounder from "@/components/sections/AboutFounder";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { COMPANY } from "@/data/companyInfo";
 
 export const metadata: Metadata = {
   title: "About",
+  description:
+    "20 years building data systems for some of the world's most demanding operators. Now applying the same playbook to 30-person shops in the TX/OK/LA corridor.",
 };
 
 export default function AboutPage() {
@@ -29,9 +32,19 @@ export default function AboutPage() {
           About GSD with AI
         </h1>
         <p className="mt-6 text-xl text-zinc-600 leading-relaxed">
-          We build operational systems for oilfield and industrial services SMBs in the Texas, Oklahoma, and Louisiana corridor.
+          {COMPANY.founder.positioningLine}
         </p>
       </div>
+
+      {/* Why I started GSD */}
+      <section className="max-w-3xl mb-20">
+        <h2 className="text-2xl font-extrabold text-zinc-900 sm:text-3xl">Why I started GSD</h2>
+        <div className="mt-6 space-y-5 text-lg leading-relaxed text-zinc-700">
+          {COMPANY.founder.bioParagraphs.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
+      </section>
 
       <div className="grid gap-12 lg:grid-cols-2 mt-16">
         <div>
