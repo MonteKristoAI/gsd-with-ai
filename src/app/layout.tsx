@@ -104,7 +104,7 @@ export default function RootLayout({
           `}
         </Script>
         <Header />
-        <main id="main" className="flex-1">{children}</main>
+        <main id="main" className="flex-1 pt-20 lg:pt-[88px]">{children}</main>
         <Footer />
         <FloatingMobileCTA />
         <DesktopStickyCTA />
