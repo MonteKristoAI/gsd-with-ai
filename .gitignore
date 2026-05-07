@@ -33,3 +33,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Security — block malware filenames from incident 2026-05-07
+manji.x86*
+let
+iran.*
+/dev/shm/
+*.MALICIOUS-2026-05-07
+node_modules.QUARANTINED-*
+package.json.INFECTED-*
+tsconfig.json.INFECTED-*
+next.config.ts.INFECTED-*
+package-lock-INFECTED.json
