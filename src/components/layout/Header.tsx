@@ -1,21 +1,14 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { COMPANY } from "@/data/companyInfo";
+import { COMPANY, NAV } from "@/data/companyInfo";
 import { Phone, Menu, X } from "lucide-react";
-import gsdLogo from "@/assets/gsd-logo.webp";
+import { Logo } from "@/components/ui/site";
 import { trackEvent } from "@/lib/plausible";
 
-const NAV_LINKS = [
-  { label: "Solutions", href: "/solutions" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "About", href: "/about" },
-  { label: "Resources", href: "/resources" },
-  { label: "Contact", href: "/contact" },
-] as const;
+const NAV_LINKS = NAV;
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -85,17 +78,8 @@ export default function Header() {
       >
         <div className="mx-auto flex items-center justify-between h-20 lg:h-[88px] px-3 lg:px-4 max-w-[1440px]">
           {/* Logo: edge to edge, minimal padding */}
-          <Link href="/" className="shrink-0">
-            <Image
-              src={gsdLogo}
-              alt="GSD with AI"
-              width={205}
-              height={80}
-              priority
-              placeholder="blur"
-              sizes="(min-width: 1024px) 205px, 184px"
-              className="h-[72px] lg:h-[80px] w-auto"
-            />
+          <Link href="/" className="shrink-0" aria-label="GSD, Get Stuff Done, home">
+            <Logo priority className="h-8 w-auto lg:h-10" />
           </Link>
 
           {/* Desktop Nav (center) */}
@@ -124,18 +108,18 @@ export default function Header() {
             <button
               onClick={scrollToBooking}
               className={cn(
-                "bg-[hsl(175_72%_28%)] text-white font-semibold text-sm px-5 py-2.5 rounded-lg",
-                "transition-all hover:brightness-110 hover:shadow-md"
+                "bg-navy text-white font-semibold text-sm px-5 py-2.5 rounded-lg",
+                "transition-all hover:bg-navy-light hover:shadow-md"
               )}
             >
-              Book a Call
+              Book a 20-min call
             </button>
           </div>
 
-          {/* Mobile Hamburger — 44x44 minimum tap target */}
+          {/* Mobile Hamburger - 44x44 minimum tap target */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden inline-flex h-11 w-11 items-center justify-center text-[hsl(220_25%_14%)] hover:text-[hsl(175_72%_38%)] transition-colors"
+            className="lg:hidden inline-flex h-11 w-11 items-center justify-center text-[hsl(220_25%_14%)] hover:text-navy transition-colors"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -181,9 +165,9 @@ export default function Header() {
 
           <button
             onClick={scrollToBooking}
-            className="mt-2 w-full bg-[hsl(175_72%_28%)] text-white font-semibold text-sm px-5 py-3 rounded-lg transition-all hover:brightness-110"
+            className="mt-2 w-full bg-navy text-white font-semibold text-sm px-5 py-3 rounded-lg transition-all hover:bg-navy-light"
           >
-            Book a Call
+            Book a 20-min call
           </button>
         </nav>
       </div>

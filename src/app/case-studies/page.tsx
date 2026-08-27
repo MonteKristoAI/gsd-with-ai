@@ -1,135 +1,105 @@
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import { Lock } from "lucide-react";
+import { Eyebrow, PrimaryCta, AeoLede, Section } from "@/components/ui/site";
 
 export const metadata: Metadata = {
   title: "Case Studies",
   description:
-    "Three engagements, three named outcomes. How GSD with AI shipped Field-to-Cash, Audit-Ready, and Pipeline Reset systems for oilfield + industrial-services SMBs in the TX/OK/LA corridor.",
-  alternates: { canonical: "https://www.getsstuffdone.com/case-studies" },
+    "Real engagements. Real numbers. How oilfield technology companies are using the Torque Method to close deals against a skeptical buying committee and accelerate growth.",
+  alternates: { canonical: "/case-studies" },
+  openGraph: {
+    title: "Case Studies | GSD",
+    description: "How oilfield technology companies are using the Torque Method to accelerate growth.",
+    url: "/case-studies",
+    type: "website",
+  },
 };
 
-const CASE_STUDIES = [
-  {
-    slug: "wireline-operator",
-    title: "40-person wireline operator cuts DSO by 14 days",
-    category: "Field-to-Cash",
-    industry: "Wireline · 40 employees · TX/OK basins",
-    summary:
-      "Field tickets used to live on paper, get driven to the office Fridays, and re-typed into QuickBooks Mondays. We wired the field straight to finance.",
-    metrics: [
-      { label: "DSO Reduction", value: "14 days" },
-      { label: "Admin Time Returned", value: "22 hrs/wk" },
-    ],
-    image:
-      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=900&h=600&fit=crop&q=80",
-    imageAlt: "Oilfield equipment at a remote wellsite",
-  },
-  {
-    slug: "safety-compliance",
-    title: "Well servicing company achieves 100% ISNetworld compliance",
-    category: "Audit-Ready",
-    industry: "Well servicing · 60 employees · OK",
-    summary:
-      "HSE manager was burning 3 days a month chasing expired operator certs across 5 locations. We automated the ISN sync and gave the team an instant audit dashboard.",
-    metrics: [
-      { label: "Compliance Rate", value: "100%" },
-      { label: "HSE Reporting Time", value: "-85%" },
-    ],
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&h=600&fit=crop&q=80",
-    imageAlt: "Safety inspector reviewing documentation on a tablet",
-  },
-  {
-    slug: "pipeline-visibility",
-    title: "Industrial cleaning firm stops bidding blind",
-    category: "Pipeline Reset",
-    industry: "Industrial cleaning · 75 employees · LA",
-    summary:
-      "Sales lived in HubSpot, ops lived in spreadsheets, nobody knew real margin until quarter-end. We wired the two and gave them live job-costing.",
-    metrics: [
-      { label: "Win Rate Lift", value: "+22%" },
-      { label: "Margin Accuracy", value: "98%" },
-    ],
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=600&fit=crop&q=80",
-    imageAlt: "Operations dashboard showing real-time job costing data",
-  },
+// KPI tiles show placeholder copy until real, signed-off numbers are in.
+// Do NOT replace with fabricated figures (Brief 2.2, Section 10).
+const KPI_TILES = [
+  { label: "Named client outcomes", value: "In progress" },
+  { label: "Engagements in the case library", value: "Growing" },
+  { label: "Published after client sign-off", value: "Q3 / Q4" },
 ];
 
-export default function CaseStudiesIndex() {
+export default function CaseStudiesPage() {
   return (
-    <div className="container mx-auto px-6 py-24 min-h-[80vh]">
-      <div className="max-w-3xl mb-16">
-        <h1 className="text-4xl font-extrabold text-zinc-900 sm:text-5xl">
-          Case Studies
-        </h1>
-        <p className="mt-6 text-xl text-zinc-600 leading-relaxed">
-          We don&rsquo;t build tech for the sake of tech. We build operational systems that change how the business runs.
-        </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
-            <div className="text-2xl font-extrabold text-teal-700">14 days</div>
-            <div className="mt-1 text-xs font-medium text-zinc-600">Off DSO at a 40-person wireline operator</div>
+    <>
+      {/* Header */}
+      <section className="bg-navy text-white">
+        <div className="container mx-auto px-6 py-20 lg:py-24">
+          <div className="max-w-3xl">
+            <Eyebrow className="!text-lime">Case studies</Eyebrow>
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl">
+              Real engagements. Real numbers. No fabrication.
+            </h1>
+            <p className="mt-6 text-lg leading-relaxed text-white/80">
+              Every case here carries named numbers, a named persona, and a named engagement type, and it only goes
+              live once the client has signed off on the public framing.
+            </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
-            <div className="text-2xl font-extrabold text-teal-700">100%</div>
-            <div className="mt-1 text-xs font-medium text-zinc-600">ISNetworld compliance held at a well servicing co.</div>
-          </div>
-          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
-            <div className="text-2xl font-extrabold text-teal-700">+22%</div>
-            <div className="mt-1 text-xs font-medium text-zinc-600">Win rate on profitable jobs at an industrial cleaner</div>
+
+          {/* KPI summary tiles */}
+          <div className="mt-14 grid gap-6 border-t border-white/10 pt-10 sm:grid-cols-3">
+            {KPI_TILES.map((t) => (
+              <div key={t.label}>
+                <p className="text-2xl font-extrabold text-lime">{t.value}</p>
+                <p className="mt-1 text-sm text-white/70">{t.label}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="grid gap-8 lg:grid-cols-3">
-        {CASE_STUDIES.map((study) => (
-          <Link
-            key={study.slug}
-            href={`/case-studies/${study.slug}`}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-teal-600/30 hover:shadow-md"
-          >
-            <div className="relative h-48 overflow-hidden">
-              <Image
-                src={study.image}
-                alt={study.imageAlt}
-                fill
-                sizes="(min-width: 1024px) 33vw, 100vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <span className="absolute left-4 top-4 inline-flex items-center rounded-full bg-teal-700 px-3 py-1 text-xs font-semibold text-white shadow-sm">
-                {study.category}
-              </span>
+      {/* AEO */}
+      <Section className="bg-cream !py-14">
+        <AeoLede className="mx-auto max-w-3xl text-center !text-navy">
+          GSD case studies document how oilfield technology companies use the Torque Method to close deals against
+          a skeptical buying committee and accelerate growth. Each case names the outcome, the persona, the engagement type,
+          and the industry sub-vertical. Results publish only after the client signs off on the public framing.
+        </AeoLede>
+      </Section>
+
+      {/* Flagship - SDS (results pending, confidentiality framing) */}
+      <Section className="bg-white">
+        <div className="mx-auto max-w-4xl">
+          <div className="rounded-2xl border border-slate/15 bg-cream p-8 shadow-sm lg:p-12">
+            <div className="flex items-center gap-2 text-sm font-semibold text-signal">
+              <Lock className="h-4 w-4" /> Flagship engagement · Wireline logging technology company
             </div>
+            <h2 className="mt-4 text-2xl font-bold text-navy sm:text-3xl">Results publishing after client sign-off.</h2>
+            <p className="mt-4 leading-relaxed text-slate">
+              A wireline logging technology company engaged GSD to install fractional revenue operations across all
+              three Torque layers. The engagement is framed carefully around confidentiality: no named client, no
+              counterparty names, no unannounced transactions. Named-number outcomes are being prepared and will appear
+              here once the client has approved the public framing.
+            </p>
+            <dl className="mt-8 grid gap-6 sm:grid-cols-3">
+              {["Outcome one", "Outcome two", "Outcome three"].map((label) => (
+                <div key={label} className="rounded-xl border border-slate/15 bg-white p-5">
+                  <dt className="text-2xl font-extrabold text-slate-muted">TBD</dt>
+                  <dd className="mt-1 text-sm text-slate-muted">{label} · pending sign-off</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </Section>
 
-            <div className="flex flex-1 flex-col p-7">
-              <span className="text-xs font-medium text-zinc-500">{study.industry}</span>
-
-              <h2 className="mt-3 text-xl font-bold text-zinc-900 group-hover:text-teal-800 transition-colors">
-                {study.title}
-              </h2>
-
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-zinc-600">{study.summary}</p>
-
-              <div className="mt-6 grid grid-cols-2 gap-4 border-t border-zinc-100 pt-5">
-                {study.metrics.map((metric) => (
-                  <div key={metric.label}>
-                    <div className="text-2xl font-extrabold text-teal-700">{metric.value}</div>
-                    <div className="mt-1 text-xs font-medium text-zinc-500">{metric.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 flex items-center text-sm font-semibold text-teal-700">
-                Read the breakdown
-                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
+      {/* More cases coming */}
+      <Section className="bg-cream">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-2xl font-bold text-navy">More cases as engagements complete</h2>
+          <p className="mt-3 leading-relaxed text-slate">
+            We add a card each time an engagement wraps and the client clears the public framing. Until then, we would
+            rather show you nothing than show you numbers we made up. Want to see what a real engagement looks like?
+          </p>
+          <div className="mt-8">
+            <PrimaryCta>Book a 20-minute call</PrimaryCta>
+          </div>
+        </div>
+      </Section>
+    </>
   );
 }

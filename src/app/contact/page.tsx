@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import ContactBookingClient from "@/components/sections/ContactBookingClient";
 
 export const metadata: Metadata = {
-  title: "Book a Call",
+  title: "Book a 20-minute call",
   description:
-    "Book a 20-minute discovery call with GSD with AI. You walk us through the friction. We walk back the first thing worth wiring. Houston-based. TX/OK/LA corridor.",
-  alternates: { canonical: "https://www.getsstuffdone.com/contact" },
+    "Book a 20-minute call with GSD. Twenty minutes: you walk us through where deals stall, we walk back the first thing worth fixing.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

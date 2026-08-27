@@ -7,7 +7,7 @@ import FloatingMobileCTA from "@/components/layout/FloatingMobileCTA";
 import DesktopStickyCTA from "@/components/layout/DesktopStickyCTA";
 import Script from "next/script";
 
-// Self-host Inter via next/font/google — eliminates the render-blocking
+// Self-host Inter via next/font/google - eliminates the render-blocking
 // fonts.googleapis.com round trip (was costing ~780ms per Lighthouse).
 const inter = Inter({
   subsets: ["latin"],
@@ -21,16 +21,18 @@ const OG_IMAGE = `${SITE_URL}/og-image.png`;
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    template: "%s | GSD with AI",
-    default: "GSD with AI | Connect the yard, the office, and the CRM.",
+    template: "%s | GSD",
+    default: "Fractional Revenue Operations for Oilfield Technology Companies | GSD",
   },
-  description: "For oilfield and industrial services SMBs in Texas, Oklahoma, and Louisiana. Built by a 20-year energy data lead.",
+  description:
+    "GSD builds the torque oilfield technology companies need to close deals against long sales cycles. Fractional revenue operations, delivered in weeks. From $25K.",
   alternates: { canonical: SITE_URL },
   openGraph: {
-    title: "GSD with AI — Connect the yard, the office, and the CRM. In 6 weeks.",
-    description: "For oilfield and industrial services SMBs in Texas, Oklahoma, and Louisiana. Built by a 20-year energy data lead. Foundations from $25K.",
+    title: "Fractional Revenue Operations for Oilfield Technology Companies | GSD",
+    description:
+      "GSD builds the torque oilfield technology companies need to close deals against long sales cycles. Delivered in weeks by operators who spent 20 years inside the customers you sell to.",
     url: SITE_URL,
-    siteName: "GSD with AI",
+    siteName: "GSD",
     locale: "en_US",
     type: "website",
     images: [
@@ -38,14 +40,15 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "GSD with AI — Connect the yard, the office, and the CRM. In 6 weeks.",
+        alt: "GSD, fractional revenue operations for oilfield technology companies.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GSD with AI",
-    description: "Connect the yard, the office, and the CRM. In 6 weeks.",
+    title: "Fractional Revenue Operations for Oilfield Technology Companies | GSD",
+    description:
+      "GSD builds the torque oilfield technology companies need to close deals against long sales cycles. Delivered in weeks.",
     images: [OG_IMAGE],
   },
 };
@@ -58,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        {/* Plausible Analytics — privacy-first, no cookie banner.
+        {/* Plausible Analytics - privacy-first, no cookie banner.
             Manifesto: Plausible/Fathom over GA4. Domain auto-detected from current host. */}
         <Script
           defer
@@ -68,41 +71,6 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} antialiased font-sans flex min-h-screen flex-col`}>
-        <Script id="organization-schema" type="application/ld+json" strategy="beforeInteractive">
-          {`
-            [
-              {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "GSD with AI",
-                "url": "https://www.getsstuffdone.com",
-                "founder": {
-                  "@type": "Person",
-                  "name": "Maxine Aitkenhead"
-                },
-                "areaServed": [
-                  { "@type": "State", "name": "Texas" },
-                  { "@type": "State", "name": "Oklahoma" },
-                  { "@type": "State", "name": "Louisiana" }
-                ]
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "LocalBusiness",
-                "name": "GSD with AI",
-                "image": "https://www.getsstuffdone.com/logo.png",
-                "url": "https://www.getsstuffdone.com",
-                "telephone": "+12818442458",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "Houston",
-                  "addressRegion": "TX",
-                  "addressCountry": "US"
-                }
-              }
-            ]
-          `}
-        </Script>
         <Header />
         <main id="main" className="flex-1 pt-20 lg:pt-[88px]">{children}</main>
         <Footer />

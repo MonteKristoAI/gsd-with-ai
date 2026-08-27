@@ -1,120 +1,192 @@
-import AboutFounder from "@/components/sections/AboutFounder";
 import type { Metadata } from "next";
-import Script from "next/script";
+import Image from "next/image";
+import Link from "next/link";
+import { Check, X } from "lucide-react";
 import { COMPANY } from "@/data/companyInfo";
+import { Eyebrow, PrimaryCta, AeoLede, Section } from "@/components/ui/site";
+import maxineImg from "@/assets/founder-maxine.webp";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "20 years building data systems for some of the world's most demanding operators. Now applying the same playbook to 30-person shops in the TX/OK/LA corridor.",
-  alternates: { canonical: "https://www.getsstuffdone.com/about" },
+    "Maxine Aitkenhead spent 20 years inside Fortune 100 energy services. She founded GSD to install fractional revenue operations at oilfield technology companies.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "Maxine Aitkenhead, Founder, GSD",
+    description:
+      "20 years inside Fortune 100 energy services building data systems for oilfield operators. Now installing fractional revenue operations at the technology companies selling into that world.",
+    url: "/about",
+    type: "profile",
+  },
 };
 
+const HOW_WE_WORK = COMPANY.founder.vision;
+
+const NOT_FOR = [
+  "Operators and owner-operators. GSD serves the technology companies selling into the oilfield, not the field itself.",
+  "Companies looking for a one-off strategy deck. We install and run, we don't hand over slides and leave.",
+  "Anyone who wants a twelve-month lock-in. Partnerships are month-to-month, with 30 days notice.",
+  "Companies well under $8M in revenue. We'll tell you honestly if a different first move fits you better.",
+];
+
 export default function AboutPage() {
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.getsstuffdone.com/about#maxine",
+    name: "Maxine Aitkenhead",
+    jobTitle: "Founder",
+    worksFor: { "@type": "Organization", name: "GSD", "@id": "https://www.getsstuffdone.com/#organization" },
+    url: "https://www.getsstuffdone.com/about",
+    description: COMPANY.founder.canonicalBio,
+    homeLocation: { "@type": "Place", name: "Houston" },
+    sameAs: [COMPANY.social.linkedin],
+  };
+
   return (
-    <div className="min-h-[80vh] flex flex-col">
-      {/* Top Section with subtle background */}
-      <div className="relative overflow-hidden bg-[#FAF8F4] border-b border-zinc-200">
-        <div className="container relative mx-auto px-6 pt-24 pb-20">
-      <Script id="person-schema" type="application/ld+json">
-        {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Maxine Aitkenhead",
-            "jobTitle": "Founder",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "GSD with AI"
-            },
-            "url": "https://www.getsstuffdone.com/about"
-          }
-        `}
-      </Script>
-      <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-extrabold text-zinc-900 sm:text-5xl">
-          About GSD with AI
-        </h1>
-        <p className="mt-6 text-xl text-zinc-600 leading-relaxed">
-          {COMPANY.founder.positioningLine}
-        </p>
-      </div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
 
-      {/* Why I started GSD */}
-      <section className="max-w-3xl mx-auto mb-20">
-        <h2 className="text-2xl font-extrabold text-zinc-900 sm:text-3xl">Why I started GSD</h2>
-        <div className="mt-6 space-y-5 text-lg leading-relaxed text-zinc-700">
-          {COMPANY.founder.bioParagraphs.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
-        </div>
-      </section>
-      </div>
-      </div>
-
-      {/* Bottom Section */}
-      <div className="container mx-auto px-6 py-20">
-
-      <div className="grid gap-12 lg:grid-cols-2 mt-16">
-        <div>
-          <h2 className="text-2xl font-bold text-zinc-900">Our approach</h2>
-          <p className="mt-4 text-zinc-600">
-            We do not believe in massive digital transformations that take 2 years and end up confusing your field workers. 
-            We believe in specific, high-impact systems installed in 6 weeks that solve exactly one operational bottleneck at a time.
-          </p>
-          <ul className="mt-6 space-y-4 text-zinc-700">
-            <li className="flex gap-2 border-l-2 border-teal-600 pl-4">
-              <strong>CTO-level architecture:</strong> 20 years of enterprise data experience, applied to your SMB.
-            </li>
-            <li className="flex gap-2 border-l-2 border-teal-600 pl-4">
-              <strong>Mobile-first execution:</strong> If it doesn&apos;t work offline on a cracked screen with gloves on, we don&apos;t ship it.
-            </li>
-            <li className="flex gap-2 border-l-2 border-teal-600 pl-4">
-              <strong>Transparent pricing:</strong> Flat fees for implementations. No hourly billing surprises.
-            </li>
-          </ul>
-        </div>
-        
-        <div>
-          <div className="rounded-2xl bg-zinc-50 p-8 border border-zinc-200">
-            <h3 className="text-xl font-bold text-zinc-900">Pricing Bands</h3>
-            <p className="mt-2 text-zinc-600">We don&apos;t do &quot;$500/hr consulting&quot;. We install fixed-scope products.</p>
-            
-            <div className="mt-6 space-y-4">
-              <div className="flex justify-between items-center border-b border-zinc-200 pb-4">
-                <span className="font-semibold text-zinc-900">Foundations Engagement</span>
-                <span className="font-bold text-teal-700">From $25K</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-zinc-200 pb-4">
-                <span className="font-semibold text-zinc-900">Core Systems Overhaul</span>
-                <span className="font-bold text-teal-700">From $45K</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="font-semibold text-zinc-900">Operating Retainer</span>
-                <span className="font-bold text-teal-700">From $5K/mo</span>
-              </div>
+      {/* Hero - Pattern A: portrait right of copy, first viewport, no lazy-load */}
+      <section className="bg-cream">
+        <div className="container mx-auto grid items-center gap-12 px-6 py-20 lg:grid-cols-[1fr_360px] lg:py-28">
+          <div>
+            <Eyebrow>About GSD</Eyebrow>
+            <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl">
+              I spent 20 years on the other side of your buyer's table.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate">
+              {COMPANY.founder.positioningLine}
+            </p>
+            <div className="mt-8">
+              <PrimaryCta>Book a 20-minute call</PrimaryCta>
             </div>
           </div>
-
+          <div className="mx-auto overflow-hidden rounded-2xl shadow-lg">
+            <Image
+              src={maxineImg}
+              alt="Maxine Aitkenhead, founder of GSD"
+              width={360}
+              height={440}
+              priority
+              loading="eager"
+              className="h-auto w-[360px] object-cover"
+            />
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-3xl mx-auto rounded-2xl bg-teal-900 p-8 shadow-md mt-16 text-white">
-        <h3 className="text-2xl font-bold text-center text-white">Who we do NOT work with</h3>
-        <p className="mt-3 text-teal-100 font-medium text-center">Saying who we aren&apos;t for is a credibility move.</p>
-        <div className="mt-6 flex justify-center">
-          <ul className="space-y-3 text-teal-100 list-disc pl-4 text-left">
-            <li>Companies under 10 employees.</li>
-            <li>Requests for one-off &quot;AI strategy decks&quot; or consulting reports.</li>
-            <li>Operations outside the TX/OK/LA corridor.</li>
+      {/* AEO */}
+      <Section className="bg-white !py-14">
+        <AeoLede className="mx-auto max-w-3xl text-center !text-navy">
+          {COMPANY.founder.canonicalBio} GSD installs the Torque Method at oilfield technology companies selling into OFS,
+          E&P, and midstream operators, so their growth motion is wired as tightly as their product.
+        </AeoLede>
+      </Section>
+
+      {/* Why I started GSD */}
+      <Section className="bg-white">
+        <div className="mx-auto max-w-3xl">
+          <Eyebrow>Why I started GSD</Eyebrow>
+          <div className="mt-6 space-y-5">
+            {COMPANY.founder.bioParagraphs.map((p, i) => (
+              <p key={i} className="leading-relaxed text-slate">
+                {p}
+              </p>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* How we work */}
+      <Section className="bg-cream">
+        <div className="mx-auto max-w-4xl">
+          <Eyebrow>How we work</Eyebrow>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {HOW_WE_WORK.map((v) => (
+              <div key={v.title} className="rounded-2xl border border-slate/15 bg-white p-6">
+                <h3 className="font-bold text-navy">{v.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{v.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Pricing bands */}
+      <Section className="bg-white">
+        <div className="mx-auto max-w-4xl">
+          <Eyebrow>Pricing bands</Eyebrow>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {[COMPANY.offers.diagnostic, COMPANY.offers.partnership].map((o) => (
+              <Link
+                key={o.href}
+                href={o.href}
+                className="group rounded-2xl border border-slate/15 bg-cream p-8 transition-all hover:border-navy/30 hover:shadow-md"
+              >
+                <p className="font-bold text-navy">{o.name}</p>
+                <p className="mt-2 text-2xl font-extrabold text-navy">{o.priceBand}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{o.oneLiner}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Who we do NOT work with */}
+      <Section className="bg-navy text-white">
+        <div className="mx-auto max-w-3xl">
+          <Eyebrow className="!text-lime">Who we do not work with</Eyebrow>
+          <h2 className="mt-3 text-3xl font-extrabold">Saying who we're not for is the honest move</h2>
+          <ul className="mt-8 space-y-4">
+            {NOT_FOR.map((n) => (
+              <li key={n} className="flex items-start gap-3 leading-relaxed text-white/80">
+                <X className="mt-1 h-5 w-5 shrink-0 text-lime" />
+                {n}
+              </li>
+            ))}
           </ul>
         </div>
-      </div>
+      </Section>
 
-      <div className="mt-24">
-        <AboutFounder />
-      </div>
-      </div>
-    </div>
+      {/* The person behind GSD - credentials */}
+      <Section className="bg-cream">
+        <div className="mx-auto max-w-3xl">
+          <Eyebrow>The person behind GSD</Eyebrow>
+          <ul className="mt-8 space-y-3">
+            {COMPANY.founder.credentials.map((c) => (
+              <li key={c} className="flex items-start gap-3 rounded-xl border border-slate/15 bg-white px-5 py-4 text-navy">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-grass-dim" />
+                <span className="font-medium">{c}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      {/* Beyond GSD - Red M block (quiet) */}
+      <Section className="bg-white">
+        <div className="mx-auto max-w-3xl border-l-2 border-slate/20 pl-6">
+          <h2 className="text-base font-bold text-navy">Beyond GSD</h2>
+          <p className="mt-3 text-base leading-relaxed text-slate">
+            GSD supports{" "}
+            <a
+              href={COMPANY.cause.url}
+              target="_blank"
+              rel="noopener"
+              className="font-semibold text-navy underline decoration-slate/30 underline-offset-2 hover:decoration-navy"
+            >
+              Red M
+            </a>{" "}
+            in the fight against human trafficking. If you or someone you know needs help, the{" "}
+            {COMPANY.cause.hotlineLabel} is{" "}
+            <a href={COMPANY.cause.hotlineTel} className="font-semibold text-navy underline decoration-slate/30 underline-offset-2 hover:decoration-navy">
+              {COMPANY.cause.hotline}
+            </a>
+            .
+          </p>
+        </div>
+      </Section>
+    </>
   );
 }

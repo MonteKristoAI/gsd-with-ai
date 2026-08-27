@@ -33,6 +33,18 @@ export default {
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
         teal: { DEFAULT: "hsl(var(--teal))", light: "hsl(var(--teal-light))", dim: "hsl(var(--teal-dim))", foreground: "hsl(var(--teal-foreground))" },
         gold: { DEFAULT: "hsl(var(--gold))", light: "hsl(var(--gold-light))", dim: "hsl(var(--gold-dim))", foreground: "hsl(var(--gold-foreground))" },
+        // GSD brand palette (brand sheet, Aug 2026):
+        //   #001F3F navy · #1E488F blue · #74C365 green · #DBE64C lime · #F6F7ED cream
+        // lime   = accent on DARK grounds only (fails contrast on white/cream)
+        // signal = accent on LIGHT grounds (blue, 8:1 on white)
+        // grass  = success/confirmation ticks
+        navy: { DEFAULT: "#001F3F", light: "#1E488F", dim: "#00152B", foreground: "#FFFFFF" },
+        lime: { DEFAULT: "#DBE64C", light: "#E8EF8B", dim: "#C2CD35", foreground: "#001F3F" },
+        signal: { DEFAULT: "#1E488F", light: "#2A5CB0", dim: "#163669", foreground: "#FFFFFF" },
+        grass: { DEFAULT: "#74C365", light: "#93D287", dim: "#4A8C3D", foreground: "#001F3F" },
+        cream: "#F6F7ED",
+        ink: "#1D2433",
+        slate: { DEFAULT: "#334155", muted: "#4B5563" },
       },
       borderRadius: {
         lg: "var(--radius)",

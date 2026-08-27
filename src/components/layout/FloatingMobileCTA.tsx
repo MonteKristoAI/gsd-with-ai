@@ -17,16 +17,16 @@ export default function FloatingMobileCTA() {
             trackEvent("Book Call", { source: "mobile-sticky" });
             navigate.push("/contact");
           }}
-          className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[hsl(175_72%_28%)] py-2.5 font-heading text-sm font-semibold text-white transition-colors hover:bg-[hsl(175_72%_22%)]"
+          className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-navy py-2.5 font-heading text-sm font-semibold text-white transition-colors hover:bg-navy-light"
         >
           <Calendar className="h-4 w-4" />
           Book a 20-min call
         </button>
 
-        {/* Or text — sms: link per manifesto */}
+        {/* Or text - sms: link per manifesto */}
         <a
           href={`sms:${phoneDigits}`}
-          className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-border py-2.5 font-heading text-sm font-semibold text-foreground transition-colors hover:border-[hsl(175_72%_38%/0.4)] hover:text-[hsl(175_72%_38%)]"
+          className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-border py-2.5 font-heading text-sm font-semibold text-foreground transition-colors hover:border-navy/40 hover:text-navy"
         >
           <MessageSquareText className="h-4 w-4" />
           Or text {COMPANY.phone}

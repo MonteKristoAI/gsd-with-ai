@@ -14,26 +14,29 @@
     --card-foreground: 220 25% 14%;
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 14%;
-    --primary: 175 72% 38%;
+    /* GSD brand palette (brand sheet, Aug 2026): navy #001F3F primary, lime #DBE64C accent,
+       blue #1E488F, green #74C365, cream #F6F7ED. Legacy --teal/--gold var names are repointed
+       to navy/lime so existing utilities inherit the palette without a rename sweep. */
+    --primary: 210 100% 12%;
     --primary-foreground: 0 0% 100%;
-    --teal: 175 72% 38%;
-    --teal-light: 175 65% 48%;
-    --teal-dim: 175 60% 30%;
+    --teal: 210 100% 12%;
+    --teal-light: 218 65% 34%;
+    --teal-dim: 210 100% 8%;
     --teal-foreground: 0 0% 100%;
-    --secondary: 40 80% 52%;
-    --secondary-foreground: 0 0% 100%;
-    --gold: 40 80% 52%;
-    --gold-light: 40 85% 60%;
-    --gold-dim: 40 70% 42%;
-    --gold-foreground: 220 25% 14%;
+    --secondary: 64 75% 60%;
+    --secondary-foreground: 210 100% 12%;
+    --gold: 64 75% 60%;
+    --gold-light: 64 74% 74%;
+    --gold-dim: 64 59% 50%;
+    --gold-foreground: 210 100% 12%;
     --foreground: 220 25% 14%;
     --muted: 210 20% 96%;
     --muted-foreground: 215 15% 46%;
     --border: 214 20% 90%;
     --input: 214 20% 90%;
-    --ring: 175 72% 38%;
-    --accent: 210 25% 96%;
-    --accent-foreground: 220 25% 14%;
+    --ring: 210 100% 12%;
+    --accent: 65 38% 95%;
+    --accent-foreground: 210 100% 12%;
     --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
     --radius: 0.75rem;
@@ -42,7 +45,7 @@
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.04);
-    --shadow-teal: 0 4px 14px -3px hsl(175 72% 38% / 0.25);
+    --shadow-teal: 0 4px 14px -3px hsl(210 100% 12% / 0.25);
   }
 }
 
@@ -56,7 +59,9 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 700;
-    color: hsl(var(--foreground));
+    /* Inherit color from the section (text-white on dark bands, text-navy on light).
+       Forcing --foreground here made every heading dark, invisible on navy sections. */
+    color: inherit;
   }
 }
 
@@ -78,13 +83,13 @@
   }
 
   .text-gradient-teal {
-    background: linear-gradient(135deg, hsl(175 72% 38%), hsl(175 55% 50%), hsl(185 70% 42%));
+    background: linear-gradient(135deg, hsl(210 100% 12%), hsl(218 65% 34%), hsl(210 100% 12%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .text-gradient-gold {
-    background: linear-gradient(135deg, hsl(40 80% 52%), hsl(40 85% 42%));
+    background: linear-gradient(135deg, hsl(64 75% 60%), hsl(64 59% 50%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -122,8 +127,8 @@
   }
   .bg-texture-grid {
     background-image:
-      linear-gradient(hsl(175 72% 38% / 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(175 72% 38% / 0.03) 1px, transparent 1px);
+      linear-gradient(hsl(213 72% 16% / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(213 72% 16% / 0.03) 1px, transparent 1px);
     background-size: 48px 48px;
   }
   .bg-texture-diagonal {
@@ -149,22 +154,22 @@
     z-index: 0;
   }
   .bg-warm-gradient {
-    background: linear-gradient(135deg, hsl(175 72% 38% / 0.02) 0%, transparent 40%, hsl(40 80% 52% / 0.015) 70%, transparent 100%);
+    background: linear-gradient(135deg, hsl(213 72% 16% / 0.02) 0%, transparent 40%, hsl(38 92% 50% / 0.015) 70%, transparent 100%);
   }
   .bg-cool-gradient {
-    background: linear-gradient(160deg, hsl(210 30% 97%) 0%, white 30%, hsl(175 72% 38% / 0.02) 60%, white 100%);
+    background: linear-gradient(160deg, hsl(210 30% 97%) 0%, white 30%, hsl(213 72% 16% / 0.02) 60%, white 100%);
   }
   .bg-radial-teal {
-    background: radial-gradient(ellipse 70% 50% at 80% 20%, hsl(175 72% 38% / 0.04) 0%, transparent 100%);
+    background: radial-gradient(ellipse 70% 50% at 80% 20%, hsl(213 72% 16% / 0.04) 0%, transparent 100%);
   }
   .bg-radial-gold {
-    background: radial-gradient(ellipse 60% 50% at 20% 80%, hsl(40 80% 52% / 0.03) 0%, transparent 100%);
+    background: radial-gradient(ellipse 60% 50% at 20% 80%, hsl(38 92% 50% / 0.03) 0%, transparent 100%);
   }
 
   /* Decorative separator lines */
   .section-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, hsl(175 72% 38% / 0.15) 20%, hsl(175 72% 38% / 0.15) 80%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, hsl(213 72% 16% / 0.15) 20%, hsl(213 72% 16% / 0.15) 80%, transparent 100%);
   }
 
   .marquee-track {
@@ -266,4 +271,134 @@ html { scroll-behavior: smooth; }
   .marquee-track { animation: none; }
   .animated-gradient { animation: none; }
   .image-reveal { clip-path: none; animation: none; }
+}
+
+/* ============================================
+   BLOG ARTICLE BODY (.article-prose)
+   ============================================
+   Scoped typography for the platform-rendered post HTML. Tuned to GSD's light
+   GSD brand theme: navy #001F3F headings, blue #1E488F accents (lime is reserved for
+   dark grounds, it is unreadable on white), readable
+   ink body copy. Scopes every element the platform emits so we do not depend on
+   the Tailwind typography plugin being registered. */
+.article-prose {
+  color: #1D2433;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.article-prose > :first-child { margin-top: 0; }
+.article-prose > :last-child { margin-bottom: 0; }
+.article-prose p { margin: 1.35em 0; }
+.article-prose h2 {
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  font-weight: 800;
+  color: #001F3F;
+  margin: 2.1em 0 0.65em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.article-prose h3 {
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  font-weight: 700;
+  color: #001F3F;
+  margin: 1.8em 0 0.55em;
+  line-height: 1.25;
+}
+.article-prose h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #001F3F;
+  margin: 1.55em 0 0.5em;
+}
+.article-prose a {
+  color: #1E488F;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease;
+}
+.article-prose a:hover { color: #001F3F; }
+.article-prose strong { color: #001F3F; font-weight: 700; }
+.article-prose em { font-style: italic; }
+.article-prose ul,
+.article-prose ol { margin: 1.35em 0; padding-left: 1.5em; }
+.article-prose ul { list-style: disc; }
+.article-prose ol { list-style: decimal; }
+.article-prose li { margin: 0.5em 0; padding-left: 0.35em; }
+.article-prose li::marker { color: #1E488F; }
+.article-prose blockquote {
+  margin: 1.8em 0;
+  padding: 0.4em 0 0.4em 1.4em;
+  border-left: 3px solid #74C365;
+  font-style: italic;
+  color: #334155;
+}
+.article-prose img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin: 2em 0;
+  border: 1px solid hsl(214 20% 90%);
+}
+.article-prose figure { margin: 2em 0; }
+.article-prose figure img { margin: 0; }
+.article-prose figcaption {
+  margin-top: 0.75em;
+  font-size: 0.875rem;
+  color: #4B5563;
+  text-align: center;
+}
+.article-prose hr {
+  border: none;
+  border-top: 1px solid hsl(214 20% 90%);
+  margin: 2.6em 0;
+}
+.article-prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: hsl(210 20% 96%);
+  color: #001F3F;
+  padding: 0.15em 0.4em;
+  border-radius: 0.35rem;
+}
+.article-prose pre {
+  background: #001F3F;
+  color: #F6F7ED;
+  border-radius: 0.75rem;
+  padding: 1.1em 1.3em;
+  overflow-x: auto;
+  margin: 1.8em 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.article-prose pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+/* Tables scroll horizontally on narrow screens via a wrapper. Fallback: the
+   table itself scrolls if the platform emits a bare <table>. */
+.article-prose .table-wrap { overflow-x: auto; margin: 1.8em 0; }
+.article-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.8em 0;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+.article-prose .table-wrap table { margin: 0; display: table; }
+.article-prose th,
+.article-prose td {
+  border: 1px solid hsl(214 20% 90%);
+  padding: 0.7em 0.9em;
+  text-align: left;
+  vertical-align: top;
+}
+.article-prose th {
+  background: hsl(210 20% 96%);
+  color: #001F3F;
+  font-weight: 700;
 }

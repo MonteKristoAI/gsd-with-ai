@@ -1,131 +1,98 @@
-"use client";
-
-import Script from "next/script";
-import { Mail, Phone } from "lucide-react";
-import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import { Mail, Phone, ArrowRight, CalendarClock } from "lucide-react";
 import { COMPANY } from "@/data/companyInfo";
 
-const BASE_CALENDLY = "https://calendly.com/maxine-gsd/discovery-call";
+// NOTE: the previous Calendly embed pointed at calendly.com/maxine-gsd/discovery-call,
+// which returns 404 (the event does not exist). Until Maxine publishes a real
+// 20-minute Calendly event, the page books via email/phone so visitors never
+// hit a broken calendar. To re-enable Calendly: set a valid event URL and embed
+// the inline widget (assets.calendly.com/assets/external/widget.js) in the left card.
 
-function buildCalendlyUrl(skuParam: string | null) {
-  const params = new URLSearchParams({
-    hide_event_type_details: "1",
-    hide_gdpr_banner: "1",
-  });
-  if (skuParam) {
-    params.set("utm_source", "website");
-    params.set("utm_medium", "sku-cta");
-    params.set("utm_content", skuParam);
-  }
-  return `${BASE_CALENDLY}?${params.toString()}`;
-}
+const phoneDigits = COMPANY.phone.replace(/\D/g, "");
+const mailtoBook = `mailto:${COMPANY.email}?subject=${encodeURIComponent(
+  "Book a 20-minute call",
+)}&body=${encodeURIComponent(
+  "Hi GSD,\n\nI'd like to book a 20-minute call. A few times that work for me:\n- \n- \n\nCompany:\nWhat I'd most want to fix this quarter:\n\nThanks,",
+)}`;
 
-function ContactBookingInner() {
-  const searchParams = useSearchParams();
-  const sku = searchParams.get("sku");
-  const calendlyUrl = buildCalendlyUrl(sku);
-
+export default function ContactBookingClient() {
   return (
-    <div className="container mx-auto px-6 py-24 min-h-[80vh]">
+    <div className="container mx-auto px-6 py-20 lg:py-24 min-h-[70vh]">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-zinc-900 sm:text-5xl">
-            Book a Discovery Call
-          </h1>
-          <p className="mt-6 text-xl text-zinc-600 max-w-2xl mx-auto">
-            A 20-minute diagnostic. You walk us through the friction. We walk back a blueprint on the first thing worth automating.
+        <div className="text-center mb-14">
+          <h1 className="text-4xl font-extrabold text-navy sm:text-5xl">Book a 20-minute call</h1>
+          <p className="mt-6 text-xl text-slate max-w-2xl mx-auto">
+            Twenty minutes. You walk us through where deals stall. We walk back the first thing worth fixing.
           </p>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-[1fr_400px]">
-          {/* Calendly Embed
-              The Calendly event MUST be configured (in Calendly dashboard, NOT in code) with
-              exactly these three required questions per the GSD manifesto:
-                1. Company size (dropdown: <10 / 10-50 / 50-100 / 100+)
-                2. Industry (dropdown — verticals + Other)
-                3. "What's the one system you'd most want to fix this quarter?" (open text)
-              These questions self-deselect bad fits and pre-load the call with context.
-          */}
-          <div className="bg-white rounded-2xl border border-zinc-200 shadow-sm overflow-hidden h-[1050px] relative">
-            {/* Loading Skeleton */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-50">
-              <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-200 border-t-teal-600" />
-              <p className="mt-4 font-medium text-zinc-500 animate-pulse">Loading calendar...</p>
+        <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
+          {/* Booking card */}
+          <div className="rounded-2xl border border-slate/15 bg-cream p-8 lg:p-10">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-white">
+              <CalendarClock className="h-6 w-6" />
             </div>
-            
-            {/* Calendly Widget */}
-            <div
-              key={calendlyUrl}
-              className="calendly-inline-widget w-full h-full relative z-10"
-              data-url={calendlyUrl}
-              style={{ minWidth: "320px", height: "100%" }}
-            />
-            <Script
-              src="https://assets.calendly.com/assets/external/widget.js"
-              strategy="afterInteractive"
-            />
+            <h2 className="mt-5 text-2xl font-bold text-navy">Grab a time</h2>
+            <p className="mt-3 leading-relaxed text-slate">
+              Send us two or three times that suit you and we'll confirm the call plus a short agenda. Prefer to talk
+              now? Call or text and we'll pick it up.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={mailtoBook}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-navy px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-navy-light"
+              >
+                Book by email <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href={`tel:${phoneDigits}`}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-navy/20 bg-white px-7 py-3.5 text-sm font-semibold text-navy transition-all hover:border-navy/40"
+              >
+                <Phone className="h-4 w-4" /> Call or text
+              </a>
+            </div>
+            <p className="mt-6 text-sm text-slate-muted">
+              Every engagement starts with a Torque Diagnostic. No pressure on the call, just a real diagnostic of where
+              your growth is stalling.
+            </p>
           </div>
 
-          {/* Contact Details */}
-          <div className="flex flex-col gap-8">
-            <div className="rounded-2xl bg-zinc-50 p-8 border border-zinc-200">
-              <h3 className="text-lg font-bold text-zinc-900 mb-4">Direct Contact</h3>
-
-              <div className="space-y-6">
-                <a
-                  href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-700 transition-colors group-hover:bg-teal-700 group-hover:text-white">
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-zinc-500">Call or Text</p>
-                    <p className="font-bold text-zinc-900">{COMPANY.phone}</p>
-                  </div>
-                </a>
-
-                <a
-                  href={`mailto:${COMPANY.email}`}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-700 transition-colors group-hover:bg-teal-700 group-hover:text-white">
+          {/* Direct contact + fit */}
+          <div className="flex flex-col gap-6">
+            <div className="rounded-2xl border border-slate/15 bg-white p-7">
+              <h3 className="text-lg font-bold text-navy mb-4">Direct contact</h3>
+              <div className="space-y-5">
+                <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-4 group">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy/10 text-navy transition-colors group-hover:bg-navy group-hover:text-white">
                     <Mail className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-zinc-500">Email</p>
-                    <p className="font-bold text-zinc-900">{COMPANY.email}</p>
-                  </div>
+                  </span>
+                  <span>
+                    <span className="block text-sm font-medium text-slate-muted">Email</span>
+                    <span className="font-bold text-navy">{COMPANY.email}</span>
+                  </span>
+                </a>
+                <a href={`tel:${phoneDigits}`} className="flex items-center gap-4 group">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy/10 text-navy transition-colors group-hover:bg-navy group-hover:text-white">
+                    <Phone className="h-5 w-5" />
+                  </span>
+                  <span>
+                    <span className="block text-sm font-medium text-slate-muted">Call or text</span>
+                    <span className="font-bold text-navy">{COMPANY.phone}</span>
+                  </span>
                 </a>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-teal-900 p-8 text-white shadow-md">
-              <h3 className="text-lg font-bold mb-3 text-white">Who we do NOT work with</h3>
-              <ul className="space-y-2 text-teal-100 text-sm list-disc pl-4">
-                <li>Companies under 10 employees.</li>
-                <li>Requests for one-off &ldquo;AI strategy decks&rdquo;.</li>
-                <li>Operations outside the TX/OK/LA corridor.</li>
+            <div className="rounded-2xl bg-navy p-7 text-white">
+              <h3 className="text-lg font-bold mb-3">Who we do NOT work with</h3>
+              <ul className="space-y-2 text-white/70 text-sm list-disc pl-4">
+                <li>Operators and owner-operators (we serve the companies selling into the oilfield).</li>
+                <li>Requests for one-off strategy decks.</li>
+                <li>Companies well under $8M in revenue.</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-}
-
-export default function ContactBookingClient() {
-  return (
-    <Suspense
-      fallback={
-        <div className="container mx-auto flex min-h-[80vh] items-center justify-center px-6 py-24">
-          <div className="text-zinc-500">Loading the booking form&hellip;</div>
-        </div>
-      }
-    >
-      <ContactBookingInner />
-    </Suspense>
   );
 }
