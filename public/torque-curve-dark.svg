@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="The Torque Curve">
+<defs>
+<filter id="soft" x="-10%" y="-20%" width="120%" height="140%"><feGaussianBlur stdDeviation="9"/></filter>
+<linearGradient id="band" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DBE64C" stop-opacity="0.30"/><stop offset="100%" stop-color="#DBE64C" stop-opacity="0.05"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="#00152B"/>
+<text x="120" y="60" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="42" font-weight="700" fill="#FFFFFF">The Torque Curve</text>
+<text x="120" y="95" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="22" fill="#B9C6D4">Pulling power against friction across the oilfield technology sales cycle</text>
+<text x="55" y="410" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="18" fill="#8FA3B8" transform="rotate(-90, 55, 410)" text-anchor="middle">Relative magnitude</text>
+
+<line x1="120" y1="545" x2="1520" y2="545" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1" stroke-dasharray="4,6"/>
+<line x1="120" y1="410" x2="1520" y2="410" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1" stroke-dasharray="4,6"/>
+<line x1="120" y1="275" x2="1520" y2="275" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1" stroke-dasharray="4,6"/>
+<line x1="120" y1="140" x2="1520" y2="140" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1" stroke-dasharray="4,6"/>
+<line x1="120" y1="140" x2="120" y2="680" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="1.5"/>
+<line x1="120" y1="680" x2="1520" y2="680" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="1.5"/>
+
+<rect x="920" y="140" width="80" height="540" fill="url(#band)"/>
+
+<path d="M 120 615.2 C 260 615.2, 260 528.8, 400 528.8 C 540 528.8, 540 399.2, 680 399.2 C 820 399.2, 820 204.8, 960 204.8 C 1100 204.8, 1100 561.2, 1240 561.2 C 1380 561.2, 1380 599, 1520 599" fill="none" stroke="#5FB8F0" stroke-opacity="0.45" stroke-width="16" stroke-linecap="round" filter="url(#soft)"/>
+<path d="M 120 599 C 260 599, 260 507.2, 400 507.2 C 540 507.2, 540 366.8, 680 366.8 C 820 366.8, 820 183.2, 960 183.2 C 1100 183.2, 1100 237.2, 1240 237.2 C 1380 237.2, 1380 258.8, 1520 258.8" fill="none" stroke="#DBE64C" stroke-opacity="0.45" stroke-width="16" stroke-linecap="round" filter="url(#soft)"/>
+<path d="M 120 615.2 C 260 615.2, 260 528.8, 400 528.8 C 540 528.8, 540 399.2, 680 399.2 C 820 399.2, 820 204.8, 960 204.8 C 1100 204.8, 1100 561.2, 1240 561.2 C 1380 561.2, 1380 599, 1520 599" fill="none" stroke="#5FB8F0" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M 120 599 C 260 599, 260 507.2, 400 507.2 C 540 507.2, 540 366.8, 680 366.8 C 820 366.8, 820 183.2, 960 183.2 C 1100 183.2, 1100 237.2, 1240 237.2 C 1380 237.2, 1380 258.8, 1520 258.8" fill="none" stroke="#DBE64C" stroke-width="5" stroke-linecap="round"/>
+
+<g fill="#00152B" stroke="#5FB8F0" stroke-width="3">
+<circle cx="120" cy="615.2" r="6"/><circle cx="400" cy="528.8" r="6"/><circle cx="680" cy="399.2" r="6"/><circle cx="960" cy="204.8" r="6"/><circle cx="1240" cy="561.2" r="6"/><circle cx="1520" cy="599" r="6"/>
+</g>
+<g fill="#00152B" stroke="#DBE64C" stroke-width="3">
+<circle cx="120" cy="599" r="6.5"/><circle cx="400" cy="507.2" r="6.5"/><circle cx="680" cy="366.8" r="6.5"/><circle cx="960" cy="183.2" r="6.5"/><circle cx="1240" cy="237.2" r="6.5"/><circle cx="1520" cy="258.8" r="6.5"/>
+</g>
+
+<line x1="960" y1="163.2" x2="960" y2="123.2" stroke="#DBE64C" stroke-opacity="0.6" stroke-width="1.5" stroke-dasharray="3,3"/>
+<text x="960" y="113.2" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#DBE64C" text-anchor="middle">Peak torque</text>
+<text x="960" y="131.2" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="13" fill="#B9C6D4" text-anchor="middle">must exceed peak friction</text>
+
+<g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+<text x="120" y="708">Discovery</text><text x="400" y="708">Qualification</text><text x="680" y="708">Technical</text><text x="680" y="730">Evaluation</text><text x="960" y="708">Buying</text><text x="960" y="730">Committee</text><text x="1240" y="708">Close</text><text x="1520" y="708">Expansion</text>
+</g>
+<g font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="13" font-style="italic" fill="#8FA3B8" text-anchor="middle">
+<text x="120" y="785">&#8220;CRM has 4,000</text><text x="120" y="801">contacts, 40 that</text><text x="120" y="817">matter&#8221;</text>
+<text x="400" y="785">&#8220;Which committee is</text><text x="400" y="801">this? Who are we</text><text x="400" y="817">pulling against?&#8221;</text>
+<text x="680" y="785">&#8220;Engineers testing us</text><text x="680" y="801">against three</text><text x="680" y="817">incumbents&#8221;</text>
+<text x="960" y="785">&#8220;Five stakeholders.</text><text x="960" y="801">One skeptic can stall</text><text x="960" y="817">it.&#8221;</text>
+<text x="1240" y="785">&#8220;Purchase order</text><text x="1240" y="801">signed, integration</text><text x="1240" y="817">begins&#8221;</text>
+<text x="1520" y="785">&#8220;Second panel sold to</text><text x="1520" y="801">the same account in</text><text x="1520" y="817">six months&#8221;</text>
+</g>
+
+<rect x="1200" y="42" width="300" height="90" fill="#001F3F" fill-opacity="0.85" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1" rx="8"/>
+<line x1="1215" y1="70" x2="1255" y2="70" stroke="#DBE64C" stroke-width="5" stroke-linecap="round"/>
+<circle cx="1235" cy="70" r="6" fill="#00152B" stroke="#DBE64C" stroke-width="3"/>
+<text x="1270" y="75" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#DBE64C">Torque</text>
+<text x="1340" y="75" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" fill="#B9C6D4">pulling power</text>
+<line x1="1215" y1="104" x2="1255" y2="104" stroke="#5FB8F0" stroke-width="4.5" stroke-linecap="round"/>
+<circle cx="1235" cy="104" r="6" fill="#00152B" stroke="#5FB8F0" stroke-width="3"/>
+<text x="1270" y="109" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#5FB8F0">Friction</text>
+<text x="1340" y="109" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" fill="#B9C6D4">resistance</text>
+<text x="120" y="870" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" fill="#8FA3B8">The Torque Method, GSD | Fractional revenue operations for oilfield technology companies</text>
+</svg>

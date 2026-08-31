@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -9,6 +10,59 @@ const TRUST = [
   "20 years inside Fortune 100 energy services · fluent in the customers you sell to",
   "For technology companies selling into OFS, E&P, and midstream operators · typical clients $8M–$40M revenue",
   "Torque Diagnostic from $25K, 6–8 weeks · Growth Partnership from $20K/mo, month-to-month",
+];
+
+// The three layers as a scannable summary on the home page. Line-art icons are
+// inline SVG (no icon-font request, inherits currentColor, stays crisp on navy).
+const ICON_PROPS = {
+  viewBox: "0 0 48 48",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  className: "h-12 w-12 sm:h-14 sm:w-14",
+  "aria-hidden": true,
+};
+
+const LAYER_SUMMARY = [
+  {
+    name: "Layer 1: TORQUE",
+    blurb: "Pulling power against friction",
+    // Spiral unwinding into a forward arrow.
+    icon: (
+      <svg {...ICON_PROPS}>
+        <path d="M24 27.5 A3.5 3.5 0 0 1 24 20.5 A5.5 5.5 0 0 1 24 31.5 A8 8 0 0 1 24 15.5 L38 15.5" />
+        <path d="M33.5 11 L38 15.5 L33.5 20" />
+      </svg>
+    ),
+  },
+  {
+    name: "Layer 2: TRACTION",
+    blurb: "Building momentum, moving forward",
+    // Axis with a rising trend arrow.
+    icon: (
+      <svg {...ICON_PROPS}>
+        <path d="M10 9 L10 38 L40 38" />
+        <path d="M15 31 L23 23 L29 27 L38 15" />
+        <path d="M31 14.5 L38.5 14.5 L38.5 22" />
+      </svg>
+    ),
+  },
+  {
+    name: "Layer 3: THRUST",
+    blurb: "Accelerating growth, breaking through",
+    // Rocket breaking upward.
+    icon: (
+      <svg {...ICON_PROPS}>
+        <path d="M24 6 C29.5 12 31.5 20 30 28 L18 28 C16.5 20 18.5 12 24 6 Z" />
+        <circle cx="24" cy="17" r="3.2" />
+        <path d="M18 23.5 L12 30 L15.5 30.5" />
+        <path d="M30 23.5 L36 30 L32.5 30.5" />
+        <path d="M21 31.5 L24 40 L27 31.5" />
+      </svg>
+    ),
+  },
 ];
 
 const PERSONAS = [
@@ -128,14 +182,14 @@ export default function Home() {
             </div>
 
             {/* Right: the Torque Curve (signature visual, Brief 1.2 Block B note) */}
-            <div className="rounded-2xl bg-white p-3 shadow-2xl ring-1 ring-white/10 sm:p-4">
+            <div className="overflow-hidden rounded-2xl bg-navy-dim/60 shadow-2xl ring-1 ring-white/10">
               <Image
-                src="/torque-curve.svg"
+                src="/torque-curve-dark.svg"
                 alt="The Torque Curve: pulling power builds against friction across the oilfield technology sales cycle, peaking at the buying committee."
                 width={1600}
                 height={900}
                 priority
-                className="h-auto w-full rounded-lg"
+                className="h-auto w-full"
               />
             </div>
           </div>
@@ -188,21 +242,70 @@ export default function Home() {
 
       {/* ============ Block B: Torque Method callout ============ */}
       <Section className="bg-navy text-white">
-        <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow className="!text-lime">The methodology</Eyebrow>
-          <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">The Torque Method</h2>
-          <p className="mt-5 text-lg leading-relaxed text-white/80">
-            Torque is the pulling power a company builds against friction across the sales cycle. The Torque Method
-            builds it in three layers, Torque, Traction, and Thrust, so growth stops stalling in front of the buying committee
-            and starts compounding after the close.
-          </p>
-          <div className="mt-8">
-            <Link
-              href="/torque-method"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/50 hover:bg-white/5"
-            >
-              Explore the Torque Method <ArrowRight className="h-4 w-4" />
-            </Link>
+        <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20">
+          {/* Left: the claim */}
+          <div>
+            <Eyebrow className="!text-lime">The methodology</Eyebrow>
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">The Torque Method</h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/80">
+              Torque is the pulling power a company builds against friction across the sales cycle. The Torque Method
+              builds it in three layers, Torque, Traction, and Thrust, so growth stops stalling in front of the buying committee
+              and starts compounding after the close.
+            </p>
+            <div className="mt-8">
+              <Link
+                href="/torque-method"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/50 hover:bg-white/5"
+              >
+                Explore the Torque Method <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Right: the three layers, stacked */}
+          <div>
+            <h3 className="text-2xl font-extrabold sm:text-3xl">A Layered Approach to Growth</h3>
+            <div className="mt-9 grid grid-cols-[auto_2px_1fr] items-center gap-x-6 gap-y-9 sm:gap-x-8">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 2 100"
+                preserveAspectRatio="none"
+                className="col-start-2 row-span-3 row-start-1 h-full w-[2px] self-stretch"
+              >
+                <defs>
+                  {/* userSpaceOnUse is required: a vertical <line> has a zero-width
+                      bounding box, and an objectBoundingBox gradient is undefined
+                      (paints nothing) when either bbox dimension is 0. */}
+                  <linearGradient id="gsd-layer-rule" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="100">
+                    <stop offset="0%" stopColor="#5FB8F0" />
+                    <stop offset="52%" stopColor="#74C365" />
+                    <stop offset="100%" stopColor="#DBE64C" />
+                  </linearGradient>
+                </defs>
+                <line
+                  x1="1"
+                  y1="0"
+                  x2="1"
+                  y2="100"
+                  stroke="url(#gsd-layer-rule)"
+                  strokeWidth="2"
+                  strokeDasharray="6 7"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+
+              {LAYER_SUMMARY.map((layer, i) => (
+                <Fragment key={layer.name}>
+                  <div className="col-start-1 text-white" style={{ gridRowStart: i + 1 }}>
+                    {layer.icon}
+                  </div>
+                  <div className="col-start-3" style={{ gridRowStart: i + 1 }}>
+                    <p className="text-lg font-bold leading-tight sm:text-xl">{layer.name}</p>
+                    <p className="mt-1 text-sm leading-snug text-white/70">{layer.blurb}</p>
+                  </div>
+                </Fragment>
+              ))}
+            </div>
           </div>
         </div>
       </Section>
