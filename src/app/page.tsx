@@ -103,7 +103,7 @@ const SITE_SCHEMA = [
     logo: "https://www.getsstuffdone.com/logo.png",
     description:
       "GSD is a fractional revenue operations firm for oilfield technology companies. The Torque Method installs targeting, outbound, and pipeline discipline in weeks.",
-    email: "hello@getsstuffdone.com",
+    email: "maxine.aitkenhead@getsstuffdone.com",
     sameAs: ["https://www.linkedin.com/in/maxineaitkenhead/"],
     founder: {
       "@type": "Person",

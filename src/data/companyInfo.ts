@@ -14,7 +14,7 @@ export const COMPANY = {
   // Real number stays as the published line. A dedicated SMS/text number is
   // added to the sticky mobile bar only once one is published (Brief 7.3).
   phone: "+1 (281) 844-2458",
-  email: "hello@getsstuffdone.com",
+  email: "maxine.aitkenhead@getsstuffdone.com",
   // Public geography is corridor-level only. Founder city is the allowed exception.
   location: "U.S. energy corridor",
   website: "https://www.getsstuffdone.com",
