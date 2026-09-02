@@ -14,7 +14,13 @@ export const metadata: Metadata = {
     description:
       "Fractional revenue operations installed and run across three layers - Torque, Traction, Thrust. Six workstreams. Month-to-month.",
     url: "/growth-partnership",
+    siteName: "Gets Stuff Done",
     type: "website",
+    images: [{ url: "/og-growth-partnership.png", width: 1200, height: 630, alt: "The Torque Growth Partnership: Torque, Traction and Thrust installed and run month to month." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-growth-partnership.png"],
   },
 };
 

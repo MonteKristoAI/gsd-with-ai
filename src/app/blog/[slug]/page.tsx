@@ -44,7 +44,8 @@ export async function generateMetadata({
   }
 
   const url = `${SITE}/blog/${post.slug}`;
-  const image = post.featuredImage || undefined;
+  // Fall back to the site-wide share card so no post ever renders a bare grey box.
+  const image = post.featuredImage || `${SITE}/og-default.png`;
 
   return {
     title: post.title,
@@ -56,16 +57,16 @@ export async function generateMetadata({
       url,
       title: post.title,
       description: post.excerpt,
-      siteName: "GSD",
+      siteName: "Gets Stuff Done",
       publishedTime: post.date,
       authors: [post.author],
-      images: image ? [{ url: image, alt: post.featuredImageAlt || post.displayTitle }] : undefined,
+      images: [{ url: image, width: 1200, height: 630, alt: post.featuredImageAlt || post.displayTitle }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: image ? [image] : undefined,
+      images: [image],
     },
   };
 }
@@ -92,7 +93,7 @@ export default async function BlogPostPage({
     author: { "@type": "Person", name: post.author },
     publisher: {
       "@type": "Organization",
-      name: "GSD",
+      name: "Gets Stuff Done",
       url: SITE,
       logo: { "@type": "ImageObject", url: `${SITE}/logo.png`, width: 512, height: 512 },
     },

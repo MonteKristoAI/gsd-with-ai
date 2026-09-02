@@ -12,11 +12,17 @@ export const metadata: Metadata = {
     "Maxine Aitkenhead spent 20 years inside Fortune 100 energy services. She founded GSD to install fractional revenue operations at oilfield technology companies.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "Maxine Aitkenhead, Founder, GSD",
+    title: "Maxine Aitkenhead, Founder, Gets Stuff Done",
     description:
       "20 years inside Fortune 100 energy services building data systems for oilfield operators. Now installing fractional revenue operations at the technology companies selling into that world.",
     url: "/about",
+    siteName: "Gets Stuff Done",
     type: "profile",
+    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Gets Stuff Done, fractional revenue operations for oilfield technology companies." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
   },
 };
 
@@ -36,7 +42,7 @@ export default function AboutPage() {
     "@id": "https://www.getsstuffdone.com/about#maxine",
     name: "Maxine Aitkenhead",
     jobTitle: "Founder",
-    worksFor: { "@type": "Organization", name: "GSD", "@id": "https://www.getsstuffdone.com/#organization" },
+    worksFor: { "@type": "Organization", name: "Gets Stuff Done", "@id": "https://www.getsstuffdone.com/#organization" },
     url: "https://www.getsstuffdone.com/about",
     description: COMPANY.founder.canonicalBio,
     homeLocation: { "@type": "Place", name: "Houston" },

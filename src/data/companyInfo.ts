@@ -7,7 +7,8 @@
 //   - Founder city ("Houston-based") is the one allowed geographic reference.
 
 export const COMPANY = {
-  name: "GSD",
+  name: "Gets Stuff Done",
+  shortName: "GSD",
   legal: "Get Stuff Done LLC",
   tagline:
     "Fractional revenue operations for oilfield technology companies. Delivered in weeks.",

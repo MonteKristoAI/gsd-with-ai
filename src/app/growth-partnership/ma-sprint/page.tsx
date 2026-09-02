@@ -9,11 +9,17 @@ export const metadata: Metadata = {
     "A focused revenue operations engagement for oilfield technology company CEOs in or around a deal window. Conversation-first, scoped to your timeline.",
   alternates: { canonical: "/growth-partnership/ma-sprint" },
   openGraph: {
-    title: "The M&A Growth Sprint | GSD",
+    title: "The M&A Growth Sprint | Gets Stuff Done",
     description:
       "A focused engagement that tightens the growth story and the revenue operations underneath it while a transaction is in motion.",
     url: "/growth-partnership/ma-sprint",
+    siteName: "Gets Stuff Done",
     type: "website",
+    images: [{ url: "/og-ma-sprint.png", width: 1200, height: 630, alt: "The M&A Growth Sprint: scoped to the deal window, not the calendar." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-ma-sprint.png"],
   },
 };
 

@@ -12,7 +12,13 @@ export const metadata: Metadata = {
     description:
       "How oilfield technology companies build predictable growth against structural friction. Three layers: Torque, Traction, Thrust. Delivered in weeks.",
     url: "/torque-method",
+    siteName: "Gets Stuff Done",
     type: "website",
+    images: [{ url: "/og-torque-method.png", width: 1200, height: 630, alt: "The Torque Method: pulling power against friction, the GSD framework for oilfield technology growth." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-torque-method.png"],
   },
 };
 

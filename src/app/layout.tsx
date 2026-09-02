@@ -16,23 +16,23 @@ const inter = Inter({
 });
 
 const SITE_URL = "https://www.getsstuffdone.com";
-const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const OG_IMAGE = `${SITE_URL}/og-default.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    template: "%s | GSD",
-    default: "Fractional Revenue Operations for Oilfield Technology Companies | GSD",
+    template: "%s | Gets Stuff Done",
+    default: "Fractional Revenue Operations for Oilfield Technology Companies | Gets Stuff Done",
   },
   description:
     "GSD builds the torque oilfield technology companies need to close deals against long sales cycles. Fractional revenue operations, delivered in weeks. From $25K.",
   alternates: { canonical: SITE_URL },
   openGraph: {
-    title: "Fractional Revenue Operations for Oilfield Technology Companies | GSD",
+    title: "Fractional Revenue Operations for Oilfield Technology Companies | Gets Stuff Done",
     description:
       "GSD builds the torque oilfield technology companies need to close deals against long sales cycles. Delivered in weeks by operators who spent 20 years inside the customers you sell to.",
     url: SITE_URL,
-    siteName: "GSD",
+    siteName: "Gets Stuff Done",
     locale: "en_US",
     type: "website",
     images: [
@@ -40,13 +40,13 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "GSD, fractional revenue operations for oilfield technology companies.",
+        alt: "Gets Stuff Done, fractional revenue operations for oilfield technology companies.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fractional Revenue Operations for Oilfield Technology Companies | GSD",
+    title: "Fractional Revenue Operations for Oilfield Technology Companies | Gets Stuff Done",
     description:
       "GSD builds the torque oilfield technology companies need to close deals against long sales cycles. Delivered in weeks.",
     images: [OG_IMAGE],

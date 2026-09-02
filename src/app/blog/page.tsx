@@ -13,11 +13,17 @@ export const metadata: Metadata = {
     "Practical revenue operations thinking for oilfield technology companies fighting long sales cycles and skeptical buying committees. Field notes from the GSD team.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Field Notes | GSD",
+    title: "Field Notes | Gets Stuff Done",
     description:
       "Practical revenue operations thinking for oilfield technology companies fighting long sales cycles and skeptical buying committees.",
     url: "/blog",
+    siteName: "Gets Stuff Done",
     type: "website",
+    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Gets Stuff Done, fractional revenue operations for oilfield technology companies." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
   },
 };
 

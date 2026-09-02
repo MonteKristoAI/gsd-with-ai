@@ -13,7 +13,13 @@ export const metadata: Metadata = {
     description:
       "A fixed-scope 6-8 week engagement for oilfield technology company CEOs. Produces your Torque Method growth plan and one or two implemented quick wins.",
     url: "/torque-diagnostic",
+    siteName: "Gets Stuff Done",
     type: "website",
+    images: [{ url: "/og-torque-diagnostic.png", width: 1200, height: 630, alt: "The Torque Diagnostic: a 6-8 week fixed-scope engagement producing a growth plan and implemented quick wins." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-torque-diagnostic.png"],
   },
 };
 

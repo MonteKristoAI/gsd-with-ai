@@ -8,10 +8,16 @@ export const metadata: Metadata = {
     "Real engagements. Real numbers. How oilfield technology companies are using the Torque Method to close deals against a skeptical buying committee and accelerate growth.",
   alternates: { canonical: "/case-studies" },
   openGraph: {
-    title: "Case Studies | GSD",
+    title: "Case Studies | Gets Stuff Done",
     description: "How oilfield technology companies are using the Torque Method to accelerate growth.",
     url: "/case-studies",
+    siteName: "Gets Stuff Done",
     type: "website",
+    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Gets Stuff Done, fractional revenue operations for oilfield technology companies." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
   },
 };
 
