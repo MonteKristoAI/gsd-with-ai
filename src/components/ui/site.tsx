@@ -88,11 +88,20 @@ export function PrimaryCta({
   children?: React.ReactNode;
   className?: string;
 }) {
+  const classes = `inline-flex items-center gap-2 rounded-xl bg-navy px-7 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-navy-light ${className}`;
+
+  // The booking CTA now leaves the site for Maxine's Bookings page, so an
+  // external href has to render as a plain anchor with a new tab, not next/link.
+  if (/^https?:\/\//.test(href)) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {children} <ArrowRight className="h-4 w-4" />
+      </a>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      className={`inline-flex items-center gap-2 rounded-xl bg-navy px-7 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-navy-light ${className}`}
-    >
+    <Link href={href} className={classes}>
       {children} <ArrowRight className="h-4 w-4" />
     </Link>
   );

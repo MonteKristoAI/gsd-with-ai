@@ -35,7 +35,10 @@ export const COMPANY = {
   // Standard call CTA language - use everywhere.
   cta: {
     primaryLabel: "Book a 20-minute call",
-    bookHref: "/contact",
+    // Every booking CTA points at the Bitly, never at the raw Bookings URL.
+    // It currently redirects to Maxine's Outlook Bookings page. When that page
+    // changes, the Bitly is repointed and nothing in this codebase is touched.
+    bookHref: "https://bit.ly/Max_GSD",
     callMinutes: 20,
   },
 

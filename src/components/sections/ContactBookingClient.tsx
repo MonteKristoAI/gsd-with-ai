@@ -8,6 +8,7 @@ import { COMPANY } from "@/data/companyInfo";
 // the inline widget (assets.calendly.com/assets/external/widget.js) in the left card.
 
 const phoneDigits = COMPANY.phone.replace(/\D/g, "");
+const [emailUser, emailDomain] = COMPANY.email.split("@");
 const mailtoBook = `mailto:${COMPANY.email}?subject=${encodeURIComponent(
   "Book a 20-minute call",
 )}&body=${encodeURIComponent(
@@ -33,15 +34,23 @@ export default function ContactBookingClient() {
             </div>
             <h2 className="mt-5 text-2xl font-bold text-navy">Grab a time</h2>
             <p className="mt-3 leading-relaxed text-slate">
-              Send us two or three times that suit you and we'll confirm the call plus a short agenda. Prefer to talk
-              now? Call or text and we'll pick it up.
+              Pick a slot straight from the calendar and it's booked. Prefer not to? Send two or three times by email,
+              or call and text and we'll pick it up.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
-                href={mailtoBook}
+                href={COMPANY.cta.bookHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-navy px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-navy-light"
               >
-                Book by email <ArrowRight className="h-4 w-4" />
+                Book a 20-minute call <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href={mailtoBook}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-navy/20 bg-white px-7 py-3.5 text-sm font-semibold text-navy transition-all hover:border-navy/40"
+              >
+                Book by email
               </a>
               <a
                 href={`tel:${phoneDigits}`}
@@ -65,9 +74,14 @@ export default function ContactBookingClient() {
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy/10 text-navy transition-colors group-hover:bg-navy group-hover:text-white">
                     <Mail className="h-5 w-5" />
                   </span>
-                  <span>
+                  {/* min-w-0 lets this flex child shrink; the <wbr /> after the @ means a
+                      long address wraps at a readable point instead of overflowing the card. */}
+                  <span className="min-w-0">
                     <span className="block text-sm font-medium text-slate-muted">Email</span>
-                    <span className="font-bold text-navy">{COMPANY.email}</span>
+                    <span className="block text-[15px] font-bold leading-snug text-navy">
+                      {emailUser}@<wbr />
+                      {emailDomain}
+                    </span>
                   </span>
                 </a>
                 <a href={`tel:${phoneDigits}`} className="flex items-center gap-4 group">

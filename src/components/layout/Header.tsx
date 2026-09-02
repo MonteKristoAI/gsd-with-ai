@@ -34,8 +34,8 @@ export default function Header() {
   const scrollToBooking = useCallback(() => {
     setMobileOpen(false);
     trackEvent("Book Call", { source: "header" });
-    navigate.push("/contact");
-  }, [navigate]);
+    window.open(COMPANY.cta.bookHref, "_blank", "noopener,noreferrer");
+  }, []);
 
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

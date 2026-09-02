@@ -67,8 +67,18 @@ export default function Footer() {
                     {link.label}
                   </Link>
                 ))}
-                <Link href={COMPANY.cta.bookHref} className="text-sm text-slate hover:text-navy transition-colors w-fit">
+                {/* Booking now leaves the site, so this is an anchor, not next/link. */}
+                <a
+                  href={COMPANY.cta.bookHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-slate hover:text-navy transition-colors w-fit"
+                >
                   Book a Call
+                </a>
+                {/* Keeps /contact reachable now that every booking CTA points off-site. */}
+                <Link href="/contact" className="text-sm text-slate hover:text-navy transition-colors w-fit">
+                  Contact
                 </Link>
               </nav>
             </div>
@@ -96,7 +106,11 @@ export default function Footer() {
                   className="flex items-center gap-3 text-sm text-slate hover:text-navy transition-colors"
                 >
                   <Mail className="w-4 h-4 text-navy shrink-0" />
-                  {COMPANY.email}
+                  {/* Same guard as the contact card: shrinkable child + a break point at the @. */}
+                  <span className="min-w-0">
+                    {COMPANY.email.split("@")[0]}@<wbr />
+                    {COMPANY.email.split("@")[1]}
+                  </span>
                 </a>
                 <a
                   href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}

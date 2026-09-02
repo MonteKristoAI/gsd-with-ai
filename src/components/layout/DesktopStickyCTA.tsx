@@ -1,9 +1,9 @@
 "use client";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/plausible";
+import { COMPANY } from "@/data/companyInfo";
 
 /**
  * Desktop-only sticky "Book a Call" button anchored bottom-right.
@@ -22,8 +22,10 @@ export default function DesktopStickyCTA() {
   }, []);
 
   return (
-    <Link
-      href="/contact"
+    <a
+      href={COMPANY.cta.bookHref}
+      target="_blank"
+      rel="noopener noreferrer"
       aria-label="Book a 20-minute call"
       onClick={() => trackEvent("Book Call", { source: "desktop-sticky" })}
       className={cn(
@@ -33,6 +35,6 @@ export default function DesktopStickyCTA() {
     >
       <Calendar className="h-4 w-4" />
       Book a 20-min call
-    </Link>
+    </a>
   );
 }

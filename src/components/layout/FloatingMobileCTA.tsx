@@ -1,11 +1,9 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { COMPANY } from "@/data/companyInfo";
 import { MessageSquareText, Calendar } from "lucide-react";
 import { trackEvent } from "@/lib/plausible";
 
 export default function FloatingMobileCTA() {
-  const navigate = useRouter();
   const phoneDigits = COMPANY.phone.replace(/\D/g, "");
 
   return (
@@ -15,7 +13,7 @@ export default function FloatingMobileCTA() {
         <button
           onClick={() => {
             trackEvent("Book Call", { source: "mobile-sticky" });
-            navigate.push("/contact");
+            window.open(COMPANY.cta.bookHref, "_blank", "noopener,noreferrer");
           }}
           className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-navy py-2.5 font-heading text-sm font-semibold text-white transition-colors hover:bg-navy-light"
         >
