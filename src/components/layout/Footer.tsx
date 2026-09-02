@@ -151,14 +151,10 @@ export default function Footer() {
             <p className="text-xs text-slate-muted">
               &copy; {year} {COMPANY.legal}. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
-              <Link href="/privacy" className="text-xs text-slate-muted hover:text-navy transition-colors">
-                Privacy
-              </Link>
-              <Link href="/terms" className="text-xs text-slate-muted hover:text-navy transition-colors">
-                Terms
-              </Link>
-            </div>
+            {/* Privacy and Terms links removed 2026-09-02: both routes 404'd. The site
+                has no forms, sets no cookies, and its only third-party script is
+                cookieless Plausible, so there is nothing for either page to cover.
+                Bring Privacy back the moment any form or tracking is added. */}
           </div>
         </div>
       </footer>
