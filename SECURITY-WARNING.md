@@ -19,11 +19,31 @@ The local git history has been purged of all malicious commits via `git filter-b
 - Post-checkout hook installed: auto-cleans if checkout restores them
 - `.gitignore` updated to prevent reintroduction
 
-## Remote state (STILL INFECTED ⚠️)
+## Remote state (2026-09-02: main CLEANED, residual exposure remains ⚠️)
 
-`git@github.com:MonteKristoAI/gsd-with-ai.git` STILL has the malicious commits in
-its history. **DO NOT `git pull` or `git fetch && git checkout origin/main`** —
-that would bring them back.
+Clean history force-pushed to `origin/main` on 2026-09-02 (`ce5a05f`). Verified via
+GitHub API: the `main` tree is 100 files with no `manji.x86`, `manji.x86.1`, `let`
+or `statuses.json`. Branch `vercel/react-server-components-cve-vu-z9nshf` carried
+`manji.x86` and was deleted. `qa-fix-pass-1` scanned across its full history, clean.
+
+**Still outstanding:**
+1. **The PAT was never rotated.** `ghp_thEm...` is still live and still sits in
+   plain text in `.git/config`. This is the actual fix and only a human can do it.
+2. **Orphaned commits are still reachable by SHA.** A force-push does not delete
+   them. `f746030` still resolves on GitHub and its tree still serves the 13544-byte
+   payload; closed PR #1 keeps `342bd9a` alive the same way. Only GitHub Support can
+   purge unreachable objects. Making the repo private removes public access, which
+   is the practical mitigation.
+3. **Repo was still public as of 2026-09-02.** Setting it private was attempted and
+   blocked by tooling permissions. Do it at
+   github.com/MonteKristoAI/gsd-with-ai/settings.
+
+Forensic evidence was NOT where this file claimed. `/home/milan/incident-evidence-2026-05-07/`
+did not exist, so `origin/main` was the last surviving copy of the infected history.
+It was bundled before the force-push to
+`/home/milan/incident-evidence-2026-05-07/git-INFECTED-FULL-BACKUP/origin-main-infected-20260902.bundle`
+(3.1MB, verified complete, contains all four malicious files). The deleted CVE branch
+is an ancestor of that bundle, so it is captured too.
 
 ## To clean the remote (one-time, requires GitHub admin)
 
@@ -36,10 +56,10 @@ exfiltrated. Revoke at https://github.com/settings/tokens and generate a new one
 git remote set-url origin https://NEW_PAT@github.com/MonteKristoAI/gsd-with-ai.git
 ```
 
-### Step 3: Force-push clean history to remote
+### Step 3: Force-push clean history to remote (DONE 2026-09-02)
 ```bash
-git push origin main --force-with-lease
-git push origin --tags --force
+git push origin main --force-with-lease   # f746030 -> ce5a05f
+git push origin --delete vercel/react-server-components-cve-vu-z9nshf
 ```
 
 ### Step 4: Verify GitHub web UI shows clean history
@@ -76,4 +96,6 @@ Full incident report: `~/Documents/MonteKristo Vault/intelligence/incidents/2026
 
 ---
 
-_Updated 2026-05-07 after git history cleanup. Safe to use locally pending remote cleanup._
+_Updated 2026-09-02. Remote `main` is clean; PAT rotation and repo-private are the
+two open items. Note the deploy path: production ships from this repo's `main` via
+the Vercel git integration (project `gsd-with-ai`), so a push to `main` deploys._
